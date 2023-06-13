@@ -1,0 +1,41 @@
+@import '../../assets/variables';
+
+.header {
+    &__title {
+        font-family: 'Mont';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 41px;
+        letter-spacing: -0.01em;
+        color: $white-color;
+        margin-bottom: 24px;
+        text-align: left;
+    }
+&__image {
+    color: $white-color;
+    min-height: 320px;
+    margin-left: -16px;
+    margin-bottom: 18px;
+    width: 100vw;
+
+}
+
+&__navigation {
+    margin: 0 auto;
+    display: flex;
+    &-bar {
+        height: 4px;
+        width: 14px;
+        background-color: $gray-color-4;
+        &--active {
+            background-color: $white-color;
+        }
+    }
+
+    width: calc(3*14px + 2*14px);
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+    
+}
