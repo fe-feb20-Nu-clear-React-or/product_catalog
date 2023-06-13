@@ -21,12 +21,16 @@ export const Footer = () => (
 
     <div className='footer__back-to-top'>
       <span className='footer__back-to-top back-to-top__text'>Back to top</span>
+
       <NavLink 
         to="/home"
+      >
+        <div
         className='footer__back-to-top back-to-top__button'
         onClick={() => document.documentElement.scrollTop = 0}
-      >
-          <img src={upArrow} alt="back-to-top"/>
+        >
+          <img src={upArrow} alt="back-to-top"/> 
+        </div>
       </NavLink>
     </div>
   </footer>
