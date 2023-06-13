@@ -5,10 +5,15 @@ h1, h2, h3, p {
 img {
   display: block;
 }
+
 // @import '/src/assets/variables';
 @import './components/Home/Home.scss';
 @import './components/Card/Card.scss';
 @import './components/Header/Header.scss';
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
