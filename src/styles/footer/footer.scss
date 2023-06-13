@@ -20,9 +20,6 @@
   &__footer-list {
     list-style: none;
     padding: 0px;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: flex-start;
   }
   
   &__back-to-top {
@@ -47,10 +44,6 @@
       align-items: center;
       justify-content: space-between;
     }
-  
-    // &__footer-list {
-    //   flex-direction: row;
-    // }
   }
   
   @media (min-width:1201px) {
