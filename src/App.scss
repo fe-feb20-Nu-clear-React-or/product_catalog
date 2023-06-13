@@ -53,6 +53,7 @@
   }
 
   &__logo {
+    //position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,10 +65,25 @@
       width: 80px;
     }
 
-    img {
+    &-text {
       width: 64px;
       @media (min-width: 1200px) {
         width: 80px;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      top: 12px;
+      left: 48px;
+      height: 12px;
+      width: 9px;
+
+      @media (min-width: 1200px) {
+        width: 11px;
+        height: 14.5px;
+        top: 18px;
+        left: 64px;
       }
     }
   }

@@ -2,7 +2,8 @@ import {NavLink} from 'react-router-dom'
 import favourites from "../icons/Favourites (Heart Like).svg"
 import bag from "../icons/Shopping bag (Cart).svg"
 import hamburgerMenu from "../icons/HamburgerMenu.svg"
-import niceGadgets from "../icons/NiceGadgets.svg"
+import logo from "../icons/logo.svg"
+import logoIcon from "../icons/logo-icon.svg"
 import { useEffect, useState } from 'react'
 
 export const NavBar = () => {
@@ -26,7 +27,8 @@ export const NavBar = () => {
                 <>
                     <div className='navbar__links'>
                         <div className='navbar__logo'>
-                            <img src={niceGadgets} alt="logo icon" />
+                            <img className='navbar__logo-text' src={logo} alt="logo icon" />
+                            <img className='navbar__logo-icon' src={logoIcon} alt="logo ok emoji" />
                         </div>
                         <NavLink to="/home" className="navbar__link">home</NavLink>
                         <NavLink to="/phones" className="navbar__link">phones</NavLink>
@@ -47,7 +49,8 @@ export const NavBar = () => {
             : (
                 <>
                     <div className='navbar__logo'>
-                        <img className='navbar__img' src={niceGadgets} alt="logo icon" />
+                        <img className='navbar__logo-text' src={logo} alt="logo icon" />
+                        <img className='navbar__logo-icon' src={logoIcon} alt="logo ok emoji" />
                     </div>
                     <div className='navbar__icon'>
                         <img src={hamburgerMenu} alt="Hamburger Menu icon" />
