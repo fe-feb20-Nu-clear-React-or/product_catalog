@@ -1,13 +1,24 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.eeb4ae37.css",
-    "main.js": "/product_catalog/static/js/main.2c559eed.js",
+    "main.css": "/product_catalog/static/css/main.dc30e0f4.css",
+    "main.js": "/product_catalog/static/js/main.16a0dff0.js",
+    "static/media/NiceGadgets.svg": "/product_catalog/static/media/NiceGadgets.eff1b05c560265bc17a9f6dba22e63fe.svg",
+    "static/media/logo-icon.svg": "/product_catalog/static/media/logo-icon.c81ad27bdf612ac97607f7ec23d8ac4c.svg",
+    "static/media/category-image-accessories-320.png": "/product_catalog/static/media/category-image-accessories-320.6118ba9592c0818e87a5.png",
+    "static/media/category-image-tablets-320.png": "/product_catalog/static/media/category-image-tablets-320.72632746b414f1e4f494.png",
+    "static/media/home-page-header-image.png": "/product_catalog/static/media/home-page-header-image.0582a9dfa7e5ea770487.png",
+    "static/media/category-image-phones-320.png": "/product_catalog/static/media/category-image-phones-320.58fdea8dd233d61d4cdb.png",
+    "static/media/logo.svg": "/product_catalog/static/media/logo.f6a07db58a806aadc065ca96e00f5dae.svg",
+    "static/media/Shopping bag (Cart).svg": "/product_catalog/static/media/Shopping bag (Cart).fbb7bb4b7513df420fa1dcc67ff28eb0.svg",
+    "static/media/Favourites (Heart Like).svg": "/product_catalog/static/media/Favourites (Heart Like).28f6088c83570782c6af97ed6ee84f70.svg",
     "index.html": "/product_catalog/index.html",
-    "main.eeb4ae37.css.map": "/product_catalog/static/css/main.eeb4ae37.css.map",
-    "main.2c559eed.js.map": "/product_catalog/static/js/main.2c559eed.js.map"
+    "static/media/HamburgerMenu.svg": "/product_catalog/static/media/HamburgerMenu.ccd1a9542b5bc584f2a1c0456d816ec9.svg",
+    "static/media/Chevron (Arrow Up).svg": "/product_catalog/static/media/Chevron (Arrow Up).d7ccf9e94d5187a54e6e787c5eea5faf.svg",
+    "main.dc30e0f4.css.map": "/product_catalog/static/css/main.dc30e0f4.css.map",
+    "main.16a0dff0.js.map": "/product_catalog/static/js/main.16a0dff0.js.map"
   },
   "entrypoints": [
-    "static/css/main.eeb4ae37.css",
-    "static/js/main.2c559eed.js"
+    "static/css/main.dc30e0f4.css",
+    "static/js/main.16a0dff0.js"
   ]
 }
