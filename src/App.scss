@@ -44,6 +44,7 @@
     line-height: 48px;
     font-size: 12px;
     font-weight: 800;
+
     margin: 0 16px;
     position: relative;
     display: flex;
@@ -70,7 +71,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 64px;
+    width: 64px
     padding: 0 16px 0 16px;
 
     @media (min-width: 1200px) {
