@@ -1,0 +1,46 @@
+@import '../../assets/variables';
+
+.carousel {
+    margin-bottom: 65px;
+    overflow: hidden;
+    &__header {
+        display: flex;
+        margin-bottom: 24px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__title {
+        font-family: 'Mont';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 22px;
+        line-height: 140%;
+        color: $white-color;
+        text-align: left;
+    }
+    &__switch {
+        &-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            width: calc(2*32px + 16px);
+        }
+        &-button {
+            width: 32px;
+            height: 32px;
+            background-color: $gray-color-4;
+            color: $white-color;
+            border: 1px solid $gray-color-3;
+            &:hover {
+                background-color: $gray-color-2;
+            }
+        }
+
+    }
+
+    &__card-list {
+        display: flex;
+        gap: 16px;
+    }
+}
