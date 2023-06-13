@@ -21,29 +21,38 @@ export const NavBar = () => {
       }, []);
     return (
         <nav className='navbar'>
-            <div className='navbar__icon navbar__icon--logo'>
-                <img src={niceGadgets} alt="logo icon" />
-            </div>
             {windowSize >= 640
             ? (
                 <>
-                    <NavLink to="/home" className="navbar__link">home</NavLink>
-                    <NavLink to="/phones" className="navbar__link">phones</NavLink>
-                    <NavLink to="/tablets" className="navbar__link">tablets</NavLink>
-                    <NavLink to="/accessories" className="navbar__link">accessories</NavLink>
-                    <div className='navbar__icon'>
-                        <img src={favourites} alt="Favourites icon" />
+                    <div className='navbar__links'>
+                        <div className='navbar__logo'>
+                            <img src={niceGadgets} alt="logo icon" />
+                        </div>
+                        <NavLink to="/home" className="navbar__link">home</NavLink>
+                        <NavLink to="/phones" className="navbar__link">phones</NavLink>
+                        <NavLink to="/tablets" className="navbar__link">tablets</NavLink>
+                        <NavLink to="/accessories" className="navbar__link">accessories</NavLink>
                     </div>
-                    <div className='navbar__icon'>
-                        <img src={bag} alt="Shopping bag icon" />
+
+                    <div className='navbar__icons'>
+                        <div className='navbar__icon'>
+                            <img src={favourites} alt="Favourites icon" />
+                        </div>
+                        <div className='navbar__icon'>
+                            <img src={bag} alt="Shopping bag icon" />
+                        </div>
                     </div>
-                    
                 </>
             )
             : (
-                <div className='navbar__icon'>
-                    <img src={hamburgerMenu} alt="Hamburger Menu icon" />
-                </div>
+                <>
+                    <div className='navbar__logo'>
+                        <img className='navbar__img' src={niceGadgets} alt="logo icon" />
+                    </div>
+                    <div className='navbar__icon'>
+                        <img src={hamburgerMenu} alt="Hamburger Menu icon" />
+                    </div>
+                </>
             )}
             
         </nav>
