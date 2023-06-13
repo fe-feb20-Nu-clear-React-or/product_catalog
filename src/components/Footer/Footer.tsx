@@ -7,26 +7,30 @@ export const Footer = () => (
   <footer className="footer">
     <img className="footer__logo" src={niceGadgets} alt='footer-logo' />
 
-    <ul className='footer__footer-list footer-list'>
-      <li>
-        <a href="#githubLinkHere" className='footer-list__button'>GITHUB</a>
+    <ul className='footer__list'>
+      <li className='footer__list-item'>
+        <a href="#githubLinkHere" className='footer__list-link'>GITHUB</a>
       </li>
-      <li>
-        <a href="#contactsLinkHere" className='footer-list__button'>CONTACTS</a>
+      <li className='footer__list-item'>
+        <a href="#contactsLinkHere" className='footer__list-link'>CONTACTS</a>
       </li>
-      <li>
-        <a href="#rightsLinkHere" className='footer-list__button'>RIGTHS</a>
+      <li className='footer__list-item'>
+        <a href="#rightsLinkHere" className='footer__list-link'>RIGTHS</a>
       </li>
     </ul>
 
     <div className='footer__back-to-top'>
-      <span className='footer__back-to-top back-to-top__text'>Back to top</span>
+      <p className='footer__back-to-top-text'>Back to top</p>
       <NavLink 
         to="/home"
-        className='footer__back-to-top back-to-top__button'
+        className='footer__back-to-top-link'
         onClick={() => document.documentElement.scrollTop = 0}
       >
-          <img src={upArrow} alt="back-to-top"/>
+          <img
+            src={upArrow}
+            alt="back-to-top"
+            className="footer__back-to-top-image"
+          />
       </NavLink>
     </div>
   </footer>
