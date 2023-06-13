@@ -2,11 +2,17 @@ import {NavLink} from 'react-router-dom'
 import favourites from "../icons/Favourites (Heart Like).svg"
 import bag from "../icons/Shopping bag (Cart).svg"
 import hamburgerMenu from "../icons/HamburgerMenu.svg"
+import close from "../icons/Close.svg"
 import logo from "../icons/logo.svg"
 import logoIcon from "../icons/logo-icon.svg"
 import { useEffect, useState } from 'react'
 
-export const NavBar = () => {
+interface NavBarProps {
+    isMenuOpen: boolean,
+    handleSetIsMenuOpen: (isOpen: boolean) => void,
+}
+
+export const NavBar = ({isMenuOpen, handleSetIsMenuOpen}: NavBarProps) => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
     
       useEffect(() => {
@@ -20,8 +26,12 @@ export const NavBar = () => {
           window.removeEventListener('resize', handleWindowResize);
         };
       }, []);
+
+      const closeMenu = () => {
+        handleSetIsMenuOpen(false);
+      }
     return (
-        <nav className='navbar'>
+        <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
             {windowSize >= 640
             ? (
                 <>
@@ -30,10 +40,10 @@ export const NavBar = () => {
                             <img className='navbar__logo-text' src={logo} alt="logo icon" />
                             <img className='navbar__logo-icon' src={logoIcon} alt="logo ok emoji" />
                         </div>
-                        <NavLink to="/home" className="navbar__link">home</NavLink>
-                        <NavLink to="/phones" className="navbar__link">phones</NavLink>
-                        <NavLink to="/tablets" className="navbar__link">tablets</NavLink>
-                        <NavLink to="/accessories" className="navbar__link">accessories</NavLink>
+                        <NavLink to="/home" className="navbar__link" onClick={closeMenu}>home</NavLink>
+                        <NavLink to="/phones" className="navbar__link" onClick={closeMenu}>phones</NavLink>
+                        <NavLink to="/tablets" className="navbar__link" onClick={closeMenu}>tablets</NavLink>
+                        <NavLink to="/accessories" className="navbar__link" onClick={closeMenu}>accessories</NavLink>
                     </div>
 
                     <div className='navbar__icons'>
@@ -52,9 +62,17 @@ export const NavBar = () => {
                         <img className='navbar__logo-text' src={logo} alt="logo icon" />
                         <img className='navbar__logo-icon' src={logoIcon} alt="logo ok emoji" />
                     </div>
-                    <div className='navbar__icon'>
-                        <img src={hamburgerMenu} alt="Hamburger Menu icon" />
-                    </div>
+                    {isMenuOpen
+                        ? (
+                            <div className='navbar__icon' onClick={closeMenu}>
+                                <img src={close} alt="close hamburger menu icon" />
+                            </div>
+                        )
+                        : (
+                            <div className='navbar__icon' onClick={() => handleSetIsMenuOpen(true)}>
+                                <img src={hamburgerMenu} alt="hamburger menu icon" />
+                            </div>
+                        )}
                 </>
             )}
             
