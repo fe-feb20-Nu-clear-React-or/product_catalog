@@ -1,7 +1,5 @@
 import React from 'react';
 import './App.scss';
-import './styles/footer.scss'
-import './styles/back-to-top.scss'
 import { NavBar } from './components/NavBar';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { Phones } from './components/Phones';

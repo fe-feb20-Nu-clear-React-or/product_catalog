@@ -17,22 +17,13 @@
     height: 30px; 
   }
   
-  &__list {
+  &__footer-list {
     list-style: none;
     padding: 0px;
     display: flex;
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
-  
-    &__button {
-      text-decoration: none;
-      color: #F1F2F9;
-      font-style: normal;
-      font-weight: 800;
-      font-size: 12px;
-      line-height: 11px;
-    }
   }
   
   &__back-to-top {
@@ -58,13 +49,13 @@
       justify-content: space-between;
     }
   
-    &__list {
+    &__footer-list {
       flex-direction: row;
     }
   }
   
   @media (min-width:1200px) {
-    &__list {
+    &__footer-list {
       gap: 106px;
     }
   }
