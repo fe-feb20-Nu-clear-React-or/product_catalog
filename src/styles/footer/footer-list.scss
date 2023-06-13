@@ -2,6 +2,7 @@
   display: flex;
   gap: 16px;
   align-items: flex-start;
+  flex-direction: column;
   
   &__button {
     text-decoration: none;
@@ -10,5 +11,17 @@
     font-weight: 800;
     font-size: 12px;
     line-height: 11px;
+  }
+
+  @media (min-width:640px) {
+    & {
+      flex-direction: row;
+    }
+  }
+
+  @media (min-width:1200px) {
+    & {
+      gap: 106px;
+    }
   }
 }
