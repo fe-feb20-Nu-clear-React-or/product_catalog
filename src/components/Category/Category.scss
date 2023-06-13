@@ -1,0 +1,57 @@
+@import '../../assets/variables';
+
+.category {
+    text-align: left;
+    &__header-title {
+        font-family: 'Mont';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 22px;
+        line-height: 140%;
+        color: $white-color;
+        margin-bottom: 24px;
+    }
+
+    &__item {
+        color: $white-color;
+        &-title {
+            font-family: 'Mont';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 26px;
+            margin-bottom: 4px;
+         
+        }
+        &-image {
+            &-container {
+                &--phones {
+                    background-color:  #6D6474;
+                }
+                &--tablets {
+                    background-color: $gray-color-1;
+                }
+                &--accessories {
+                    background-color: $red-color;
+                }
+
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    &__model-amount {
+        font-family: 'Mont';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 21px;
+        color: $gray-color-1;
+        margin-bottom: 32px;
+        &:last-child {
+            margin-bottom: 90px;
+        }
+    }
+}
