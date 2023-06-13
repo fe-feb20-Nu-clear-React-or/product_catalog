@@ -3,6 +3,7 @@ import './App.scss';
 import { NavBar } from './components/NavBar';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { Phones } from './components/Phones';
+import { Footer } from './components/Footer';
 import {ApiDataProvider} from './ApiDataContext';
 import { Home } from './components/Home';
 
@@ -21,6 +22,8 @@ function App() {
           <Route path="/tablets" element={<h1>tablets</h1>}/>
           <Route path="/accessories" element={<h1>accessories</h1>}/>
         </Routes>
+
+        <Footer />
         </ApiDataProvider>
       </div>
   );
