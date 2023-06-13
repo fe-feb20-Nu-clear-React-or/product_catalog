@@ -1,0 +1,18 @@
+.back-to-top {
+  display: flex;
+  align-items: flex-end;
+  margin-right: 16px;
+  gap: 16px;
+  
+  &__text {
+    color: #75767F;
+    margin-right: 16px;
+  }
+  
+  &__button {
+    margin-right: 0px;
+    display: inline-block;
+    padding: 8px;
+    background-color: #323542;
+  }
+}
