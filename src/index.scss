@@ -1,12 +1,5 @@
-// reset css
-h1, h2, h3, p {
-  margin: 0;
-}
-img {
-  display: block;
-}
-
 // @import '/src/assets/variables';
+@import './reset.scss';
 @import './components/Home/Home.scss';
 @import './components/Card/Card.scss';
 @import './components/Header/Header.scss';
