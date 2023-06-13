@@ -1,7 +1,12 @@
+import { Product } from '../../types/Product';
 import './Card.scss';
 
-export const Card = () => {
+interface Props {
+    product:Product;
+}
+
+export const Card:React.FC<Props> = ({product}) => {
     return (
-        <div className="card">Card</div>
+        <div className="card">{product.name}</div>
     )
 };
