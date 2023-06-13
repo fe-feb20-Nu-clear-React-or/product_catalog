@@ -1,18 +1,19 @@
 import {NavLink} from 'react-router-dom'
-import favourites from "../icons/Favourites (Heart Like).svg"
-import bag from "../icons/Shopping bag (Cart).svg"
-import hamburgerMenu from "../icons/HamburgerMenu.svg"
-import close from "../icons/Close.svg"
-import logo from "../icons/logo.svg"
-import logoIcon from "../icons/logo-icon.svg"
+import favourites from "../../icons/Favourites (Heart Like).svg"
+import bag from "../../icons/Shopping bag (Cart).svg"
+import hamburgerMenu from "../../icons/HamburgerMenu.svg"
+import close from "../../icons/Close.svg"
+import logo from "../../icons/logo.svg"
+import logoIcon from "../../icons/logo-icon.svg"
 import { useEffect, useState } from 'react'
+import './Navbar.scss';
 
-interface NavBarProps {
+interface NavbarProps {
     isMenuOpen: boolean,
     handleSetIsMenuOpen: (isOpen: boolean) => void,
 }
 
-export const NavBar = ({isMenuOpen, handleSetIsMenuOpen}: NavBarProps) => {
+export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
     
       useEffect(() => {

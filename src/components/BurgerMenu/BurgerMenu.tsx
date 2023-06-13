@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import favourites from "../icons/Favourites (Heart Like).svg"
-import bag from "../icons/Shopping bag (Cart).svg"
+import favourites from "../../icons/Favourites (Heart Like).svg"
+import bag from "../../icons/Shopping bag (Cart).svg"
+import './BurgerMenu.scss';
 
 interface BurgerMenuProps {
     handleSetIsMenuOpen: (isOpen: boolean) => void,
