@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { NavBar } from './components/NavBar';
 import { Phones } from './components/Phones';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Footer } from './components/Footer/Footer';
 import { ApiDataProvider } from './ApiDataContext';
 import { Home } from './components//Home/Home';
 import { NotFoundPage } from './components/NotFoundPage';
+import { Navbar } from './components/Navbar/Navbar';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +36,7 @@ function App() {
 
         <Footer />
         </>
-        )
+        )}
       </ApiDataProvider>
     </div>
   );
