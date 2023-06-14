@@ -19,7 +19,7 @@ function App() {
       <div className="App">
         <ApiDataProvider>
         <Navbar isMenuOpen={isMenuOpen} handleSetIsMenuOpen={handlesetIsMenuOpen} />
-        {isMenuOpen 
+        {isMenuOpen
         ? (<BurgerMenu handleSetIsMenuOpen={handlesetIsMenuOpen} />)
         : (
           <>
@@ -30,6 +30,8 @@ function App() {
               <Route path="/tablets" element={<h1>tablets</h1>}/>
               <Route path="/accessories" element={<h1>accessories</h1>}/>
               <Route path="*" element={<h1>Page not found</h1>} />
+              <Route path="/cart" element={<h1>cart</h1>}/>
+              <Route path="/favourites" element={<h1>favourites</h1>}/>
             </Routes>
             <Footer />
           </>

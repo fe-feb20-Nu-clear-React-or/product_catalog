@@ -1,34 +1,35 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import favourites from "../../icons/Favourites (Heart Like).svg"
 import bag from "../../icons/Shopping bag (Cart).svg"
 import './BurgerMenu.scss';
 
 interface BurgerMenuProps {
-    handleSetIsMenuOpen: (isOpen: boolean) => void,
+  handleSetIsMenuOpen: (isOpen: boolean) => void,
 }
 
 export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
-    const handleOpenLink = () => {
-        handleSetIsMenuOpen(false);
-    }
-    return (
+  const handleCloseMenu = () => {
+      handleSetIsMenuOpen(false);
+  }
+  return (
     <div className="burgerMenu">
-        <nav className="burgerMenu__links">
-            <NavLink to="/home" className="burgerMenu__link" onClick={handleOpenLink}>home</NavLink>
-            <NavLink to="/phones" className="burgerMenu__link" onClick={handleOpenLink}>phones</NavLink>
-            <NavLink to="/tablets" className="burgerMenu__link" onClick={handleOpenLink}>tablets</NavLink>
-            <NavLink to="/accessories" className="burgerMenu__link" onClick={handleOpenLink}>accessories</NavLink>
-        </nav>
+      <nav className="burgerMenu__links">
+        <NavLink to="/home" className="burgerMenu__link" onClick={handleCloseMenu}>home</NavLink>
+        <NavLink to="/phones" className="burgerMenu__link" onClick={handleCloseMenu}>phones</NavLink>
+        <NavLink to="/tablets" className="burgerMenu__link" onClick={handleCloseMenu}>tablets</NavLink>
+        <NavLink to="/accessories" className="burgerMenu__link" onClick={handleCloseMenu}>accessories</NavLink>
+      </nav>
 
-        <div className='burgerMenu__icons'>
-            <div className='burgerMenu__icon'>
-                <img src={favourites} alt="Favourites icon" />
-            </div>
+      <div className='burgerMenu__icons'>
+        <NavLink to="/favourites" className='burgerMenu__icon' onClick={handleCloseMenu}>
+          <img src={favourites} alt="Favourites icon" />
+        </NavLink>
 
-            <div className='burgerMenu__icon'>
-                <img src={bag} alt="Shopping bag icon" />
-            </div>
-        </div>
+        <NavLink to="/cart" className='burgerMenu__icon' onClick={handleCloseMenu}>
+          <img src={bag} alt="Shopping bag icon" />
+        </NavLink>
+      </div>
     </div>
   );
 }
