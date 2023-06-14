@@ -7,25 +7,26 @@ export const Carousel = () => {
   const [perPage] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
   const [startItem, setStartItem] = useState((currentPage - 1) * perPage + 1);
-  const [, setEndItem] = useState(currentPage * perPage);
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_endItem, setEndItem] = useState(currentPage * perPage);
+  
   const items = useContext(ApiDataContext);
-
+  
   const onPageChange = (newCurrentPage: number) => {
     setCurrentPage(newCurrentPage);
   };
-
+  
   useEffect(() => {
     setStartItem((currentPage - 1) * perPage + 1);
     setEndItem(currentPage * perPage);
   }, [currentPage, perPage]);
-
+  
   const handlePreviousClick = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
     }
   };
-
+    
   const handleNextClick = () => {
     if (Math.ceil(items.length / perPage) > currentPage) {
       onPageChange(currentPage + 1);
