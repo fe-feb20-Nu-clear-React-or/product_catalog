@@ -21,9 +21,8 @@ export const Footer = () => (
     </ul>
 
     <div className='footer__back-to-top'>
-<<<<<<< HEAD
       <p className='footer__back-to-top-text'>Back to top</p>
-      <NavLink 
+      <NavLink
         to="/home"
         className='footer__back-to-top-link'
         onClick={() => document.documentElement.scrollTop = 0}
@@ -33,19 +32,6 @@ export const Footer = () => (
             alt="back-to-top"
             className="footer__back-to-top-image"
           />
-=======
-      <span className='footer__back-to-top back-to-top__text'>Back to top</span>
-
-      <NavLink 
-        to="/home"
-      >
-        <div
-        className='footer__back-to-top back-to-top__button'
-        onClick={() => document.documentElement.scrollTop = 0}
-        >
-          <img src={upArrow} alt="back-to-top"/> 
-        </div>
->>>>>>> cd63d2470a12b0f8abb7d590e75b41327d000835
       </NavLink>
     </div>
   </footer>
