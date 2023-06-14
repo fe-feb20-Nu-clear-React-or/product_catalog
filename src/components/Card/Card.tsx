@@ -1,5 +1,6 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
+import placeholder from '../../img/phones/apple-iphone-11/black/01.jpg';
 
 interface Props {
   product:Product;
@@ -7,30 +8,37 @@ interface Props {
 
 export const Card:React.FC<Props> = ({product}) => {
   return (
-        
-
     <section className="card">
       <img 
         className="card__photo"
-        src="images/imac.jpeg"
+        src={placeholder}
         alt={product.name}
       ></img>
-      
       <h1 className="card__name">{product.name}</h1>
-  
-      <h2 className="card__code">Product code: 195434</h2>
-  
-      <div className="card__rate">
-         
-        <div className="card__reviews">Reviews: 5</div>
+      <div className="card__price">${product.price}</div>
+      
+      <div className='card__divider'></div>
+     
+      <div className="card__info">
+        <div className="card__info--details">Screen:</div>
+        <div className="card__info--value">{product.screen}</div>
+      </div>
+
+      <div className="card__info">
+        <div className="card__info--details">Capacity:</div>
+        <div className="card__info--value">{product.capacity}</div>
       </div>
         
-      <div className="card__price">
-        <div className="card__priceText">Price:</div>
-        <div className="card__priceNumber">$2,199</div>
+      <div className="card__info">
+        <div className="card__info--details">RAM:</div>
+        <div className="card__info--value">{product.ram}</div>
       </div>
   
-      <a className="card__buyButton" data-qa="hover">Buy</a>
+      <div className='card__buttons'>
+        <a className="card__buttons--buy">Buy</a>
+        <a className="card__buttons--fav">3</a>
+      </div>
+      
   
     </section>
   );
