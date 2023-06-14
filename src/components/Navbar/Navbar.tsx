@@ -7,11 +7,13 @@ import close from '../../icons/Close.svg';
 import logo from '../../icons/logo.svg';
 import logoIcon from '../../icons/logo-icon.svg';
 import './Navbar.scss';
+import React from 'react'
 
 interface NavbarProps {
   isMenuOpen: boolean,
   handleSetIsMenuOpen: (isOpen: boolean) => void,
 }
+
 
 export const Navbar = ({ isMenuOpen, handleSetIsMenuOpen }: NavbarProps) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);

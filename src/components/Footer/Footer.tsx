@@ -19,20 +19,18 @@ export const Footer = () => (
       </li>
     </ul>
 
-    <div className="footer__back-to-top">
-      <span className="footer__back-to-top back-to-top__text">Back to top</span>
-
+    <div className='footer__back-to-top'>
+      <p className='footer__back-to-top-text'>Back to top</p>
       <NavLink
         to="/home"
+        className='footer__back-to-top-link'
+        onClick={() => document.documentElement.scrollTop = 0}
       >
-        <div
-          className="footer__back-to-top back-to-top__button"
-          onClick={() => {
-            document.documentElement.scrollTop = 0;
-          }}
-        >
-          <img src={upArrow} alt="back-to-top" />
-        </div>
+          <img
+            src={upArrow}
+            alt="back-to-top"
+            className="footer__back-to-top-image"
+          />
       </NavLink>
     </div>
   </footer>

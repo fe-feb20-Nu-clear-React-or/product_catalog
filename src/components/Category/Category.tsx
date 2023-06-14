@@ -3,12 +3,14 @@ import categoryImagePhones from '../../photos/category-image-phones-320.png';
 import categoryImageTablets from '../../photos/category-image-tablets-320.png';
 import categoryImageAccessories from '../../photos/category-image-accessories-320.png';
 import './Category.scss';
+import React from 'react';
 
 export const Category = () => {
   return (
     <section className="category">
       <article className="category__header">
         <h2 className="category__header-title">Shop by category</h2>
+
       </article>
 
       <article className="category__item">
@@ -50,3 +52,4 @@ export const Category = () => {
     </section>
   );
 };
+

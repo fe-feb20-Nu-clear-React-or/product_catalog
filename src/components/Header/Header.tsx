@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import headerImageMobile from '../../photos/home-page-header-image-mobile.png';
 // eslint-disable-next-line max-len
 import headerImageDesktop from '../../photos/home-page-header-image-desktop.png';
+
 import './Header.scss';
 
 export const Header = () => {
@@ -17,6 +18,7 @@ export const Header = () => {
     };
 
     handleResize();
+
 
     window.addEventListener('resize', handleResize);
 
