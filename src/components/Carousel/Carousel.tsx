@@ -2,9 +2,23 @@ import { useContext, useEffect, useState } from 'react';
 import { Card } from '../Card/Card';
 import './Carousel.scss';
 import ApiDataContext from '../../ApiDataContext';
+import { Resolution } from '../../types/Resolution';
 
-export const Carousel = () => {
-  const [perPage] = useState(2);
+interface CarouselProps {
+  resolution: Resolution,
+}
+
+export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
+  const perPage = function(){
+    switch (resolution) {
+      case Resolution.MOBILE:
+        return 2;
+      case Resolution.TABLET:
+        return 3;
+      case Resolution.DESKTOP:
+        return 4;
+    }
+  }();
   const [currentPage, setCurrentPage] = useState(1);
   const [startItem, setStartItem] = useState((currentPage - 1) * perPage + 1);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

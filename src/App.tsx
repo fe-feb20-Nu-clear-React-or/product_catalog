@@ -1,21 +1,50 @@
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.scss';
 import { Phones } from './components/Phones';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Footer } from './components/Footer/Footer';
 import { ApiDataProvider } from './ApiDataContext';
 import { Home } from './components//Home/Home';
+import { Resolution } from './types/Resolution';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Navbar } from './components/Navbar/Navbar';
 
 function App() {
+
+  const handleResolutionSet = () => {
+    if (window.innerWidth < 640) {
+      return Resolution.MOBILE;
+    }
+
+    if (window.innerWidth < 1200) {
+      return Resolution.TABLET;
+    }
+
+    return Resolution.DESKTOP;
+
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [resolution, setResolution]
+    = useState<Resolution>(handleResolutionSet());
 
   const handlesetIsMenuOpen = (isOpen: boolean) => {
     setIsMenuOpen(isOpen);
   };
+
+  useEffect(()=> {
+
+    window.addEventListener('resize', () => {
+      setResolution(handleResolutionSet());
+    });
+
+    return () => {
+      window.removeEventListener('resize', handleResolutionSet);
+    };
+
+  }, []);
 
   return (
     <div className="App">
@@ -23,13 +52,14 @@ function App() {
         <Navbar
           isMenuOpen={isMenuOpen}
           handleSetIsMenuOpen={handlesetIsMenuOpen}
+          resolution={resolution}
         />
         {isMenuOpen
           ? (<BurgerMenu handleSetIsMenuOpen={handlesetIsMenuOpen} />)
           : (
             <>
               <Routes>
-                <Route path="/home" element={<Home/>}/>
+                <Route path="/home" element={<Home resolution={resolution}/>} />
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route path="/phones" element={<Phones />}/>
                 <Route path="/tablets" element={<h1>tablets</h1>}/>
