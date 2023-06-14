@@ -2,9 +2,12 @@
   display: flex;
   justify-content: space-between;
   background-color: #0F1121;
+  height: 48px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #3B3E4A;
 
-  &--menuOpen {
-    border-bottom: 1px solid #3B3E4A;
+  @media (min-width: 1200px) {
+    height: 64px;
   }
 
   &__icons, &__links {
@@ -33,7 +36,7 @@
       position: absolute;
       border-bottom: 3px solid #F1F2F9;
     }
-  
+
     @media (min-width: 1200px) {
       line-height: 64px;
       margin: 0 32px;
