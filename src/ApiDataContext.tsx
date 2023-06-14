@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useState } from "react";
-import staticData from './api/phones.json'
+import staticData from './api/phones.json';
 import { Product } from "./types/Product";
 
 const ApiDataContext = createContext<Product[]>([]);
@@ -16,7 +16,6 @@ export const ApiDataProvider: React.FC<Props> = ({children}) =>{
   /*and remove import from json
   //here sould be placed some fetch stuff and setState with result of fulfilled Promise
   */
- //setData(staticData);
 
   return (
     <ApiDataContext.Provider value={data}>{children}</ApiDataContext.Provider>

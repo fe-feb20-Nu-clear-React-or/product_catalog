@@ -1,9 +1,10 @@
-import { List } from "./List";
+import { List } from './List';
 
 export const Home = () => {
-return (
-  <div className="home">
-    Home
-    <List/>
-  </div>
-)};
+  return (
+    <div className="home">
+      Home
+      <List />
+    </div>
+  );
+};

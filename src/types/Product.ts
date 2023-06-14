@@ -1,4 +1,4 @@
-export interface Product { 
+export interface Product {
   id: string;
   category: string;
   phoneId: string;
@@ -11,5 +11,5 @@ export interface Product {
   color: string;
   ram: string;
   year: number;
-  image: string; 
+  image: string;
 }
