@@ -1,3 +1,4 @@
+import React from "react";
 import { ReactNode, createContext, useState } from "react";
 import staticData from './api/phones.json'
 import { Product } from "./types/Product";
