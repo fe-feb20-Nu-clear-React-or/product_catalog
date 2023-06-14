@@ -18,10 +18,6 @@ interface NavbarProps {
 export const Navbar = ({ isMenuOpen,
   handleSetIsMenuOpen, resolution }: NavbarProps) => {
 
-  const closeMenu = () => {
-    handleSetIsMenuOpen(false);
-  };
-
   return (
     <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
 
@@ -38,43 +34,27 @@ export const Navbar = ({ isMenuOpen,
                   alt="logo ok emoji"
                 />
               </div>
-              <NavLink
-                to="/home"
-                className="navbar__link"
-                onClick={closeMenu}
-              >
+              <NavLink to="/home" className="navbar__link">
                 home
               </NavLink>
-              <NavLink
-                to="/phones"
-                className="navbar__link"
-                onClick={closeMenu}
-              >
+              <NavLink to="/phones" className="navbar__link">
                 phones
               </NavLink>
-              <NavLink
-                to="/tablets"
-                className="navbar__link"
-                onClick={closeMenu}
-              >
+              <NavLink to="/tablets" className="navbar__link">
                 tablets
               </NavLink>
-              <NavLink
-                to="/accessories"
-                className="navbar__link"
-                onClick={closeMenu}
-              >
+              <NavLink to="/accessories" className="navbar__link">
                 accessories
               </NavLink>
             </div>
 
             <div className="navbar__icons">
-              <div className="navbar__icon">
+              <NavLink to="/favourites" className="navbar__icon">
                 <img src={favourites} alt="Favourites icon" />
-              </div>
-              <div className="navbar__icon">
+              </NavLink>
+              <NavLink to="/cart" className="navbar__icon">
                 <img src={bag} alt="Shopping bag icon" />
-              </div>
+              </NavLink>
             </div>
           </>
         )
@@ -90,7 +70,10 @@ export const Navbar = ({ isMenuOpen,
             </div>
             {isMenuOpen
               ? (
-                <div className="navbar__icon" onClick={closeMenu}>
+                <div
+                  className="navbar__icon"
+                  onClick={() => handleSetIsMenuOpen(false)}
+                >
                   <img src={close} alt="close hamburger menu icon" />
                 </div>
               )
@@ -104,7 +87,6 @@ export const Navbar = ({ isMenuOpen,
               )}
           </>
         )}
-
     </nav>
   );
 };
