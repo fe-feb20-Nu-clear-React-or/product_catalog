@@ -6,4 +6,20 @@
     padding: 24px 16px;
     width: 100%;
     box-sizing: border-box;
+    @media(min-width: 640px) {
+      padding: 38px 24px;
+    }
+
+    &__header {
+      display: flex;
+      justify-content: center;
+    }
+    &__carousel {
+      display: flex;
+      justify-content: center;
+    }
+    &__category {
+      display: flex;
+      justify-content: center;
+    }
 }

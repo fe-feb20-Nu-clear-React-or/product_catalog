@@ -23,24 +23,24 @@ export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
   const [startItem, setStartItem] = useState((currentPage - 1) * perPage + 1);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_endItem, setEndItem] = useState(currentPage * perPage);
-  
+
   const items = useContext(ApiDataContext);
-  
+
   const onPageChange = (newCurrentPage: number) => {
     setCurrentPage(newCurrentPage);
   };
-  
+
   useEffect(() => {
     setStartItem((currentPage - 1) * perPage + 1);
     setEndItem(currentPage * perPage);
   }, [currentPage, perPage]);
-  
+
   const handlePreviousClick = () => {
     if (currentPage > 1) {
       onPageChange(currentPage - 1);
     }
   };
-    
+
   const handleNextClick = () => {
     if (Math.ceil(items.length / perPage) > currentPage) {
       onPageChange(currentPage + 1);
@@ -52,7 +52,7 @@ export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
       <article className="carousel__header">
         <h2 className="carousel__title">
           Brand new
-          <br />
+          {resolution === Resolution.MOBILE ? <br /> : <>&nbsp;</>}
           models
         </h2>
         <div className="carousel__switch-buttons">
