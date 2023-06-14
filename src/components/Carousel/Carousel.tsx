@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { Card } from "../Card/Card";
 import './Carousel.scss';
 import ApiDataContext from "../../ApiDataContext";
 
 export const Carousel = () => {
-    const [perPage, setPerPage] = useState(2);
+    const [perPage] = useState(2);
     const [currentPage, setCurrentPage] = useState(1);
-    const [startItem, setStartItem] = useState((currentPage - 1) * perPage + 1);
-    const [endItem, setEndItem] = useState(currentPage * perPage);
+    const [_startItem, setStartItem] = useState((currentPage - 1) * perPage + 1);
+    const [_endItem, setEndItem] = useState(currentPage * perPage);
   
     const items = useContext(ApiDataContext);
   

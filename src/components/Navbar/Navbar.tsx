@@ -1,4 +1,3 @@
-import React from "react";
 import {NavLink} from 'react-router-dom'
 import favourites from "../../icons/Favourites (Heart Like).svg"
 import bag from "../../icons/Shopping bag (Cart).svg"

@@ -12,7 +12,7 @@ export const ApiDataProvider: React.FC<Props> = ({children}) =>{
 
   /* in case of fetching from server
   here we can add just state and init it with empty array: */
-  const [data, setData] = useState<Product[]>(staticData);
+  const [data] = useState<Product[]>(staticData);
   /*and remove import from json
   //here sould be placed some fetch stuff and setState with result of fulfilled Promise
   */
