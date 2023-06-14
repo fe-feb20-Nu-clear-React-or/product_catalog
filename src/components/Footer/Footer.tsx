@@ -26,11 +26,11 @@ export const Footer = () => (
         className='footer__back-to-top-link'
         onClick={() => document.documentElement.scrollTop = 0}
       >
-          <img
-            src={upArrow}
-            alt="back-to-top"
-            className="footer__back-to-top-image"
-          />
+        <img
+          src={upArrow}
+          alt="back-to-top"
+          className="footer__back-to-top-image"
+        />
       </NavLink>
     </div>
   </footer>
