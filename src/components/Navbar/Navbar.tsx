@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import favourites from '../../icons/Favourites (Heart Like).svg';
 import bag from '../../icons/Shopping bag (Cart).svg';
@@ -7,31 +6,23 @@ import close from '../../icons/Close.svg';
 import logo from '../../icons/logo.svg';
 import logoIcon from '../../icons/logo-icon.svg';
 import './Navbar.scss';
+import { Resolution } from '../../types/Resolution';
 
 interface NavbarProps {
   isMenuOpen: boolean,
   handleSetIsMenuOpen: (isOpen: boolean) => void,
+  resolution: Resolution,
 }
 
-export const Navbar = ({ isMenuOpen, handleSetIsMenuOpen }: NavbarProps) => {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
+export const Navbar = ({ isMenuOpen,
+  handleSetIsMenuOpen, resolution }: NavbarProps) => {
 
   return (
     <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
 
-      {windowSize >= 640 && !isMenuOpen
+      {[Resolution.DESKTOP, Resolution.TABLET]
+        .includes(resolution) && !isMenuOpen
         ? (
           <>
             <div className="navbar__links">
