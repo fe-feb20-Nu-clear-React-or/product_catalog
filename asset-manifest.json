@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.3e363e14.css",
-    "main.js": "/product_catalog/static/js/main.1ba3ee11.js",
+    "main.css": "/product_catalog/static/css/main.1b179ea0.css",
+    "main.js": "/product_catalog/static/js/main.d8494f6b.js",
     "static/media/NiceGadgets.svg": "/product_catalog/static/media/NiceGadgets.eff1b05c560265bc17a9f6dba22e63fe.svg",
     "static/media/logo-icon.svg": "/product_catalog/static/media/logo-icon.c81ad27bdf612ac97607f7ec23d8ac4c.svg",
     "static/media/home-page-header-image-desktop.png": "/product_catalog/static/media/home-page-header-image-desktop.57c1512128531573240d.png",
@@ -13,13 +13,14 @@
     "static/media/Shopping bag (Cart).svg": "/product_catalog/static/media/Shopping bag (Cart).fbb7bb4b7513df420fa1dcc67ff28eb0.svg",
     "static/media/Favourites (Heart Like).svg": "/product_catalog/static/media/Favourites (Heart Like).28f6088c83570782c6af97ed6ee84f70.svg",
     "index.html": "/product_catalog/index.html",
+    "static/media/Close.svg": "/product_catalog/static/media/Close.c89cd55fcda471b596c2997cc48e5674.svg",
     "static/media/HamburgerMenu.svg": "/product_catalog/static/media/HamburgerMenu.ccd1a9542b5bc584f2a1c0456d816ec9.svg",
     "static/media/Chevron (Arrow Up).svg": "/product_catalog/static/media/Chevron (Arrow Up).d7ccf9e94d5187a54e6e787c5eea5faf.svg",
-    "main.3e363e14.css.map": "/product_catalog/static/css/main.3e363e14.css.map",
-    "main.1ba3ee11.js.map": "/product_catalog/static/js/main.1ba3ee11.js.map"
+    "main.1b179ea0.css.map": "/product_catalog/static/css/main.1b179ea0.css.map",
+    "main.d8494f6b.js.map": "/product_catalog/static/js/main.d8494f6b.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e363e14.css",
-    "static/js/main.1ba3ee11.js"
+    "static/css/main.1b179ea0.css",
+    "static/js/main.d8494f6b.js"
   ]
 }
