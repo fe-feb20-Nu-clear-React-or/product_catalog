@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { Card } from "../Card/Card";
 import './Carousel.scss';
