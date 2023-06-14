@@ -11,10 +11,18 @@ interface HomeProps {
 export const Home:React.FC<HomeProps> = ({resolution}) => {
   return (
     <main className="home">
-      <Header resolution={resolution}/>
-      <Carousel resolution={resolution}/>
-      <Category />
-      <Carousel resolution={resolution}/>
+      <header className="home__header">
+        <Header resolution={resolution}/>
+      </header>
+      <div className="home__carousel">
+        <Carousel resolution={resolution}/>
+      </div>
+      <div className="home__category">
+        <Category />
+      </div>
+      <div className="home__carousel">
+        <Carousel resolution={resolution}/>
+      </div>
     </main>
   );
 };

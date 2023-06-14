@@ -4,6 +4,22 @@
 @import './components/Card/Card.scss';
 @import './components/Header/Header.scss';
 
+@font-face {
+  font-family: Mont;
+  font-weight: normal;
+  src: url(./fonts/Mont-Regular.otf);
+}
+@font-face {
+  font-family: Mont;
+  font-weight: bold;
+  src: url(./fonts/Mont-SemiBold.otf);
+}
+@font-face {
+  font-family: Mont;
+  font-weight: bolder;
+  src: url(./fonts/Mont-Bold.otf);
+}
+
 html {
   scroll-behavior: smooth;
 }

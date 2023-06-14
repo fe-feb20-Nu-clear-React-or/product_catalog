@@ -31,7 +31,7 @@ export const Category = () => {
               alt="phones category"
             />
           </div>
-          <h3 className="category__item-title">Mobile phones</h3>
+          <h3 className="category__item-title">Tablets</h3>
           <p className="category__model-amount">24 models</p>
         </article>
 
@@ -43,7 +43,7 @@ export const Category = () => {
               alt="phones category"
             />
           </div>
-          <h3 className="category__item-title">Mobile phones</h3>
+          <h3 className="category__item-title">Accessories</h3>
           <p className="category__model-amount">100 models</p>
         </article>
       </div>

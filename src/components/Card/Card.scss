@@ -1,27 +1,12 @@
 @import '../../assets/variables';
-@font-face {
-  font-family: Mont;
-  font-weight: normal;
-  src: url(../../fonts/Mont-Regular.otf);
-}
-@font-face {
-  font-family: Mont;
-  font-weight: bold;
-  src: url(../../fonts/Mont-SemiBold.otf);
-}
-@font-face {
-  font-family: Mont;
-  font-weight: bolder;
-  src: url(../../fonts/Mont-Bold.otf);
-}
 
 .card {
     font-family: "Mont", Arial, Helvetica, sans-serif;
-  
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
+
     width: 272px;
     height: 506px;
     //min-width: 70%;
@@ -34,11 +19,12 @@
       width: 208px;
       height: 196px;
       margin: auto;
+      object-fit: scale-down;
     }
 
     &__name {
       margin: 24px 0 8px;
-    
+
       font-weight: normal;
       font-size: 14px;
       line-height: 21px;
@@ -58,10 +44,10 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-    
+
       width: auto;
       margin: 4px 0;
-  
+
       &--details {
         font-weight: bold;
         font-size: 12px;
@@ -69,13 +55,13 @@
         color: $gray-color-1;
         width: auto;
       }
-  
+
       &__info--value {
         font-weight: bold;
         font-size: 12px;
         line-height: 16px;
         color: $white-color;
-      
+
         width: auto;
       }
     }
@@ -99,34 +85,34 @@
         color: $white-color;
 
         &--buy{
-      
+
           align-items: center;
           padding: 12px;
           flex-grow: 6;
           margin: 16px 0;
-        
+
           background-color: $accent;
           border: 1px solid transparent;
 
           &:hover {
             color: var(--light-blue);
-          
+
             background-color: var(--white);
             border-color: var(--light-blue);
-          
+
             cursor: pointer;
           }
         }
-      
+
         &--fav{
           align-items: center;
           padding: 12px;
           flex-grow: 1;
           margin: 16px 0;
-        
+
           background-color: $gray-color-2;
           border: 1px solid transparent;
         }
     }
 }
-  
+
