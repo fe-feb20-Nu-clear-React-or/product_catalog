@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import favourites from "../../icons/Favourites (Heart Like).svg"
-import bag from "../../icons/Shopping bag (Cart).svg"
+import favourites from "../../icons/Favourites (Heart Like).svg";
+import bag from "../../icons/Shopping bag (Cart).svg";
 import './BurgerMenu.scss';
 
 interface BurgerMenuProps {
@@ -10,15 +10,32 @@ interface BurgerMenuProps {
 
 export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
   const handleCloseMenu = () => {
-      handleSetIsMenuOpen(false);
-  }
+    handleSetIsMenuOpen(false);
+  };
+
   return (
     <div className="burgerMenu">
       <nav className="burgerMenu__links">
-        <NavLink to="/home" className="burgerMenu__link" onClick={handleCloseMenu}>home</NavLink>
-        <NavLink to="/phones" className="burgerMenu__link" onClick={handleCloseMenu}>phones</NavLink>
-        <NavLink to="/tablets" className="burgerMenu__link" onClick={handleCloseMenu}>tablets</NavLink>
-        <NavLink to="/accessories" className="burgerMenu__link" onClick={handleCloseMenu}>accessories</NavLink>
+        <NavLink
+          to="/home"
+          className="burgerMenu__link"
+          onClick={handleCloseMenu}
+        >home</NavLink>
+        <NavLink
+          to="/phones"
+          className="burgerMenu__link"
+          onClick={handleCloseMenu}
+        >phones</NavLink>
+        <NavLink
+          to="/tablets"
+          className="burgerMenu__link"
+          onClick={handleCloseMenu}
+        >tablets</NavLink>
+        <NavLink
+          to="/accessories"
+          className="burgerMenu__link"
+          onClick={handleCloseMenu}
+        >accessories</NavLink>
       </nav>
 
       <div className='burgerMenu__icons'>
@@ -32,4 +49,4 @@ export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
       </div>
     </div>
   );
-}
+};
