@@ -15,7 +15,7 @@ export const Card:React.FC<Props> = ({product}) => {
         alt={product.name}
       ></img>
       <h1 className="card__name">{product.name}</h1>
-      <div className="card__priceNumber">${product.price}</div>
+      <div className="card__price">${product.price}</div>
       
       <div className='card__divider'></div>
      

@@ -1,7 +1,22 @@
 @import '../../assets/variables';
+@font-face {
+  font-family: Mont;
+  font-weight: normal;
+  src: url(../../fonts/Mont-Regular.otf);
+}
+@font-face {
+  font-family: Mont;
+  font-weight: bold;
+  src: url(../../fonts/Mont-SemiBold.otf);
+}
+@font-face {
+  font-family: Mont;
+  font-weight: bolder;
+  src: url(../../fonts/Mont-Bold.otf);
+}
 
 .card {
-    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-family: "Mont", Arial, Helvetica, sans-serif;
   
     display: flex;
     flex-direction: column;
@@ -24,7 +39,7 @@
     &__name {
       margin: 24px 0 8px;
     
-      font-weight: 600;
+      font-weight: normal;
       font-size: 14px;
       line-height: 21px;
       height: 42px;
@@ -48,7 +63,7 @@
       margin: 4px 0;
   
       &--details {
-        font-weight: 400;
+        font-weight: bold;
         font-size: 12px;
         line-height: 20px;
         color: $gray-color-1;
@@ -56,11 +71,8 @@
       }
   
       &__info--value {
-        font-family: 'Mont',sans-serif;
-        font-style: normal;
-        font-weight: 800;
+        font-weight: bold;
         font-size: 12px;
-        font-weight: 700;
         line-height: 16px;
         color: $white-color;
       
@@ -68,12 +80,18 @@
       }
     }
 
+    &__price {
+      font-weight: bolder;
+      font-size: 22px;
+      line-height: 31px;
+    }
+
     &__buttons{
       display: flex;
       justify-content: space-between;
       gap: 8px;
 
-       font-weight: 700;
+       font-weight: bold;
         text-transform: uppercase;
         text-align: center;
         font-size: 14px;
@@ -82,13 +100,13 @@
 
         &--buy{
       
-        align-items: center;
-        padding: 12px;
-        flex-grow: 6;
-        margin: 16px 0;
-      
-        background-color: $accent;
-        border: 1px solid transparent;
+          align-items: center;
+          padding: 12px;
+          flex-grow: 6;
+          margin: 16px 0;
+        
+          background-color: $accent;
+          border: 1px solid transparent;
 
           &:hover {
             color: var(--light-blue);
@@ -102,13 +120,12 @@
       
         &--fav{
           align-items: center;
-        padding: 12px;
-        flex-grow: 1;
-        margin: 16px 0;
-      
-        background-color: $gray-color-2;
-        border: 1px solid transparent;
-
+          padding: 12px;
+          flex-grow: 1;
+          margin: 16px 0;
+        
+          background-color: $gray-color-2;
+          border: 1px solid transparent;
         }
     }
 
