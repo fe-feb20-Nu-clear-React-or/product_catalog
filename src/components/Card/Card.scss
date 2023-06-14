@@ -1,124 +1,116 @@
 @import '../../assets/variables';
 
 .card {
-    border: 1px solid rgba(243, 243, 243, 1);
-    border-radius: 5px;
-  
     font-family: "Roboto", Arial, Helvetica, sans-serif;
   
     display: flex;
     flex-direction: column;
     justify-content: center;
   
-    width: 200px;
-    height: 450px;
-    min-width: 70%;
-    background-color: $gray-black-color-1;
+    width: 272px;
+    height: 506px;
+    //min-width: 70%;
+    background-color: $gray-black-color-2;
     color: $white-color;
-  }
+
+    padding: 32px;
+
+    &__photo {
+      width: 208px;
+      height: 196px;
+      margin: auto;
+    }
+
+    &__name {
+      margin: 24px 0 8px;
+    
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      height: 42px;
+      color: $white-color;
+    }
+
+    &__divider {
+      height: 2px;
+      width: 100%;
+      margin: 8px 0;
+      background-color: $gray-color-3;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    
+      width: auto;
+      margin: 4px 0;
   
-  .card__photo {
-    width: 160px;
-    height: 134px;
-    margin: 32px 19px 0;
-  }
+      &--details {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        color: $gray-color-1;
+        width: auto;
+      }
   
-  .card__name {
-    /* width: auto; */
-    margin: 40px 16px 0;
-  
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-    color: var(--almost-black);
-  }
-  
-  .card__code {
-    width: auto;
-    margin: 4px 16px 0;
-  
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 14px;
-    color: var(--warm-grey);
-  }
-  
-  .card__rate {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-end;
-  
-    color: var(--almost-black);
-  
-    margin: 16px 16px 0;
-    width: auto;
-  }
-  
-  .card__rateStars {
-    width: auto;
-  }
-  
-  .card__reviews {
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 14px;
-    color: var(--almost-black);
-  
-    width: auto;
-  }
-  
-  .card__price {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  
-    width: auto;
-    margin: 23px 16px 0;
-  }
-  
-  .card__priceText {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
-    color: var(--warm-grey);
-    width: auto;
-  }
-  
-  .card__priceNumber {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 20px;
-    color: var(--almost-black);
-  
-    width: auto;
-  }
-  
-  .card__buyButton {
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 14px;
-    line-height: 13px;
-    color: var(--white);
-  
-    align-items: center;
-    padding: 12px;
-    width: auto;
-    margin: 16px;
-  
-    border-radius: 5px;
-    background-color: var(--light-blue);
-    border: 1px solid transparent;
-  }
-  
-  .card__buyButton:hover {
-    color: var(--light-blue);
-  
-    background-color: var(--white);
-    border-color: var(--light-blue);
-  
-    cursor: pointer;
+      &__info--value {
+        font-family: 'Mont',sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px;
+        color: $white-color;
+      
+        width: auto;
+      }
+    }
+
+    &__buttons{
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+
+       font-weight: 700;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 14px;
+        line-height: 13px;
+        color: $white-color;
+
+        &--buy{
+      
+        align-items: center;
+        padding: 12px;
+        flex-grow: 6;
+        margin: 16px 0;
+      
+        background-color: $accent;
+        border: 1px solid transparent;
+
+          &:hover {
+            color: var(--light-blue);
+          
+            background-color: var(--white);
+            border-color: var(--light-blue);
+          
+            cursor: pointer;
+          }
+        }
+      
+        &--fav{
+          align-items: center;
+        padding: 12px;
+        flex-grow: 1;
+        margin: 16px 0;
+      
+        background-color: $gray-color-2;
+        border: 1px solid transparent;
+
+        }
+    }
+
   }
   
