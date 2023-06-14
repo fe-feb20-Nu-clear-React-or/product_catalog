@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { NavBar } from './components/NavBar';
 import { Phones } from './components/Phones';
+import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Footer } from './components/Footer/Footer';
 import { ApiDataProvider } from './ApiDataContext';
 import { Home } from './components//Home/Home';
 import { NotFoundPage } from './components/NotFoundPage';
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const handlesetIsMenuOpen = (isOpen: boolean) => {
+    setIsMenuOpen(isOpen);
+  };
+
   return (
     <div className="App">
       <ApiDataProvider>
-        <Navbar />
+         <Navbar isMenuOpen={isMenuOpen} handleSetIsMenuOpen={handlesetIsMenuOpen} />
+        {isMenuOpen 
+        ? (<BurgerMenu handleSetIsMenuOpen={handlesetIsMenuOpen} />)
+        : (
+        <>
 
         <Routes>
           <Route path="/home" element={<Home />} />
@@ -24,6 +35,8 @@ function App() {
         </Routes>
 
         <Footer />
+        </>
+        )
       </ApiDataProvider>
     </div>
   );
