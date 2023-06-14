@@ -3,10 +3,10 @@ import './App.scss';
 import { Navbar } from './components/Navbar/Navbar';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import { Phones } from './components/Phones';
-import { Footer } from './components/Footer/Footer';
-import {ApiDataProvider} from './ApiDataContext';
-import { Home } from './components//Home/Home';
+import { Home } from './components/Home';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
+import { ApiDataProvider } from './ApiDataContext';
+import { Footer } from './components/Footer';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
