@@ -7,6 +7,7 @@ import logo from "../../icons/logo.svg"
 import logoIcon from "../../icons/logo-icon.svg"
 import { useEffect, useState } from 'react'
 import './Navbar.scss';
+import React from 'react'
 
 interface NavbarProps {
     isMenuOpen: boolean,
@@ -15,14 +16,14 @@ interface NavbarProps {
 
 export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
-    
+
       useEffect(() => {
         const handleWindowResize = () => {
           setWindowSize(window.innerWidth);
         };
-    
+
         window.addEventListener('resize', handleWindowResize);
-    
+
         return () => {
           window.removeEventListener('resize', handleWindowResize);
         };
@@ -76,7 +77,7 @@ export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
                         )}
                 </>
             )}
-            
+
         </nav>
     )
 }

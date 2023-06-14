@@ -2,6 +2,7 @@ import categoryImagePhones from '../../photos/category-image-phones-320.png'
 import categoryImageTablets from '../../photos/category-image-tablets-320.png'
 import categoryImageAccessories from '../../photos/category-image-accessories-320.png'
 import './Category.scss';
+import React from 'react';
 
 export const Category = () => {
     return (
@@ -9,13 +10,13 @@ export const Category = () => {
         <article className="category__header">
         <h2 className="category__header-title">Shop by category</h2>
         </article>
-    
+
         <article className="category__item">
             <div className="category__item-image-container category__item-image-container--phones">
-                <img 
+                <img
                     className="category__item-image"
                     src={categoryImagePhones}
-                    alt="phones category" 
+                    alt="phones category"
                 />
             </div>
             <h3 className="category__item-title">Mobile phones</h3>
@@ -23,10 +24,10 @@ export const Category = () => {
         </article>
         <article className="category__item">
             <div className="category__item-image-container category__item-image-container--tablets">
-                <img 
+                <img
                     className="category__item-item-image"
                     src={categoryImageTablets}
-                    alt="phones category" 
+                    alt="phones category"
                 />
             </div>
             <h3 className="category__item-title">Mobile phones</h3>
@@ -34,16 +35,16 @@ export const Category = () => {
         </article>
         <article className="category__item">
             <div className="category__item-image-container category__item-image-container--accessories">
-                <img 
+                <img
                     className="category__item-image"
                     src={categoryImageAccessories}
-                    alt="phones category" 
+                    alt="phones category"
                 />
             </div>
             <h3 className="category__item-title">Mobile phones</h3>
             <p className="category__model-amount">100 models</p>
         </article>
-     
+
     </section>
     )
 }

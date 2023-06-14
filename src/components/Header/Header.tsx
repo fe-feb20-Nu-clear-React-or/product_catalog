@@ -1,5 +1,6 @@
 import headerImageMobile from '../../photos/home-page-header-image-mobile.png';
 import headerImageDesktop from '../../photos/home-page-header-image-desktop.png';
+import React from 'react';
 
 import './Header.scss';
 import { useEffect, useState } from 'react';
@@ -15,9 +16,9 @@ export const Header = () => {
             setHeaderImageSource(headerImageMobile)
         }
       };
-  
+
       handleResize();
-  
+
       window.addEventListener('resize', handleResize);
       return () => {
         window.removeEventListener('resize', handleResize);
@@ -28,9 +29,9 @@ export const Header = () => {
     return (
         <section className="header">
             <h1 className="header__title">Welcome to Nice<br></br> Gadgets store!</h1>
-            <img 
+            <img
                 className="header__image"
-                alt="Iphone 14 Pro" 
+                alt="Iphone 14 Pro"
                 src={headerImageSrc}
             />
             <span className="header__navigation">

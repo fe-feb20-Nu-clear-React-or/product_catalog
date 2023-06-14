@@ -2,6 +2,7 @@ import  './Home.scss'
 import { Carousel } from '../Carousel/Carousel'
 import { Header } from '../Header/Header'
 import { Category } from '../Category/Category'
+import React from 'react'
 
 export const Home = () => {
     return (
