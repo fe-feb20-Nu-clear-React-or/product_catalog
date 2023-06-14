@@ -11,34 +11,32 @@ import { Navbar } from './components/Navbar/Navbar';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+
   const handlesetIsMenuOpen = (isOpen: boolean) => {
     setIsMenuOpen(isOpen);
   };
 
   return (
-    <div className="App">
-      <ApiDataProvider>
-         <Navbar isMenuOpen={isMenuOpen} handleSetIsMenuOpen={handlesetIsMenuOpen} />
+      <div className="App">
+        <ApiDataProvider>
+        <Navbar isMenuOpen={isMenuOpen} handleSetIsMenuOpen={handlesetIsMenuOpen} />
         {isMenuOpen 
         ? (<BurgerMenu handleSetIsMenuOpen={handlesetIsMenuOpen} />)
         : (
-        <>
-
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/phones" element={<Phones />} />
-          <Route path="/tablets" element={<h1>tablets</h1>} />
-          <Route path="/accessories" element={<h1>accessories</h1>} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-
-        <Footer />
-        </>
+          <>
+            <Routes>
+              <Route path="/home" element={<Home/>}/>
+              <Route path="/" element={<Navigate to="/home" />} />
+              <Route path="/phones" element={<Phones />}/>
+              <Route path="/tablets" element={<h1>tablets</h1>}/>
+              <Route path="/accessories" element={<h1>accessories</h1>}/>
+              <Route path="*" element={<h1>Page not found</h1>} />
+            </Routes>
+            <Footer />
+          </>
         )}
-      </ApiDataProvider>
-    </div>
+        </ApiDataProvider>
+      </div>
   );
 }
 
