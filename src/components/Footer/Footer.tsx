@@ -1,3 +1,4 @@
+import React from "react";
 import './Footer.scss';
 import niceGadgets from '../../icons/NiceGadgets.svg'
 import upArrow from '../../icons/Chevron (Arrow Up).svg'
