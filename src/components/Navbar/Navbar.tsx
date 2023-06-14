@@ -1,3 +1,4 @@
+import React from "react";
 import {NavLink} from 'react-router-dom'
 import favourites from "../../icons/Favourites (Heart Like).svg"
 import bag from "../../icons/Shopping bag (Cart).svg"
@@ -15,14 +16,14 @@ interface NavbarProps {
 
 export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
     const [windowSize, setWindowSize] = useState(window.innerWidth);
-    
+
       useEffect(() => {
         const handleWindowResize = () => {
           setWindowSize(window.innerWidth);
         };
-    
+
         window.addEventListener('resize', handleWindowResize);
-    
+
         return () => {
           window.removeEventListener('resize', handleWindowResize);
         };
@@ -33,7 +34,7 @@ export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
       }
     return (
         <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
-            {windowSize >= 640
+            {windowSize >= 640 && !isMenuOpen
             ? (
                 <>
                     <div className='navbar__links'>
@@ -76,7 +77,7 @@ export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
                         )}
                 </>
             )}
-            
+
         </nav>
     )
 }
