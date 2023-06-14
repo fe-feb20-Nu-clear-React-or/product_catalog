@@ -15,29 +15,8 @@ interface NavbarProps {
 }
 
 
-<<<<<<< HEAD
 export const Navbar = ({ isMenuOpen,
   handleSetIsMenuOpen, resolution }: NavbarProps) => {
-=======
-export const Navbar = ({ isMenuOpen, handleSetIsMenuOpen }: NavbarProps) => {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowSize(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
-
-  const closeMenu = () => {
-    handleSetIsMenuOpen(false);
-  };
->>>>>>> 96e1ccab0ed4b05322450edf9d4fe7d3333e6e82
 
   return (
     <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
