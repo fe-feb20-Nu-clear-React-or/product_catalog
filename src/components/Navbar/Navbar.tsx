@@ -34,6 +34,7 @@ export const Navbar = ({isMenuOpen, handleSetIsMenuOpen}: NavbarProps) => {
       }
     return (
         <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
+
             {windowSize >= 640 && !isMenuOpen
             ? (
                 <>
