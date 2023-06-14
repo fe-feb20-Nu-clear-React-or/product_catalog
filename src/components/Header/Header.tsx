@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // eslint-disable-next-line max-len
 import { useEffect, useRef } from 'react';
 import { Resolution } from '../../types/Resolution';
@@ -5,13 +6,22 @@ import { Resolution } from '../../types/Resolution';
 interface HeaderProps {
   resolution: Resolution,
 }
+=======
+import { useEffect, useState } from 'react';
+import headerImageMobile from '../../photos/home-page-header-image-mobile.png';
+// eslint-disable-next-line max-len
+import headerImageDesktop from '../../photos/home-page-header-image-desktop.png';
+>>>>>>> 96e1ccab0ed4b05322450edf9d4fe7d3333e6e82
 
 import './Header.scss';
 
 export const Header:React.FC<HeaderProps> = ({resolution}) => {
 
+<<<<<<< HEAD
   const backgroundImageRef = useRef<HTMLDivElement>(null);
 
+=======
+>>>>>>> 96e1ccab0ed4b05322450edf9d4fe7d3333e6e82
   useEffect(() => {
     const adjustElementHeights = () => {
       const backgroundImageContainer = backgroundImageRef.current;
@@ -27,7 +37,12 @@ export const Header:React.FC<HeaderProps> = ({resolution}) => {
 
     adjustElementHeights();
 
+<<<<<<< HEAD
     window.addEventListener('resize', adjustElementHeights);
+=======
+
+    window.addEventListener('resize', handleResize);
+>>>>>>> 96e1ccab0ed4b05322450edf9d4fe7d3333e6e82
 
     return () => {
       window.removeEventListener('resize', adjustElementHeights);
