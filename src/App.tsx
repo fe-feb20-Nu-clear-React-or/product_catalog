@@ -35,6 +35,8 @@ function App() {
                 <Route path="/tablets" element={<h1>tablets</h1>} />
                 <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
+                <Route path="/cart" element={<h1>cart</h1>}/>
+                <Route path="/favourites" element={<h1>favourites</h1>}/>
               </Routes>
               <Footer />
             </>

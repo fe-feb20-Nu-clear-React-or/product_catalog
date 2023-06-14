@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
 import favourites from "../../icons/Favourites (Heart Like).svg";
 import bag from "../../icons/Shopping bag (Cart).svg";
@@ -8,7 +9,7 @@ interface BurgerMenuProps {
 }
 
 export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
-  const handleOpenLink = () => {
+  const handleCloseMenu = () => {
     handleSetIsMenuOpen(false);
   };
 
@@ -18,33 +19,33 @@ export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
         <NavLink
           to="/home"
           className="burgerMenu__link"
-          onClick={handleOpenLink}
+          onClick={handleCloseMenu}
         >home</NavLink>
         <NavLink
           to="/phones"
           className="burgerMenu__link"
-          onClick={handleOpenLink}
+          onClick={handleCloseMenu}
         >phones</NavLink>
         <NavLink
           to="/tablets"
           className="burgerMenu__link"
-          onClick={handleOpenLink}
+          onClick={handleCloseMenu}
         >tablets</NavLink>
         <NavLink
           to="/accessories"
           className="burgerMenu__link"
-          onClick={handleOpenLink}
+          onClick={handleCloseMenu}
         >accessories</NavLink>
       </nav>
 
       <div className='burgerMenu__icons'>
-        <div className='burgerMenu__icon'>
+        <NavLink to="/favourites" className='burgerMenu__icon' onClick={handleCloseMenu}>
           <img src={favourites} alt="Favourites icon" />
-        </div>
+        </NavLink>
 
-        <div className='burgerMenu__icon'>
+        <NavLink to="/cart" className='burgerMenu__icon' onClick={handleCloseMenu}>
           <img src={bag} alt="Shopping bag icon" />
-        </div>
+        </NavLink>
       </div>
     </div>
   );
