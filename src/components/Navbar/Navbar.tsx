@@ -19,7 +19,7 @@ export const Navbar = ({ isMenuOpen,
   handleSetIsMenuOpen, resolution }: NavbarProps) => {
 
   return (
-    <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
+    <nav className="navbar">
 
       {[Resolution.DESKTOP, Resolution.TABLET]
         .includes(resolution) && !isMenuOpen
