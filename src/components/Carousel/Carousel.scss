@@ -44,9 +44,12 @@
             &:hover {
                 background-color: $gray-color-2;
             }
-            // &--desktop {
-            //   height: 100%;
-            // }
+            &--desktop {
+              height: 100%;
+              @media(min-width: 1200px) {
+                width: 50px;
+              }
+            }
         }
 
 
@@ -54,6 +57,10 @@
 
     &__card-list {
         display: flex;
+        justify-content: flex-start;
+        @media(min-width: 640px) {
+          width: 80%;
+        }
         gap: 16px;
     }
 }

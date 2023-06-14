@@ -1,9 +1,12 @@
 @import '../../assets/variables';
 
 .category {
-    text-align: left;
     width: 100%;
     height: 100%;
+
+    @media (min-width: 1200px) {
+      width: 80%;
+    }
 
     &__header-title {
         font-family: 'Mont';
@@ -30,6 +33,9 @@
         @media(min-width: 640px) {
           width: 30%;
         }
+        // @media(min-width: 1200px) {
+        //   width: 40%;
+        // }
 
         &-title {
             font-family: 'Mont';
@@ -57,12 +63,17 @@
         }
 
         &-image {
-            @media (min-width: 640px) {
-              width: 100%;
+          height: 50%;
+            @media(min-width:640px) {
+              height: 60%;
+            }
+            @media(min-width:1200px) {
+              height: 50%;
             }
             &-container {
                 @media(min-width: 640px) {
                   height: 300px;
+                  // width: ;
                 }
                 @media(min-width: 1200px) {
                   height: 450px;
@@ -92,10 +103,7 @@
         font-size: 14px;
         line-height: 21px;
         color: $gray-color-1;
-        margin-bottom: 32px;
-        &:last-child {
-            margin-bottom: 90px;
-        }
+        margin-bottom: 20px;
         @media(min-width: 1200px) {
           font-size: 18px;
         }
