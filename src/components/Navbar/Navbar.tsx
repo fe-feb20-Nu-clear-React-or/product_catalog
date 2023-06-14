@@ -1,13 +1,21 @@
-import { NavLink } from 'react-router-dom';
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import favourites from '../../icons/Favourites (Heart Like).svg';
 import bag from '../../icons/Shopping bag (Cart).svg';
 import hamburgerMenu from '../../icons/HamburgerMenu.svg';
+import close from '../../icons/Close.svg';
 import logo from '../../icons/logo.svg';
 import logoIcon from '../../icons/logo-icon.svg';
 import './Navbar.scss';
 
-export const Navbar = () => {
+interface NavbarProps {
+  isMenuOpen: boolean,
+  handleSetIsMenuOpen: (isOpen: boolean) => void,
+}
+
+export const Navbar = ({ isMenuOpen, handleSetIsMenuOpen }: NavbarProps) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -22,9 +30,14 @@ export const Navbar = () => {
     };
   }, []);
 
+  const closeMenu = () => {
+    handleSetIsMenuOpen(false);
+  };
+
   return (
-    <nav className="navbar">
-      {windowSize >= 640
+    <nav className={isMenuOpen ? 'navbar navbar--menuOpen' : 'navbar'}>
+
+      {windowSize >= 640 && !isMenuOpen
         ? (
           <>
             <div className="navbar__links">
@@ -36,12 +49,31 @@ export const Navbar = () => {
                   alt="logo ok emoji"
                 />
               </div>
-              <NavLink to="/home" className="navbar__link">home</NavLink>
-              <NavLink to="/phones" className="navbar__link">phones</NavLink>
-              <NavLink to="/tablets" className="navbar__link">tablets</NavLink>
+              <NavLink
+                to="/home"
+                className="navbar__link"
+                onClick={closeMenu}
+              >
+                home
+              </NavLink>
+              <NavLink
+                to="/phones"
+                className="navbar__link"
+                onClick={closeMenu}
+              >
+                phones
+              </NavLink>
+              <NavLink
+                to="/tablets"
+                className="navbar__link"
+                onClick={closeMenu}
+              >
+                tablets
+              </NavLink>
               <NavLink
                 to="/accessories"
                 className="navbar__link"
+                onClick={closeMenu}
               >
                 accessories
               </NavLink>
@@ -67,9 +99,20 @@ export const Navbar = () => {
                 alt="logo ok emoji"
               />
             </div>
-            <div className="navbar__icon">
-              <img src={hamburgerMenu} alt="Hamburger Menu icon" />
-            </div>
+            {isMenuOpen
+              ? (
+                <div className="navbar__icon" onClick={closeMenu}>
+                  <img src={close} alt="close hamburger menu icon" />
+                </div>
+              )
+              : (
+                <div
+                  className="navbar__icon"
+                  onClick={() => handleSetIsMenuOpen(true)}
+                >
+                  <img src={hamburgerMenu} alt="hamburger menu icon" />
+                </div>
+              )}
           </>
         )}
 
