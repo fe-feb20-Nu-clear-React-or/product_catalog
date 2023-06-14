@@ -18,24 +18,34 @@
         }
     }
 &__image {
-    color: $white-color;
-    min-height: 320px;
-    margin-left: -16px;
+  &-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
     margin-bottom: 18px;
-    width: 100vw;
-    &-desktop-container {
-      display: flex;
-      justify-content: space-between;
-      height: 320px;
-      margin-bottom: 18px;
+  }
+  &-container {
+    height: 100%;
+    margin-bottom: 18px;
+    width: 100%;
+    background-image: url("../../photos/home-page-header-image-mobile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
+    @media(min-width: 640px) {
+      background-image: url("../../photos/home-page-header-image-desktop.png");
+      background-size: contain;
+      width: 80%;
     }
-    &--desktop {
-      width: 85%;
-      display: block;
-      margin-left: 0;
-      height: 100%;
+    @media (min-width: 1200px) {
+      width: 60%;
     }
+  }
+
+
 
 }
 

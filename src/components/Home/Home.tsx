@@ -1,16 +1,20 @@
-import  './Home.scss'
-import { Carousel } from '../Carousel/Carousel'
-import { Header } from '../Header/Header'
-import { Category } from '../Category/Category'
-import React from 'react'
+import './Home.scss';
+import { Carousel } from '../Carousel/Carousel';
+import { Header } from '../Header/Header';
+import { Category } from '../Category/Category';
+import { Resolution } from '../../types/Resolution';
 
-export const Home = () => {
-    return (
-        <main className="home">
-            <Header />
-            <Carousel />
-            <Category />
-            <Carousel />
-        </main>
-    )
+interface HomeProps {
+  resolution: Resolution,
 }
+
+export const Home:React.FC<HomeProps> = ({resolution}) => {
+  return (
+    <main className="home">
+      <Header resolution={resolution}/>
+      <Carousel resolution={resolution}/>
+      <Category />
+      <Carousel resolution={resolution}/>
+    </main>
+  );
+};

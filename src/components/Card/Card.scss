@@ -2,7 +2,15 @@
 
 .card {
     height: 450px;
-    min-width: 70%;
+    min-width: 55%;
+    @media(min-width: 640px) {
+      min-width: 33%;
+    }
+
+    @media(min-width: 1200px) {
+      min-width: 25%;
+    }
+  
     background-color: $gray-black-color-1;
     color: $white-color;
 }
