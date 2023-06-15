@@ -7,11 +7,12 @@ import { BasketEdit } from '../../types/BasketEdit';
 
 interface HomeProps {
   resolution: Resolution,
+  basketIds: {[id: string]: number},
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
 export const Home:React.FC<HomeProps> = ({
-  resolution, onBasketIdsSet
+  resolution, basketIds, onBasketIdsSet
 }) => {
   return (
     <main className="home">
@@ -21,6 +22,7 @@ export const Home:React.FC<HomeProps> = ({
       <div className="home__carousel">
         <Carousel
           resolution={resolution}
+          basketIds={basketIds}
           onBasketIdsSet={onBasketIdsSet}
         />
       </div>
@@ -30,6 +32,7 @@ export const Home:React.FC<HomeProps> = ({
       <div className="home__carousel">
         <Carousel
           resolution={resolution}
+          basketIds={basketIds}
           onBasketIdsSet={onBasketIdsSet}
         />
       </div>

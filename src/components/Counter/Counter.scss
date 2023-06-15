@@ -1,0 +1,38 @@
+@import '../../assets/variables';
+
+.counter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__number {
+    display: inline-block;
+    text-align: center;
+    width: 32px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: $white-color;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-sizing: border-box;
+    height: 32px;
+    width: 32px;
+    background-color: $gray-black-color-2;
+    cursor: pointer;
+
+    &--plus {
+      background-color: $gray-color-4;
+    }
+
+    &--minus {
+      border: 1px solid $gray-color-3;
+      color: $gray-color-3;
+    }
+  }
+}

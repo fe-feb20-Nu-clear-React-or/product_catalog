@@ -73,15 +73,33 @@
       justify-content: space-between;
       gap: 8px;
 
-       font-weight: bold;
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 14px;
-        line-height: 13px;
-        color: $white-color;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 14px;
+      line-height: 13px;
+      color: $white-color;
+
+        &--transparent {
+          align-items: center;
+          padding: 12px;
+          flex-grow: 6;
+          margin: 16px 0;
+          color: transparent;
+          text-overflow: collapse;
+          background-color: transparent;
+          border: 1px solid transparent;
+          position: relative;
+          user-select: none;
+        }
+
+        &--counter {
+          position: absolute;
+          top: calc(50% - 16px);
+          left: calc(50% - 48px);
+        }
 
         &--buy{
-
           align-items: center;
           padding: 12px;
           flex-grow: 6;
