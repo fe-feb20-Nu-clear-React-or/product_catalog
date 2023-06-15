@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import categoryImagePhones from '../../photos/category-image-phones-320.png';
-import categoryImageTablets from '../../photos/category-image-tablets-320.png';
-import categoryImageAccessories from '../../photos/category-image-accessories-320.png';
+import categoryImagePhones from '../../photos/category-image-phones-320.jpg';
+import categoryImageTablets from '../../photos/category-image-tablets-320.jpg';
+import categoryImageAccessories from '../../photos/category-image-accessories-320.jpg';
 import './Category.scss';
 
 export const Category = () => {
@@ -12,7 +12,7 @@ export const Category = () => {
       </article>
       <div className='category__item-wrapper'>
         <article className="category__item">
-          <div className="category__item-image-container category__item-image-container--phones">
+          <div className="category__item-image-container">
             <img
               className="category__item-image"
               src={categoryImagePhones}
@@ -24,7 +24,7 @@ export const Category = () => {
         </article>
 
         <article className="category__item">
-          <div className="category__item-image-container category__item-image-container--tablets">
+          <div className="category__item-image-container">
             <img
               className="category__item-image"
               src={categoryImageTablets}
@@ -36,7 +36,7 @@ export const Category = () => {
         </article>
 
         <article className="category__item">
-          <div className="category__item-image-container category__item-image-container--accessories">
+          <div className="category__item-image-container">
             <img
               className="category__item-image"
               src={categoryImageAccessories}
