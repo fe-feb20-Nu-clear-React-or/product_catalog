@@ -68,19 +68,11 @@ export const Carousel:React.FC<CarouselProps> = ({
 
   const renderVisibleCards = () => {
     return items.slice(startIndex, endIndex).map((item) => (
-<<<<<<< HEAD
       <Card
         key={item.id}
         product={item}
         style={{opacity: 1}}
         onBasketIdsSet={onBasketIdsSet}
-=======
-      <Card 
-        key={item.id} 
-        product={item} 
-        style={{opacity: 1}} 
-        handleSetBasketIds={handleSetBasketIds} 
->>>>>>> 5df14669e5c831492b5b219acdf06c629e6f816b
       />
     ));
   };
@@ -89,19 +81,11 @@ export const Carousel:React.FC<CarouselProps> = ({
     const hiddenCardsCount = perPage - (items.length % perPage);
 
     return items.slice(0, hiddenCardsCount).map((item) => (
-<<<<<<< HEAD
       <Card
         key={item.id}
         product={item}
         style={{ opacity: 0 }}
         onBasketIdsSet={onBasketIdsSet}
-=======
-      <Card 
-        key={item.id} 
-        product={item} 
-        style={{opacity: 0}} 
-        handleSetBasketIds={handleSetBasketIds} 
->>>>>>> 5df14669e5c831492b5b219acdf06c629e6f816b
       />
     ));
   };
