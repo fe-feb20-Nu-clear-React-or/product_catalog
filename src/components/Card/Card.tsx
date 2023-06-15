@@ -1,11 +1,12 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
 import { Page } from '../../types/Page';
+import { BasketEdit } from '../../types/BasketEdit';
 
 interface Props {
-  product:Product;
-  style: React.CSSProperties;
-  onBasketIdsSet: (id: string) => void,
+  product:Product,
+  style: React.CSSProperties,
+  onBasketIdsSet: (id: string, operation: BasketEdit) => void,
   currentPage: Page,
 }
 
@@ -45,12 +46,12 @@ export const Card:React.FC<Props> = ({product,
       <div className='card__buttons'>
         <a
           className="card__buttons--buy"
-          onClick={() => onBasketIdsSet(product.id)}
+          onClick={() => onBasketIdsSet(product.id, BasketEdit.ADD)}
         >
           {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
         </a>
         <a className="card__buttons--fav">
-          {currentPage === Page.HOME ? '3' : 'heart'}
+          {currentPage === Page.HOME ? '3' : '4'}
         </a>
       </div>
     </section>

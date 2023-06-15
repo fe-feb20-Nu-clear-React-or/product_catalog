@@ -7,9 +7,10 @@ import { Page } from '../../types/Page';
 import { Pagination } from '../Pagination/Pagination';
 import { Resolution } from '../../types/Resolution';
 import { handleItemsPerPageCalculate } from '../../assets/_functions';
+import { BasketEdit } from '../../types/BasketEdit';
 
 interface PhonesProps {
-  onBasketIdsSet: (id: string) => void,
+  onBasketIdsSet: (id: string, operation: BasketEdit) => void,
   resolution: Resolution,
 }
 
