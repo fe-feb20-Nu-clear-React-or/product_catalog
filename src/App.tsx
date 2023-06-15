@@ -11,8 +11,25 @@ import { Resolution } from './types/Resolution';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Navbar } from './components/Navbar/Navbar';
 import { Basket } from './components/Basket/Basket';
+import { useLocalStorage } from 'usehooks-ts';
 
 function App() {
+  const [
+    basketIds, setBasketIds
+  ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
+
+  const handleBasketIdsSet = (id: string) => {
+    setBasketIds(() => {
+      const basketIdsCopy: {[id: string]: number} = {...basketIds};
+
+      basketIdsCopy[id] = basketIdsCopy[id] || 0;
+      basketIdsCopy[id]++;
+
+      return basketIdsCopy;
+    });
+  };
+
+  console.log(basketIds);
 
   const handleResolutionSet = () => {
     if (window.innerWidth < 640) {
@@ -47,6 +64,8 @@ function App() {
 
   }, []);
 
+  console.log(resolution);
+
   return (
     <div className="App">
       <ApiDataProvider>
@@ -60,13 +79,18 @@ function App() {
           : (
             <>
               <Routes>
-                <Route path="/home" element={<Home resolution={resolution}/>} />
+                <Route path="/home" element={
+                  <Home
+                    resolution={resolution}
+                    onBasketIdsSet={handleBasketIdsSet}
+                  />
+                }/>
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route path="/phones" element={<Phones />}/>
                 <Route path="/tablets" element={<h1>tablets</h1>}/>
                 <Route path="/accessories" element={<h1>accessories</h1>}/>
                 <Route path="*" element={<NotFoundPage />} />
-                <Route path="/cart" element={<h1><Basket /></h1>}/>
+                <Route path="/cart" element={<Basket basketIds={basketIds}/>}/>
                 <Route path="/favourites" element={<h1>favourites</h1>}/>
               </Routes>
               <Footer />

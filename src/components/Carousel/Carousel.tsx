@@ -6,9 +6,12 @@ import { Resolution } from '../../types/Resolution';
 
 interface CarouselProps {
   resolution: Resolution,
+  onBasketIdsSet: (id: string) => void,
 }
 
-export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
+export const Carousel:React.FC<CarouselProps> = ({
+  resolution, onBasketIdsSet
+}) => {
   const perPage = function(){
     switch (resolution) {
       case Resolution.MOBILE:
@@ -31,7 +34,7 @@ export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
   const handlePreviousClick = () => {
     if (startIndex > 0) {
       const stepBack = startIndex - perPage;
-  
+
       setWillLastItem(false);
       setIsLastItem(false);
       setEndIndex(startIndex);
@@ -65,7 +68,12 @@ export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
 
   const renderVisibleCards = () => {
     return items.slice(startIndex, endIndex).map((item) => (
-      <Card key={item.id} product={item} style={{opacity: 1}}/>
+      <Card
+        key={item.id}
+        product={item}
+        style={{opacity: 1}}
+        onBasketIdsSet={onBasketIdsSet}
+      />
     ));
   };
 
@@ -73,7 +81,12 @@ export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
     const hiddenCardsCount = perPage - (items.length % perPage);
 
     return items.slice(0, hiddenCardsCount).map((item) => (
-      <Card key={item.id} product={item} style={{ opacity: 0 }} />
+      <Card
+        key={item.id}
+        product={item}
+        style={{ opacity: 0 }}
+        onBasketIdsSet={onBasketIdsSet}
+      />
     ));
   };
 

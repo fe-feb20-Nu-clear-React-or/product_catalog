@@ -5,13 +5,12 @@ import minus from '../../icons/Minus-gray.svg';
 import remove from '../../icons/Remove.svg';
 import placeholder from '../../img/phones/apple-iphone-11/black/01.jpg';
 
-
 interface BasketItemProps {
-  item: Product;
+  item: Product,
+  count: number,
 }
 
-
-export const BasketItem = ({ item }: BasketItemProps) => {
+export const BasketItem = ({ item, count }: BasketItemProps) => {
   return (
     <>
       <div className='basketItem'>
@@ -37,7 +36,7 @@ export const BasketItem = ({ item }: BasketItemProps) => {
               <img src={minus} alt="minus button" />
             </button>
 
-            <span className='basketItem__price-counter-number'>1</span>
+            <span className='basketItem__price-counter-number'>{count}</span>
 
             <button className='basketItem__button basketItem__button--plus'>
               <img src={plus} alt="plus button" />
