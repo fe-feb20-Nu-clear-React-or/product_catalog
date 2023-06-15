@@ -18,6 +18,14 @@
         line-height: 140%;
         color: $white-color;
         text-align: left;
+        @media(min-width: 640px) {
+          font-size: 32px;
+          line-height: 41px;
+        }
+        @media(min-width: 1200px) {
+          font-size: 40px;
+          line-height: 41px;
+        }
     }
     &__switch {
         &-buttons {
@@ -27,6 +35,7 @@
             width: calc(2*32px + 16px);
         }
         &-button {
+            cursor: pointer;
             width: 32px;
             height: 32px;
             background-color: $gray-color-4;
@@ -35,12 +44,20 @@
             &:hover {
                 background-color: $gray-color-2;
             }
+            &--desktop {
+              height: 100%;
+              @media(min-width: 1200px) {
+                width: 50px;
+              }
+            }
         }
+
 
     }
 
     &__card-list {
         display: flex;
+        justify-content: flex-start;
         gap: 16px;
     }
 }

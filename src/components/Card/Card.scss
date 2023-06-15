@@ -1,8 +1,139 @@
 @import '../../assets/variables';
-
 .card {
-    height: 450px;
-    min-width: 70%;
-    background-color: $gray-black-color-1;
+    font-family: "Mont", Arial, Helvetica, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 272px;
+    height: 506px;
+    //min-width: 70%;
+    background-color: $gray-black-color-2;
     color: $white-color;
+
+    padding: 32px;
+
+    &__photo {
+      width: 208px;
+      height: 196px;
+      margin: auto;
+      object-fit: scale-down;
+    }
+
+    &__name {
+      margin: 24px 0 8px;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 21px;
+      height: 42px;
+      color: $white-color;
+    }
+
+    &__divider {
+      height: 2px;
+      width: 100%;
+      margin: 8px 0;
+      background-color: $gray-color-3;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      width: auto;
+      margin: 4px 0;
+
+      &--details {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 20px;
+        color: $gray-color-1;
+        width: auto;
+      }
+      &__info--value {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        color: $white-color;
+        width: auto;
+      }
+    }
+
+    &__price {
+      font-weight: bolder;
+      font-size: 22px;
+      line-height: 31px;
+    }
+
+    &__buttons{
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 14px;
+      line-height: 13px;
+      color: $white-color;
+
+        &--transparent {
+          align-items: center;
+          padding: 12px;
+          flex-grow: 6;
+          margin: 16px 0;
+          color: transparent;
+          text-overflow: collapse;
+          background-color: transparent;
+          border: 1px solid transparent;
+          position: relative;
+          user-select: none;
+        }
+
+        &--counter {
+          position: absolute;
+          top: calc(50% - 16px);
+          left: calc(50% - 48px);
+        }
+
+        &--buy{
+          align-items: center;
+          padding: 12px;
+          flex-grow: 6;
+          margin: 16px 0;
+
+          background-color: $accent;
+          border: 1px solid transparent;
+
+          &:hover {
+            color: var(--light-blue);
+
+            background-color: var(--white);
+            border-color: var(--light-blue);
+
+            cursor: pointer;
+          }
+        }
+
+        &--fav{
+          align-items: center;
+          flex-grow: 1;
+          margin: 16px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $gray-color-2;
+          border: 1px solid transparent;
+        }
+    }
+
+    &--phones-page {
+      width: 80%;
+      height: 440px;
+      margin: 0 auto;
+    }
 }
+

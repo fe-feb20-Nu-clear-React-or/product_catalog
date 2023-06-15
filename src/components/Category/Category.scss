@@ -1,7 +1,13 @@
 @import '../../assets/variables';
 
 .category {
-    text-align: left;
+    width: 100%;
+    height: 100%;
+
+    // @media (min-width: 1200px) {
+    //   width: 80%;
+    // }
+
     &__header-title {
         font-family: 'Mont';
         font-style: normal;
@@ -10,10 +16,25 @@
         line-height: 140%;
         color: $white-color;
         margin-bottom: 24px;
+        @media(min-width: 640px) {
+          font-size: 32px;
+          line-height: 41px;
+          margin-left: 10%;
+        }
+        @media(min-width: 1600px) {
+          font-size: 40px;
+          line-height: 41px;
+          width: 60%;
+          margin-left: 25%;
+        }
     }
 
     &__item {
         color: $white-color;
+        @media(min-width: 640px) {
+          width: 30%;
+        }
+
         &-title {
             font-family: 'Mont';
             font-style: normal;
@@ -21,24 +42,36 @@
             font-size: 20px;
             line-height: 26px;
             margin-bottom: 4px;
-         
-        }
-        &-image {
-            &-container {
-                &--phones {
-                    background-color:  #6D6474;
-                }
-                &--tablets {
-                    background-color: $gray-color-1;
-                }
-                &--accessories {
-                    background-color: $red-color;
-                }
-
-                display: flex;
-                justify-content: flex-end;
-                margin-bottom: 15px;
+            @media(min-width: 1200px) {
+              font-size: 26px;
+              line-height: 26px;
             }
+        }
+
+        &-wrapper {
+          @media(min-width: 640px) {
+            display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+          }
+          @media(min-width: 1200px) {
+           margin-bottom: 90px;
+           width: 80%;
+           margin-left: 10%;
+          }
+
+          @media(min-width: 1600px) {
+
+           width: 50%;
+           margin-left: 25%;
+          }
+        }
+
+        &-image {
+          height: 80%;
+          width: 100%;
+          margin-bottom: 20px;
+
         }
     }
 
@@ -49,9 +82,9 @@
         font-size: 14px;
         line-height: 21px;
         color: $gray-color-1;
-        margin-bottom: 32px;
-        &:last-child {
-            margin-bottom: 90px;
+        margin-bottom: 20px;
+        @media(min-width: 1200px) {
+          font-size: 18px;
         }
     }
 }
