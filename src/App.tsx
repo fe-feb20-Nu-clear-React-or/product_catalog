@@ -97,6 +97,10 @@ function App() {
                     />
                   }
                 />
+<<<<<<< HEAD
+=======
+
+>>>>>>> 310025f6ed49c3e1fb0820c3b704a36ba236506d
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route
                   path="/phones"
@@ -106,6 +110,7 @@ function App() {
                 <Route path="/tablets" element={<h1>tablets</h1>} />
                 <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
+<<<<<<< HEAD
                 <Route
                   path="/cart"
                   element={<Basket
@@ -114,6 +119,15 @@ function App() {
                   />}
                 />
                 <Route path="/favourites" element={<h1>favourites</h1>} />
+=======
+
+                <Route path="/cart" element={<Basket
+                  basketIds={basketIds}
+                  onBasketIdsSet={handleBasketIdsSet}
+                />} />
+                <Route path="/favourites" element={<h1>favourites</h1>}/>
+
+>>>>>>> 310025f6ed49c3e1fb0820c3b704a36ba236506d
               </Routes>
               <Footer />
             </>
