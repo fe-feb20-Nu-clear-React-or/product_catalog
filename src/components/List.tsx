@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import ApiDataContext from '../ApiDataContext';
-import { Pagination } from './Pagination';
+import { Pagination } from './Pagination/Pagination';
 
 export const List = () => {
   const [perPage, setPerPage] = useState(5);

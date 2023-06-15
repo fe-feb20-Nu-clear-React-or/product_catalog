@@ -18,7 +18,7 @@ export const BasketItem = ({item, count, onBasketIdsSet}: BasketItemProps) => {
           <div className='basketItem__product-item'>
             <button
               className='basketItem__button basketItem__button--remove'
-              onClick={() => onBasketIdsSet(item.id, 'remove')}
+              onClick={() => onBasketIdsSet(item.id, BasketEdit.REMOVE)}
             >
               <img src={remove} alt="remove button" />
             </button>

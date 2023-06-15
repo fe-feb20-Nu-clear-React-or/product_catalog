@@ -3,6 +3,8 @@ import { Card } from '../Card/Card';
 import './Carousel.scss';
 import ApiDataContext from '../../ApiDataContext';
 import { Resolution } from '../../types/Resolution';
+import { Page } from '../../types/Page';
+import { handleItemsPerPageCalculate } from '../../assets/_functions';
 import { BasketEdit } from '../../types/BasketEdit';
 
 interface CarouselProps {
@@ -14,16 +16,7 @@ interface CarouselProps {
 export const Carousel:React.FC<CarouselProps> = ({
   resolution, basketIds, onBasketIdsSet
 }) => {
-  const perPage = function(){
-    switch (resolution) {
-      case Resolution.MOBILE:
-        return 2;
-      case Resolution.TABLET:
-        return 3;
-      case Resolution.DESKTOP:
-        return 4;
-    }
-  }();
+  const perPage = handleItemsPerPageCalculate(resolution);
 
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(perPage);
@@ -76,6 +69,7 @@ export const Carousel:React.FC<CarouselProps> = ({
         style={{opacity: 1}}
         count={basketIds[item.id]}
         onBasketIdsSet={onBasketIdsSet}
+        currentPage={Page.HOME}
       />
     ));
   };
@@ -90,6 +84,7 @@ export const Carousel:React.FC<CarouselProps> = ({
         style={{ opacity: 0 }}
         count={basketIds[item.id]}
         onBasketIdsSet={onBasketIdsSet}
+        currentPage={Page.HOME}
       />
     ));
   };

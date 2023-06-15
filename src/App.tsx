@@ -2,7 +2,7 @@ import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.scss';
-import { Phones } from './components/Phones';
+import { Phones } from './components/Phones/Phones';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Footer } from './components/Footer/Footer';
 import { ApiDataProvider } from './ApiDataContext';
@@ -75,8 +75,6 @@ function App() {
 
   }, []);
 
-  console.log(resolution);
-
   return (
     <div className="App">
       <ApiDataProvider>
@@ -96,9 +94,13 @@ function App() {
                   onBasketIdsSet={handleBasketIdsSet}
                 />} />
                 <Route path="/" element={<Navigate to="/home" />} />
-                <Route path="/phones" element={<Phones />}/>
-                <Route path="/tablets" element={<h1>tablets</h1>}/>
-                <Route path="/accessories" element={<h1>accessories</h1>}/>
+                <Route
+                  path="/phones"
+                  element={<Phones onBasketIdsSet={handleBasketIdsSet}
+                    resolution={resolution} />}
+                />
+                <Route path="/tablets" element={<h1>tablets</h1>} />
+                <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/cart" element={<Basket
                   basketIds={basketIds}
@@ -108,6 +110,7 @@ function App() {
               </Routes>
               <Footer />
             </>
+
           )}
       </ApiDataProvider>
     </div>
