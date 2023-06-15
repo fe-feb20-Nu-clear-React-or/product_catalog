@@ -1,18 +1,18 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
-import placeholder from '../../img/phones/apple-iphone-11/black/01.jpg';
 
 interface Props {
   product:Product;
+  style: React.CSSProperties,
   handleSetBasketIds: (id: string) => void,
 }
 
-export const Card:React.FC<Props> = ({product, handleSetBasketIds}) => {
+export const Card:React.FC<Props> = ({product, style, handleSetBasketIds}) => {
   return (
-    <section className="card">
+    <section className="card" style={style}>
       <img
         className="card__photo"
-        src={placeholder}
+        src={require(`../../${product.image}`)}
         alt={product.name}
       ></img>
       <h1 className="card__name">{product.name}</h1>

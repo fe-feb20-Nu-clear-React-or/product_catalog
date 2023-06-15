@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Card } from '../Card/Card';
 import './Carousel.scss';
 import ApiDataContext from '../../ApiDataContext';
@@ -22,32 +22,72 @@ export const Carousel:React.FC<CarouselProps> = ({
         return 4;
     }
   }();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [startItem, setStartItem] = useState((currentPage - 1) * perPage + 1);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_endItem, setEndItem] = useState(currentPage * perPage);
+
+  const [startIndex, setStartIndex] = useState(0);
+  const [endIndex, setEndIndex] = useState(perPage);
+  const [isFirstItem, setIsFirstItem] = useState(true);
+  const [isLastItem, setIsLastItem] = useState(false);
+  const [willLastItem, setWillLastItem] = useState(false);
 
   const items = useContext(ApiDataContext);
 
-  const onPageChange = (newCurrentPage: number) => {
-    setCurrentPage(newCurrentPage);
-  };
-
-  useEffect(() => {
-    setStartItem((currentPage - 1) * perPage + 1);
-    setEndItem(currentPage * perPage);
-  }, [currentPage, perPage]);
-
   const handlePreviousClick = () => {
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
+    if (startIndex > 0) {
+      const stepBack = startIndex - perPage;
+  
+      setWillLastItem(false);
+      setIsLastItem(false);
+      setEndIndex(startIndex);
+      setStartIndex(stepBack < 0 ? 0 : stepBack);
+
+    } else {
+      setIsFirstItem(true);
     }
   };
 
   const handleNextClick = () => {
-    if (Math.ceil(items.length / perPage) > currentPage) {
-      onPageChange(currentPage + 1);
+    const itemsLength = items.length;
+
+    if (endIndex < itemsLength) {
+      const stepForward = endIndex + perPage;
+
+      setIsFirstItem(false);
+      setStartIndex(endIndex);
+      setEndIndex(stepForward >= itemsLength ? itemsLength : stepForward);
+
+      if (endIndex + perPage > itemsLength) {
+        setWillLastItem(true);
+      } else {
+        setWillLastItem(false);
+      }
+
+    } else {
+      setIsLastItem(true);
     }
+  };
+
+  const renderVisibleCards = () => {
+    return items.slice(startIndex, endIndex).map((item) => (
+      <Card 
+        key={item.id} 
+        product={item} 
+        style={{opacity: 1}} 
+        handleSetBasketIds={handleSetBasketIds} 
+      />
+    ));
+  };
+
+  const renderHiddenCards = () => {
+    const hiddenCardsCount = perPage - (items.length % perPage);
+
+    return items.slice(0, hiddenCardsCount).map((item) => (
+      <Card 
+        key={item.id} 
+        product={item} 
+        style={{opacity: 0}} 
+        handleSetBasketIds={handleSetBasketIds} 
+      />
+    ));
   };
 
   return (
@@ -63,6 +103,7 @@ export const Carousel:React.FC<CarouselProps> = ({
             type="button"
             className="carousel__switch-button"
             onClick={handlePreviousClick}
+            disabled={isFirstItem}
           >
             {'<'}
           </button>
@@ -70,6 +111,7 @@ export const Carousel:React.FC<CarouselProps> = ({
             type="button"
             className="carousel__switch-button"
             onClick={handleNextClick}
+            disabled={isLastItem}
           >
             {'>'}
           </button>
@@ -77,20 +119,14 @@ export const Carousel:React.FC<CarouselProps> = ({
       </article>
 
       <article className="carousel__card-list">
-        {items.map((item, i) => {
-          const n = i - startItem - 1;
-
-          if (n >= 0 && n < perPage) {
-            return (
-              <Card
-                key={item.id} product={item}
-                handleSetBasketIds={handleSetBasketIds}
-              />
-            );
-          }
-
-          return null;
-        })}
+        {willLastItem ? (
+          <>
+            {renderVisibleCards()}
+            {renderHiddenCards()}
+          </>
+        ) : (
+          renderVisibleCards()
+        )}
       </article>
     </section>
   );
