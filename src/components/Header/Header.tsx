@@ -29,14 +29,12 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
   ];
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  const timeoutId = setTimeout(()=>{
-    console.log('saa');
-    handleSlideForward();
-  },4000);
-
   useEffect(()=>{
+    const timeoutId = setTimeout(()=>{
+      setCurrentSlideIndex(prev => (prev+1)%slidesDesktop.length);
+    },2000);
+
     return ()=>{
-      console.log('ree');
       clearTimeout(timeoutId);
     };
   });
