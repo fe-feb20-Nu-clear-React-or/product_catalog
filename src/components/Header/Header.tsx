@@ -6,9 +6,12 @@ import headerImageDesktop2 from
   '../../photos/home-page-header-image-desktop2.png';
 import headerImageDesktop3 from 
   '../../photos/home-page-header-image-desktop3.png';
-import headerImageMobile1 from '../../photos/home-page-header-image-mobile1.png';
-import headerImageMobile2 from '../../photos/home-page-header-image-mobile2.png';
-import headerImageMobile3 from '../../photos/home-page-header-image-mobile3.png';
+import headerImageMobile1 from 
+  '../../photos/home-page-header-image-mobile1.png';
+import headerImageMobile2 from 
+  '../../photos/home-page-header-image-mobile2.png';
+import headerImageMobile3 from 
+  '../../photos/home-page-header-image-mobile3.png';
 
 import React, { useState } from 'react';
 import './Header.scss';
