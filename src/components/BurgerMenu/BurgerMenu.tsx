@@ -6,10 +6,12 @@ import './BurgerMenu.scss';
 
 interface BurgerMenuProps {
   handleSetIsMenuOpen: (isOpen: boolean) => void,
-  totalItem: number,
+  totalItems: number,
 }
 
-export const BurgerMenu = ({handleSetIsMenuOpen,totalItem}:BurgerMenuProps) => {
+export const BurgerMenu = ({
+  handleSetIsMenuOpen, totalItems,
+}: BurgerMenuProps) => {
   const handleCloseMenu = () => {
     handleSetIsMenuOpen(false);
   };
@@ -53,10 +55,10 @@ export const BurgerMenu = ({handleSetIsMenuOpen,totalItem}:BurgerMenuProps) => {
           className='burgerMenu__icon'
           onClick={handleCloseMenu}
         >
-          <img src={totalItem ? bag : bagEmpty} alt="Shopping bag icon" />
-          {totalItem && (
+          <img src={totalItems ? bag : bagEmpty} alt="Shopping bag icon" />
+          {totalItems && (
             <div className="burgerMenu__icon-counter">
-              <span>{totalItem}</span>
+              <span>{totalItems}</span>
             </div>
           )}
         </NavLink>

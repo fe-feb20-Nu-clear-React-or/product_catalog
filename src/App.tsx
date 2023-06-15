@@ -13,12 +13,14 @@ import { Navbar } from './components/Navbar/Navbar';
 import { Basket } from './components/Basket/Basket';
 import { useLocalStorage } from 'usehooks-ts';
 import { BasketEdit } from './types/BasketEdit';
+import items from './api/phones.json';
 
 function App() {
   const [
     basketIds, setBasketIds
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
-  const [totalItem, setTotalItem] = useLocalStorage('totalItem', 0);
+  const [totalItems, setTotalItems] = useLocalStorage('totalItems', 0);
+  const [totalCost, setTotalCost] = useLocalStorage('totalCost', 0);
 
   const handleBasketIdsSet = (id: string, operation: BasketEdit) => {
     setBasketIds(() => {
@@ -38,12 +40,18 @@ function App() {
       }
 
       let total = 0;
+      let cost = 0;
 
       for (const id in basketIdsCopy) {
-        total += basketIdsCopy[id];
+        const amout = basketIdsCopy[id];
+        const item = items.find(item => item?.id === id);
+
+        total += amout;
+        cost += (item?.price || 0) * amout;
       }
 
-      setTotalItem(total);
+      setTotalItems(total);
+      setTotalCost(cost);
 
       return basketIdsCopy;
     });
@@ -91,12 +99,12 @@ function App() {
           isMenuOpen={isMenuOpen}
           handleSetIsMenuOpen={handlesetIsMenuOpen}
           resolution={resolution}
-          totalItem={totalItem}
+          totalItems={totalItems}
         />
         {isMenuOpen
           ? (<BurgerMenu
             handleSetIsMenuOpen={handlesetIsMenuOpen}
-            totalItem={totalItem}
+            totalItems={totalItems}
           />)
           : (
             <>
@@ -118,7 +126,8 @@ function App() {
                 <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/cart" element={<Basket
-                  totalItem={totalItem}
+                  totalCost={totalCost}
+                  totalItems={totalItems}
                   basketIds={basketIds}
                   onBasketIdsSet={handleBasketIdsSet} />}
                 />

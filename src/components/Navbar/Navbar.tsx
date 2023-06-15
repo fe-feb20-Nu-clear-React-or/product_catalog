@@ -13,12 +13,12 @@ interface NavbarProps {
   isMenuOpen: boolean,
   handleSetIsMenuOpen: (isOpen: boolean) => void,
   resolution: Resolution,
-  totalItem: number,
+  totalItems: number,
 }
 
 
 export const Navbar = ({ isMenuOpen,
-  handleSetIsMenuOpen, resolution, totalItem }: NavbarProps) => {
+  handleSetIsMenuOpen, resolution, totalItems }: NavbarProps) => {
 
   return (
     <nav className="navbar">
@@ -55,10 +55,10 @@ export const Navbar = ({ isMenuOpen,
                 <img src={favourites} alt="Favourites icon" />
               </NavLink>
               <NavLink to="/cart" className="navbar__icon">
-                <img src={totalItem ? bag : bagEmpty} alt="Shopping bag icon" />
-                {totalItem && (
+                <img src={totalItems ? bag : bagEmpty} alt="Shopping bag icon"/>
+                {totalItems && (
                   <div className="navbar__icon-counter">
-                    <span>{totalItem}</span>
+                    <span>{totalItems}</span>
                   </div>
                 )}
               </NavLink>

@@ -6,12 +6,15 @@ import { useContext } from 'react';
 import { BasketEdit } from '../../types/BasketEdit';
 
 interface BasketProps {
-  totalItem: number,
+  totalCost: number,
+  totalItems: number,
   basketIds: {[id: string]: number},
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
-export const Basket = ({totalItem, basketIds, onBasketIdsSet}: BasketProps) => {
+export const Basket = ({
+  totalCost, totalItems, basketIds, onBasketIdsSet
+}:BasketProps) => {
   const items = useContext(ApiDataContext);
   const ids = Object.keys(basketIds);
   const selectedItems = ids.map(id => items.find(item => item.id === id));
@@ -40,8 +43,8 @@ export const Basket = ({totalItem, basketIds, onBasketIdsSet}: BasketProps) => {
         </div>
 
         <div className='basket__checkout'>
-          <h2 className='basket__total'>$2657</h2>
-          <h3 className='basket__total-text'>Total for {totalItem} items</h3>
+          <h2 className='basket__total'>{`$${totalCost}`}</h2>
+          <h3 className='basket__total-text'>Total for {totalItems} items</h3>
           <button className='basket__button'>Checkout</button>
         </div>
       </div>
