@@ -1,1 +1,5 @@
-export type BasketEdit = 'add' | 'minus' | 'remove';
+export enum BasketEdit {
+  ADD = 'add',
+  REMOVE ='remove',
+  MINUS = 'minus',
+}

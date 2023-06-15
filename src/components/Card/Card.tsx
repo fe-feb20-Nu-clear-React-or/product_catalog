@@ -1,26 +1,34 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
-import favourites from '../../icons/Favourites (Heart Like).svg';
-import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
-import { useState } from 'react';
+import { Page } from '../../types/Page';
 import { BasketEdit } from '../../types/BasketEdit';
+import { useState } from 'react';
+import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
+import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 
 interface Props {
-  product:Product;
-  style: React.CSSProperties;
+  product:Product,
+  style: React.CSSProperties,
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
+  currentPage: Page,
 }
 
-export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
-  const [faved,setFaved]=useState(false);
+export const Card:React.FC<Props>
+= ({product, style, onBasketIdsSet, currentPage}) => {
+  const [faved,setFaved]= useState(false);
 
   const handleFaving = () => {
     setFaved(prev => !prev);
     // add to faved function
   };
 
+  const cardClassName = currentPage === Page.HOME
+    ? 'card'
+    : 'card card--phones-page';
+
+
   return (
-    <section className="card" style={style}>
+    <section className={cardClassName} style={style}>
       <img
         className="card__photo"
         src={require(`../../${product.image}`)}
@@ -49,15 +57,19 @@ export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
       <div className='card__buttons'>
         <a
           className="card__buttons--buy"
-          onClick={() => onBasketIdsSet(product.id, 'add')}
+          onClick={() => onBasketIdsSet(product.id, BasketEdit.ADD)}
         >
-            Buy
+          {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
         </a>
         <a
           className="card__buttons--fav"
-          onClick={()=>handleFaving()}
+          onClick={()=> currentPage === Page.PHONES ? handleFaving() : null}
         >
-          <img src={faved?favouritesFilled:favourites} alt="Favourites icon" />
+          {currentPage === Page.HOME
+            ? '3'
+            : <img src={faved
+              ? FavoriteIcon
+              : SelectedFavoriteIcon} alt="Favourites icon" />}
         </a>
       </div>
     </section>

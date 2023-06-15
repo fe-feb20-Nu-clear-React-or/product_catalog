@@ -19,7 +19,7 @@ export const BasketItem = ({item, count, onBasketIdsSet}: BasketItemProps) => {
           <div className='basketItem__product-item'>
             <button
               className='basketItem__button basketItem__button--remove'
-              onClick={() => onBasketIdsSet(item.id, 'remove')}
+              onClick={() => onBasketIdsSet(item.id, BasketEdit.REMOVE)}
             >
               <img src={remove} alt="remove button" />
             </button>
@@ -38,7 +38,7 @@ export const BasketItem = ({item, count, onBasketIdsSet}: BasketItemProps) => {
           <div className='basketItem__price-counter'>
             <button
               className='basketItem__button basketItem__button--minus'
-              onClick={() => onBasketIdsSet(item.id, 'minus')}
+              onClick={() => onBasketIdsSet(item.id, BasketEdit.MINUS)}
             >
               <img src={minus} alt="minus button" />
             </button>
@@ -47,7 +47,7 @@ export const BasketItem = ({item, count, onBasketIdsSet}: BasketItemProps) => {
 
             <button
               className='basketItem__button basketItem__button--plus'
-              onClick={() => onBasketIdsSet(item.id, 'add')}
+              onClick={() => onBasketIdsSet(item.id, BasketEdit.ADD)}
             >
               <img src={plus} alt="plus button" />
             </button>

@@ -1,0 +1,23 @@
+@import '../../assets/variables';
+
+.filter {
+  color: $gray-color-1;
+  border: none;
+  font-family: 'Mont';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 0;
+  &__title {
+    margin-bottom: 4px;
+  }
+  &__selection {
+    background-color: $gray-color-1;
+    color: $white-color;
+    width: 136px;
+    height: 40px;
+    text-align: left;
+    padding: 10px;
+  }
+}
