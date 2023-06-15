@@ -1,19 +1,30 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
 import { Page } from '../../types/Page';
+import favourites from '../../icons/Favourites (Heart Like).svg';
+import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
+import { useState } from 'react';
+import { BasketEdit } from '../../types/BasketEdit';
 
 interface Props {
-  product:Product;
-  style: React.CSSProperties;
-  onBasketIdsSet: (id: string) => void,
+  product:Product,
+  style: React.CSSProperties,
+ onBasketIdsSet: (id: string, operation: BasketEdit) => void,
   currentPage: Page,
 }
 
-export const Card:React.FC<Props> = ({product,
-  onBasketIdsSet, style, currentPage}) => {
+export const Card:React.FC<Props> = ({product, style, onBasketIdsSet, currentPage}) => {
+  const [faved,setFaved]=useState(false);
+
+  const handleFaving = () => {
+    setFaved(prev => !prev);
+    // add to faved function
+  };
+  
   const cardClassName = currentPage === Page.HOME
-    ? 'card'
-    : 'card card--phones-page';
+   ? 'card'
+   : 'card card--phones-page';
+
 
   return (
     <section className={cardClassName} style={style}>
@@ -45,12 +56,18 @@ export const Card:React.FC<Props> = ({product,
       <div className='card__buttons'>
         <a
           className="card__buttons--buy"
-          onClick={() => onBasketIdsSet(product.id)}
+          onClick={() => onBasketIdsSet(product.id, 'add')}
         >
           {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
         </a>
         <a className="card__buttons--fav">
           {currentPage === Page.HOME ? '3' : 'heart'}
+        </a>
+        <a
+          className="card__buttons--fav"
+          onClick={()=>handleFaving()}
+        >
+          <img src={faved?favouritesFilled:favourites} alt="Favourites icon" />
         </a>
       </div>
     </section>

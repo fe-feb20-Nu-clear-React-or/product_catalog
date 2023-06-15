@@ -12,18 +12,29 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { Navbar } from './components/Navbar/Navbar';
 import { Basket } from './components/Basket/Basket';
 import { useLocalStorage } from 'usehooks-ts';
+import { BasketEdit } from './types/BasketEdit';
 
 function App() {
   const [
     basketIds, setBasketIds
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
 
-  const handleBasketIdsSet = (id: string) => {
+  const handleBasketIdsSet = (id: string, operation: BasketEdit) => {
     setBasketIds(() => {
       const basketIdsCopy: {[id: string]: number} = {...basketIds};
 
-      basketIdsCopy[id] = basketIdsCopy[id] || 0;
-      basketIdsCopy[id]++;
+      switch(operation) {
+        case 'add':
+          basketIdsCopy[id] = basketIdsCopy[id] || 0;
+          basketIdsCopy[id]++;
+          break;
+        case 'minus':
+          basketIdsCopy[id]--;
+          basketIdsCopy[id] <= 0 && delete basketIdsCopy[id];
+          break;
+        case 'remove':
+          delete basketIdsCopy[id];
+      }
 
       return basketIdsCopy;
     });
@@ -86,6 +97,7 @@ function App() {
                     />
                   }
                 />
+
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route
                   path="/phones"
@@ -95,11 +107,13 @@ function App() {
                 <Route path="/tablets" element={<h1>tablets</h1>} />
                 <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
-                <Route
-                  path="/cart"
-                  element={<Basket basketIds={basketIds} />}
-                />
-                <Route path="/favourites" element={<h1>favourites</h1>} />
+
+                <Route path="/cart" element={<Basket
+                  basketIds={basketIds}
+                  onBasketIdsSet={handleBasketIdsSet}
+                />} />
+                <Route path="/favourites" element={<h1>favourites</h1>}/>
+
               </Routes>
               <Footer />
             </>

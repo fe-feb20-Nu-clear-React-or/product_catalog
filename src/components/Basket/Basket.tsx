@@ -3,12 +3,14 @@ import returnIcon from '../../icons/Chevron (Arrow Left).svg';
 import { BasketItem } from '../BasketItem/BasketItem';
 import ApiDataContext from '../../ApiDataContext';
 import { useContext } from 'react';
+import { BasketEdit } from '../../types/BasketEdit';
 
 interface BasketProps {
   basketIds: {[id: string]: number},
+  onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
-export const Basket = ({ basketIds }: BasketProps) => {
+export const Basket = ({ basketIds, onBasketIdsSet }: BasketProps) => {
   const items = useContext(ApiDataContext);
   const ids = Object.keys(basketIds);
   const selectedItems = ids.map(id => items.find(item => item.id === id));
@@ -28,6 +30,7 @@ export const Basket = ({ basketIds }: BasketProps) => {
             if (item) {
               return <BasketItem
                 key={item.id} item={item} count={basketIds[item.id]}
+                onBasketIdsSet={onBasketIdsSet}
               />;
             }
 

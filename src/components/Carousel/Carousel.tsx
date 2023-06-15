@@ -5,10 +5,12 @@ import ApiDataContext from '../../ApiDataContext';
 import { Resolution } from '../../types/Resolution';
 import { Page } from '../../types/Page';
 import { handleItemsPerPageCalculate } from '../../assets/_functions';
+import { BasketEdit } from '../../types/BasketEdit';
+
 
 interface CarouselProps {
   resolution: Resolution,
-  onBasketIdsSet: (id: string) => void,
+  onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
 export const Carousel:React.FC<CarouselProps> = ({
