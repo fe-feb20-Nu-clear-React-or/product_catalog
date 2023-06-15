@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.93fb5596.css",
-    "main.js": "/product_catalog/static/js/main.62f65f51.js",
+    "main.css": "/product_catalog/static/css/main.7c38b5f4.css",
+    "main.js": "/product_catalog/static/js/main.1cf68671.js",
     "static/media/NiceGadgets.svg": "/product_catalog/static/media/NiceGadgets.eff1b05c560265bc17a9f6dba22e63fe.svg",
     "static/media/logo-icon.svg": "/product_catalog/static/media/logo-icon.c81ad27bdf612ac97607f7ec23d8ac4c.svg",
     "static/media/Mont-Regular.otf": "/product_catalog/static/media/Mont-Regular.1d26d89f7339866d3133.otf",
@@ -19,12 +19,13 @@
     "index.html": "/product_catalog/index.html",
     "static/media/Close.svg": "/product_catalog/static/media/Close.c89cd55fcda471b596c2997cc48e5674.svg",
     "static/media/HamburgerMenu.svg": "/product_catalog/static/media/HamburgerMenu.ccd1a9542b5bc584f2a1c0456d816ec9.svg",
+    "static/media/Chevron (Arrow Left).svg": "/product_catalog/static/media/Chevron (Arrow Left).f36975a3e6d71bc98712a5fbd281e627.svg",
     "static/media/Chevron (Arrow Up).svg": "/product_catalog/static/media/Chevron (Arrow Up).d7ccf9e94d5187a54e6e787c5eea5faf.svg",
-    "main.93fb5596.css.map": "/product_catalog/static/css/main.93fb5596.css.map",
-    "main.62f65f51.js.map": "/product_catalog/static/js/main.62f65f51.js.map"
+    "main.7c38b5f4.css.map": "/product_catalog/static/css/main.7c38b5f4.css.map",
+    "main.1cf68671.js.map": "/product_catalog/static/js/main.1cf68671.js.map"
   },
   "entrypoints": [
-    "static/css/main.93fb5596.css",
-    "static/js/main.62f65f51.js"
+    "static/css/main.7c38b5f4.css",
+    "static/js/main.1cf68671.js"
   ]
 }
