@@ -6,7 +6,9 @@ import headerImageDesktop2 from
   '../../photos/home-page-header-image-desktop2.png';
 import headerImageDesktop3 from 
   '../../photos/home-page-header-image-desktop3.png';
-import headerImageMobile from '../../photos/home-page-header-image-mobile.png';
+import headerImageMobile1 from '../../photos/home-page-header-image-mobile1.png';
+import headerImageMobile2 from '../../photos/home-page-header-image-mobile2.png';
+import headerImageMobile3 from '../../photos/home-page-header-image-mobile3.png';
 
 import React, { useState } from 'react';
 import './Header.scss';
@@ -16,17 +18,23 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ resolution }) => {
-  const slides = [headerImageDesktop1,headerImageDesktop2,headerImageDesktop3];
+  const slidesDesktop = [
+    headerImageDesktop1,headerImageDesktop2,headerImageDesktop3
+  ];
+  const slidesMobile = [
+    headerImageMobile1,headerImageMobile2,headerImageMobile3
+  ];
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   
 
   const handleSlideForward=()=>{
-    setCurrentSlideIndex(prev => (prev+1)%slides.length);
+    setCurrentSlideIndex(prev => (prev+1)%slidesDesktop.length);
   };
 
   const handleSlideBack=()=>{
-    setCurrentSlideIndex(prev => (prev-1+slides.length)%slides.length);
+    setCurrentSlideIndex(prev => 
+      (prev-1+slidesDesktop.length)%slidesDesktop.length);
   };
 
   return (
@@ -48,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
             </button>
             <img
               className="header__image"
-              src={slides[currentSlideIndex]}
+              src={slidesDesktop[currentSlideIndex]}
               alt="iphone header image"
             />
             <button
@@ -62,7 +70,7 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
         ) : (
           <img
             className="header__image"
-            src={headerImageMobile}
+            src={slidesMobile[currentSlideIndex]}
             alt="iphone header image"
           />
         )}
