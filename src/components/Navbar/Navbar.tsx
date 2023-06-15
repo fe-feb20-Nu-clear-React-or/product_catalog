@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import favourites from '../../icons/Favourites (Heart Like).svg';
-import bag from '../../icons/Shopping bag (Cart).svg';
+import bagEmpty from '../../icons/Shopping bag (Cart).svg';
+import bag from '../../icons/Shopping bag + Counter(Cart).svg';
 import hamburgerMenu from '../../icons/HamburgerMenu.svg';
 import close from '../../icons/Close.svg';
 import logo from '../../icons/logo.svg';
@@ -12,11 +13,12 @@ interface NavbarProps {
   isMenuOpen: boolean,
   handleSetIsMenuOpen: (isOpen: boolean) => void,
   resolution: Resolution,
+  totalItem: number,
 }
 
 
 export const Navbar = ({ isMenuOpen,
-  handleSetIsMenuOpen, resolution }: NavbarProps) => {
+  handleSetIsMenuOpen, resolution, totalItem }: NavbarProps) => {
 
   return (
     <nav className="navbar">
@@ -53,7 +55,12 @@ export const Navbar = ({ isMenuOpen,
                 <img src={favourites} alt="Favourites icon" />
               </NavLink>
               <NavLink to="/cart" className="navbar__icon">
-                <img src={bag} alt="Shopping bag icon" />
+                <img src={totalItem ? bag : bagEmpty} alt="Shopping bag icon" />
+                {totalItem && (
+                  <div className="navbar__icon-counter">
+                    <span>{totalItem}</span>
+                  </div>
+                )}
               </NavLink>
             </div>
           </>

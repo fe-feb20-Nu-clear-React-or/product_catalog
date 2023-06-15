@@ -1,13 +1,15 @@
 import { NavLink } from "react-router-dom";
 import favourites from "../../icons/Favourites (Heart Like).svg";
-import bag from "../../icons/Shopping bag (Cart).svg";
+import bag from '../../icons/Shopping bag + Counter(Cart).svg';
+import bagEmpty from '../../icons/Shopping bag (Cart).svg';
 import './BurgerMenu.scss';
 
 interface BurgerMenuProps {
   handleSetIsMenuOpen: (isOpen: boolean) => void,
+  totalItem: number,
 }
 
-export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
+export const BurgerMenu = ({handleSetIsMenuOpen,totalItem}:BurgerMenuProps) => {
   const handleCloseMenu = () => {
     handleSetIsMenuOpen(false);
   };
@@ -51,7 +53,12 @@ export const BurgerMenu = ({handleSetIsMenuOpen}: BurgerMenuProps) => {
           className='burgerMenu__icon'
           onClick={handleCloseMenu}
         >
-          <img src={bag} alt="Shopping bag icon" />
+          <img src={totalItem ? bag : bagEmpty} alt="Shopping bag icon" />
+          {totalItem && (
+            <div className="burgerMenu__icon-counter">
+              <span>{totalItem}</span>
+            </div>
+          )}
         </NavLink>
       </div>
     </div>

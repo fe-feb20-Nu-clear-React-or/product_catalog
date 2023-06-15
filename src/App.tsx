@@ -18,6 +18,7 @@ function App() {
   const [
     basketIds, setBasketIds
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
+  const [totalItem, setTotalItem] = useLocalStorage('totalItem', 0);
 
   const handleBasketIdsSet = (id: string, operation: BasketEdit) => {
     setBasketIds(() => {
@@ -35,6 +36,14 @@ function App() {
         case 'remove':
           delete basketIdsCopy[id];
       }
+
+      let total = 0;
+
+      for (const id in basketIdsCopy) {
+        total += basketIdsCopy[id];
+      }
+
+      setTotalItem(total);
 
       return basketIdsCopy;
     });
@@ -82,9 +91,13 @@ function App() {
           isMenuOpen={isMenuOpen}
           handleSetIsMenuOpen={handlesetIsMenuOpen}
           resolution={resolution}
+          totalItem={totalItem}
         />
         {isMenuOpen
-          ? (<BurgerMenu handleSetIsMenuOpen={handlesetIsMenuOpen} />)
+          ? (<BurgerMenu
+            handleSetIsMenuOpen={handlesetIsMenuOpen}
+            totalItem={totalItem}
+          />)
           : (
             <>
               <Routes>
@@ -105,6 +118,7 @@ function App() {
                 <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/cart" element={<Basket
+                  totalItem={totalItem}
                   basketIds={basketIds}
                   onBasketIdsSet={handleBasketIdsSet} />}
                 />
