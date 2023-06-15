@@ -3,11 +3,12 @@ import './Card.scss';
 import favourites from '../../icons/Favourites (Heart Like).svg';
 import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
 import { useState } from 'react';
+import { BasketEdit } from '../../types/BasketEdit';
 
 interface Props {
   product:Product;
   style: React.CSSProperties;
-  onBasketIdsSet: (id: string) => void,
+  onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
 export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
@@ -17,7 +18,7 @@ export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
     setFaved(prev => !prev);
     // add to faved function
   };
-  
+
   return (
     <section className="card" style={style}>
       <img
@@ -48,13 +49,13 @@ export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
       <div className='card__buttons'>
         <a
           className="card__buttons--buy"
-          onClick={() => onBasketIdsSet(product.id)}
+          onClick={() => onBasketIdsSet(product.id, 'add')}
         >
             Buy
         </a>
         <a
           className="card__buttons--fav"
-          onClick={()=>handleFaving()}  
+          onClick={()=>handleFaving()}
         >
           <img src={faved?favouritesFilled:favourites} alt="Favourites icon" />
         </a>
