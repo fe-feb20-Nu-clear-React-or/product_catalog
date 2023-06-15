@@ -1,7 +1,13 @@
 import './Basket.scss';
 import returnIcon from '../../icons/Chevron (Arrow Left).svg';
+import { BasketItem } from '../BasketItem/BasketItem';
+import ApiDataContext from '../../ApiDataContext';
+import { useContext } from 'react';
 
 export const Basket = () => {
+  const items = useContext(ApiDataContext);
+  const selectedItems = items.filter(item => +item.id < 30 && +item.id > 25);
+
   return (
     <div className='basket'>
       <div className='basket__return'>
@@ -12,10 +18,8 @@ export const Basket = () => {
       <h1 className='basket__title'>Cart</h1>
 
       <div className='basket__content'>
-        <div className='basket__items-list'>
-          <div className='basket__item'></div>
-          <div className='basket__item'></div>
-          <div className='basket__item'></div>
+        <div className='basket__items'>
+          {selectedItems.map(item => <BasketItem key={item.id} item={item} />)}
         </div>
 
         <div className='basket__checkout'>
