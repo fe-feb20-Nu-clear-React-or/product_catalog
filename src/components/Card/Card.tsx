@@ -1,12 +1,22 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
 import placeholder from '../../img/phones/apple-iphone-11/black/01.jpg';
+import favourites from '../../icons/Favourites (Heart Like).svg';
+import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
+import { useState } from 'react';
 
 interface Props {
   product:Product;
 }
 
 export const Card:React.FC<Props> = ({product}) => {
+  const [faved,setFaved]=useState(false);
+
+  const handleFaving = () => {
+    setFaved(prev => !prev);
+    // add to faved function
+  };
+
   return (
     <section className="card">
       <img 
@@ -36,7 +46,12 @@ export const Card:React.FC<Props> = ({product}) => {
   
       <div className='card__buttons'>
         <a className="card__buttons--buy">Buy</a>
-        <a className="card__buttons--fav">3</a>
+        <a
+          className="card__buttons--fav"
+          onClick={()=>handleFaving()}  
+        >
+          <img src={faved?favouritesFilled:favourites} alt="Favourites icon" />
+        </a>
       </div>
       
   
