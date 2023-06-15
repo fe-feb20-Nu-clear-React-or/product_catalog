@@ -1,0 +1,63 @@
+@import '../../assets/variables';
+
+.phones {
+  padding: 25px 16px;
+  color: $white-color;
+  box-sizing: border-box;
+
+  &__header{
+
+    &-path {
+      display: flex;
+      margin-bottom: 24px;
+      font-family: 'Mont';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      align-items: center;
+
+      &-home-icon {
+        background-image: url(../../icons/Home.svg);
+        color: $white-color;
+        background-position: center;
+        background-size: cover;
+        width: 16px;
+        height: 16px;
+      }
+
+      &-page-name {
+        color: $gray-color-1;
+      }
+
+    }
+    &-title {
+      margin-bottom: 8px;
+      font-family: 'Mont';
+      font-style: normal;
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 41px;
+    }
+    &-model-amount {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: $gray-color-1;
+      margin-bottom: 50px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &-filters {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    &-item {
+      margin-bottom: 40px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../assets/variables';
+
+.pagination {
+  > li:nth-child(2) {
+    /* Styles for the second child */
+    margin-left: 10px;
+  }
+
+  > li:nth-last-child(2) {
+    /* Styles for the second-to-last child */
+    margin-right: 10px;
+  }
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Mont';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  width: 250px;
+  margin: 0 auto;
+  &__page-button {
+    color: $white-color;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $gray-color-4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $gray-color-4;
+    &:hover {
+      background-color: $accent;
+    }
+  }
+}

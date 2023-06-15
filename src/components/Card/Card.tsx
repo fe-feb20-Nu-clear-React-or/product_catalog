@@ -1,17 +1,22 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
+import { Page } from '../../types/Page';
 
 interface Props {
   product:Product;
   style: React.CSSProperties;
   onBasketIdsSet: (id: string) => void,
+  currentPage: Page,
 }
 
+export const Card:React.FC<Props> = ({product,
+  onBasketIdsSet, style, currentPage}) => {
+  const cardClassName = currentPage === Page.HOME
+    ? 'card'
+    : 'card card--phones-page';
 
-
-export const Card:React.FC<Props> = ({product, onBasketIdsSet, style}) => {
   return (
-    <section className="card" style={style}>
+    <section className={cardClassName} style={style}>
       <img
         className="card__photo"
         src={require(`../../${product.image}`)}
@@ -42,9 +47,11 @@ export const Card:React.FC<Props> = ({product, onBasketIdsSet, style}) => {
           className="card__buttons--buy"
           onClick={() => onBasketIdsSet(product.id)}
         >
-            Buy
+          {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
         </a>
-        <a className="card__buttons--fav">3</a>
+        <a className="card__buttons--fav">
+          {currentPage === Page.HOME ? '3' : 'heart'}
+        </a>
       </div>
     </section>
   );
