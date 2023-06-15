@@ -6,9 +6,12 @@ import { Resolution } from '../../types/Resolution';
 
 interface CarouselProps {
   resolution: Resolution,
+  handleSetBasketIds: (id: string) => void,
 }
 
-export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
+export const Carousel:React.FC<CarouselProps> = ({
+  resolution, handleSetBasketIds
+}) => {
   const perPage = function(){
     switch (resolution) {
       case Resolution.MOBILE:
@@ -79,7 +82,10 @@ export const Carousel:React.FC<CarouselProps> = ({resolution}) => {
 
           if (n >= 0 && n < perPage) {
             return (
-              <Card key={item.id} product={item} />
+              <Card
+                key={item.id} product={item}
+                handleSetBasketIds={handleSetBasketIds}
+              />
             );
           }
 

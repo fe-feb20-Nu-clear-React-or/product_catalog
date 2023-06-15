@@ -4,9 +4,15 @@ import { BasketItem } from '../BasketItem/BasketItem';
 import ApiDataContext from '../../ApiDataContext';
 import { useContext } from 'react';
 
-export const Basket = () => {
+
+interface BasketProps {
+  basketIds: {[id: string]: number},
+}
+
+export const Basket = ({ basketIds }: BasketProps) => {
   const items = useContext(ApiDataContext);
-  const selectedItems = items.filter(item => +item.id < 30 && +item.id > 25);
+  const ids = Object.keys(basketIds);
+  const selectedItems = ids.map(id => items.find(item => item.id === id));
 
   return (
     <div className='basket'>
@@ -19,7 +25,15 @@ export const Basket = () => {
 
       <div className='basket__content'>
         <div className='basket__items'>
-          {selectedItems.map(item => <BasketItem key={item.id} item={item} />)}
+          {selectedItems.map(item => {
+            if (item) {
+              return <BasketItem
+                key={item.id} item={item} count={basketIds[item.id]}
+              />;
+            }
+
+            return;
+          })}
         </div>
 
         <div className='basket__checkout'>
