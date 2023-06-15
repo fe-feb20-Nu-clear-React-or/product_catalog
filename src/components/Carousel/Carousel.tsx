@@ -3,10 +3,11 @@ import { Card } from '../Card/Card';
 import './Carousel.scss';
 import ApiDataContext from '../../ApiDataContext';
 import { Resolution } from '../../types/Resolution';
+import { BasketEdit } from '../../types/BasketEdit';
 
 interface CarouselProps {
   resolution: Resolution,
-  onBasketIdsSet: (id: string) => void,
+  onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
 export const Carousel:React.FC<CarouselProps> = ({
