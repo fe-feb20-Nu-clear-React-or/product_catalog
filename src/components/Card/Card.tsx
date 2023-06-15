@@ -3,11 +3,12 @@ import './Card.scss';
 
 interface Props {
   product:Product;
+  style: React.CSSProperties;
 }
 
-export const Card:React.FC<Props> = ({product}) => {
+export const Card:React.FC<Props> = ({product, style}) => {
   return (
-    <section className="card">
+    <section className="card" style={style}>
       <img
         className="card__photo"
         src={require(`../../${product.image}`)}
@@ -37,8 +38,6 @@ export const Card:React.FC<Props> = ({product}) => {
         <a className="card__buttons--buy">Buy</a>
         <a className="card__buttons--fav">3</a>
       </div>
-
-
     </section>
   );
 };
