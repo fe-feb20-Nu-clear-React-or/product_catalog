@@ -1,5 +1,4 @@
 @import '../../assets/variables';
-
 .card {
     font-family: "Mont", Arial, Helvetica, sans-serif;
 
@@ -24,7 +23,6 @@
 
     &__name {
       margin: 24px 0 8px;
-
       font-weight: normal;
       font-size: 14px;
       line-height: 21px;
@@ -55,13 +53,11 @@
         color: $gray-color-1;
         width: auto;
       }
-
       &__info--value {
         font-weight: bold;
         font-size: 12px;
         line-height: 16px;
         color: $white-color;
-
         width: auto;
       }
     }
@@ -109,7 +105,6 @@
           padding: 12px;
           flex-grow: 1;
           margin: 16px 0;
-
           background-color: $gray-color-2;
           border: 1px solid transparent;
         }
