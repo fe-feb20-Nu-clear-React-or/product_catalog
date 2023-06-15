@@ -6,11 +6,11 @@ import { useState } from 'react';
 
 interface Props {
   product:Product;
-  style: React.CSSProperties,
-  handleSetBasketIds: (id: string) => void,
+  style: React.CSSProperties;
+  onBasketIdsSet: (id: string) => void,
 }
 
-export const Card:React.FC<Props> = ({product, style, handleSetBasketIds}) => {
+export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
   const [faved,setFaved]=useState(false);
 
   const handleFaving = () => {
@@ -48,7 +48,7 @@ export const Card:React.FC<Props> = ({product, style, handleSetBasketIds}) => {
       <div className='card__buttons'>
         <a
           className="card__buttons--buy"
-          onClick={() => handleSetBasketIds(product.id)}
+          onClick={() => onBasketIdsSet(product.id)}
         >
             Buy
         </a>

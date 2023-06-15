@@ -18,7 +18,7 @@ function App() {
     basketIds, setBasketIds
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
 
-  const handleSetBasketIds = (id: string) => {
+  const handleBasketIdsSet = (id: string) => {
     setBasketIds(() => {
       const basketIdsCopy: {[id: string]: number} = {...basketIds};
 
@@ -64,6 +64,8 @@ function App() {
 
   }, []);
 
+  console.log(resolution);
+
   return (
     <div className="App">
       <ApiDataProvider>
@@ -80,7 +82,7 @@ function App() {
                 <Route path="/home" element={
                   <Home
                     resolution={resolution}
-                    handleSetBasketIds={handleSetBasketIds}
+                    onBasketIdsSet={handleBasketIdsSet}
                   />
                 }/>
                 <Route path="/" element={<Navigate to="/home" />} />

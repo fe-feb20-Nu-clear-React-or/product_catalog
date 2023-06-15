@@ -6,11 +6,11 @@ import { Resolution } from '../../types/Resolution';
 
 interface HomeProps {
   resolution: Resolution,
-  handleSetBasketIds: (id: string) => void,
+  onBasketIdsSet: (id: string) => void,
 }
 
 export const Home:React.FC<HomeProps> = ({
-  resolution, handleSetBasketIds
+  resolution, onBasketIdsSet
 }) => {
   return (
     <main className="home">
@@ -20,7 +20,7 @@ export const Home:React.FC<HomeProps> = ({
       <div className="home__carousel">
         <Carousel
           resolution={resolution}
-          handleSetBasketIds={handleSetBasketIds}
+          onBasketIdsSet={onBasketIdsSet}
         />
       </div>
       <div className="home__category">
@@ -29,7 +29,7 @@ export const Home:React.FC<HomeProps> = ({
       <div className="home__carousel">
         <Carousel
           resolution={resolution}
-          handleSetBasketIds={handleSetBasketIds}
+          onBasketIdsSet={onBasketIdsSet}
         />
       </div>
     </main>
