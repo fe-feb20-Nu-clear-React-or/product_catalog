@@ -4,14 +4,16 @@ import favourites from '../../icons/Favourites (Heart Like).svg';
 import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
 import { useState } from 'react';
 import { BasketEdit } from '../../types/BasketEdit';
+import { Counter } from '../Counter/Counter';
 
 interface Props {
   product:Product;
   style: React.CSSProperties;
+  count: number,
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
-export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
+export const Card = ({product, style, count, onBasketIdsSet}:Props) => {
   const [faved,setFaved]=useState(false);
 
   const handleFaving = () => {
@@ -48,11 +50,21 @@ export const Card:React.FC<Props> = ({product, style, onBasketIdsSet}) => {
 
       <div className='card__buttons'>
         <a
-          className="card__buttons--buy"
-          onClick={() => onBasketIdsSet(product.id, 'add')}
+          className={count? "card__buttons--transparent" : "card__buttons--buy"}
+          onClick={() => !count && onBasketIdsSet(product.id, 'add')}
         >
             Buy
+          {count && (
+            <div className="card__buttons--counter">
+              <Counter
+                item={product}
+                count={count}
+                onBasketIdsSet={onBasketIdsSet}
+              />
+            </div>
+          )}
         </a>
+
         <a
           className="card__buttons--fav"
           onClick={()=>handleFaving()}

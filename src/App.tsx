@@ -92,6 +92,7 @@ function App() {
               <Routes>
                 <Route path="/home" element={<Home
                   resolution={resolution}
+                  basketIds={basketIds}
                   onBasketIdsSet={handleBasketIdsSet}
                 />} />
                 <Route path="/" element={<Navigate to="/home" />} />
