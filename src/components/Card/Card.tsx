@@ -1,6 +1,5 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
-import placeholder from '../../img/phones/apple-iphone-11/black/01.jpg';
 import favourites from '../../icons/Favourites (Heart Like).svg';
 import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
 import { useState } from 'react';
