@@ -13,7 +13,7 @@ import headerImageMobile2 from
 import headerImageMobile3 from 
   '../../photos/home-page-header-image-mobile3.png';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.scss';
 
 interface HeaderProps {
@@ -29,7 +29,17 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
   ];
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-  
+  const timeoutId = setTimeout(()=>{
+    console.log('saa');
+    handleSlideForward();
+  },4000);
+
+  useEffect(()=>{
+    return ()=>{
+      console.log('ree');
+      clearTimeout(timeoutId);
+    };
+  });
 
   const handleSlideForward=()=>{
     setCurrentSlideIndex(prev => (prev+1)%slidesDesktop.length);
@@ -47,6 +57,7 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
         {resolution !== Resolution.DESKTOP
           ? <br /> : <>&nbsp;</>} Gadgets store!
       </h1>
+      
       <div className="header__image-wrapper">
         {[Resolution.TABLET, Resolution.DESKTOP].includes(resolution) ? (
           <>
