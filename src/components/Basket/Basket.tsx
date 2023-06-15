@@ -4,7 +4,6 @@ import { BasketItem } from '../BasketItem/BasketItem';
 import ApiDataContext from '../../ApiDataContext';
 import { useContext } from 'react';
 
-
 interface BasketProps {
   basketIds: {[id: string]: number},
 }
