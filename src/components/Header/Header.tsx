@@ -12,7 +12,6 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ resolution }) => {
-
   return (
     <section className="header">
       <h1 className="header__title">
