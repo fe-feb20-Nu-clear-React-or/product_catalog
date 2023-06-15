@@ -76,9 +76,24 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
         )}
       </div>
       <span className="header__navigation">
-        <div className={`header__navigation-bar${currentSlideIndex===0?' header__navigation-bar--active':''}`}></div>
-        <div className={`header__navigation-bar${currentSlideIndex===1?' header__navigation-bar--active':''}`}></div>
-        <div className={`header__navigation-bar${currentSlideIndex===2?' header__navigation-bar--active':''}`}></div>
+        <div
+          className={`header__navigation-bar${currentSlideIndex===0
+            ?' header__navigation-bar--active'
+            :''}`}
+          onClick={()=>setCurrentSlideIndex(0)}
+        ></div>
+        <div
+          className={`header__navigation-bar${currentSlideIndex===1
+            ?' header__navigation-bar--active'
+            :''}`}
+          onClick={()=>setCurrentSlideIndex(1)}
+        ></div>
+        <div
+          className={`header__navigation-bar${currentSlideIndex===2
+            ?' header__navigation-bar--active'
+            :''}`}
+          onClick={()=>setCurrentSlideIndex(2)}
+        ></div>
       </span>
     </section>
   );
