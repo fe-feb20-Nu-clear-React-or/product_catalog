@@ -3,10 +3,11 @@ import './Card.scss';
 
 interface Props {
   product:Product;
-  style: React.CSSProperties;
+  style: React.CSSProperties,
+  handleSetBasketIds: (id: string) => void,
 }
 
-export const Card:React.FC<Props> = ({product, style}) => {
+export const Card:React.FC<Props> = ({product, style, handleSetBasketIds}) => {
   return (
     <section className="card" style={style}>
       <img
@@ -35,7 +36,12 @@ export const Card:React.FC<Props> = ({product, style}) => {
       </div>
 
       <div className='card__buttons'>
-        <a className="card__buttons--buy">Buy</a>
+        <a
+          className="card__buttons--buy"
+          onClick={() => handleSetBasketIds(product.id)}
+        >
+            Buy
+        </a>
         <a className="card__buttons--fav">3</a>
       </div>
     </section>
