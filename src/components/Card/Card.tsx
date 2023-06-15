@@ -3,6 +3,7 @@ import './Card.scss';
 
 interface Props {
   product:Product;
+<<<<<<< HEAD
   style: React.CSSProperties;
   onBasketIdsSet: (id: string) => void,
 }
@@ -10,6 +11,13 @@ interface Props {
 
 
 export const Card:React.FC<Props> = ({product, onBasketIdsSet, style}) => {
+=======
+  style: React.CSSProperties,
+  handleSetBasketIds: (id: string) => void,
+}
+
+export const Card:React.FC<Props> = ({product, style, handleSetBasketIds}) => {
+>>>>>>> 5df14669e5c831492b5b219acdf06c629e6f816b
   return (
     <section className="card" style={style}>
       <img
