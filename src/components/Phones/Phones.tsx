@@ -10,11 +10,12 @@ import { handleItemsPerPageCalculate } from '../../assets/_functions';
 import { BasketEdit } from '../../types/BasketEdit';
 
 interface PhonesProps {
+  basketIds: {[id: string]: number},
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
   resolution: Resolution,
 }
 
-export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
+export const Phones = ({onBasketIdsSet, basketIds, resolution}:PhonesProps) => {
   const items = useContext(ApiDataContext);
 
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
@@ -89,6 +90,7 @@ export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
             <Card
               product={item}
               onBasketIdsSet={onBasketIdsSet}
+              count={basketIds[item.id]}
               style={{opacity: 1}}
               currentPage={Page.PHONES}
             />

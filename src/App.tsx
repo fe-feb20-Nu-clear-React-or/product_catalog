@@ -91,12 +91,14 @@ function App() {
                 <Route path="/home" element={<Home
                   resolution={resolution}
                   basketIds={basketIds}
-                  onBasketIdsSet={handleBasketIdsSet}
-                />} />
+                  onBasketIdsSet={handleBasketIdsSet} />}
+                />
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route
                   path="/phones"
-                  element={<Phones onBasketIdsSet={handleBasketIdsSet}
+                  element={<Phones
+                    basketIds={basketIds}
+                    onBasketIdsSet={handleBasketIdsSet}
                     resolution={resolution} />}
                 />
                 <Route path="/tablets" element={<h1>tablets</h1>} />
@@ -104,8 +106,8 @@ function App() {
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/cart" element={<Basket
                   basketIds={basketIds}
-                  onBasketIdsSet={handleBasketIdsSet}
-                />} />
+                  onBasketIdsSet={handleBasketIdsSet} />}
+                />
                 <Route path="/favourites" element={<h1>favourites</h1>}/>
               </Routes>
               <Footer />

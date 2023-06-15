@@ -76,13 +76,11 @@ export const Card:React.FC<Props>
 
         <a
           className="card__buttons--fav"
-          onClick={()=> currentPage === Page.PHONES ? handleFaving() : null}
+          onClick={handleFaving}
         >
-          {currentPage === Page.HOME
-            ? '3'
-            : <img src={faved
-              ? FavoriteIcon
-              : SelectedFavoriteIcon} alt="Favourites icon" />}
+          <img src={faved
+            ? FavoriteIcon
+            : SelectedFavoriteIcon} alt="Favourites icon" />
         </a>
       </div>
     </section>

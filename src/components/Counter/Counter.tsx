@@ -15,7 +15,7 @@ export const Counter = ({item, count, onBasketIdsSet}:CounterProps) => {
     <div className='counter'>
       <button
         className='counter__button counter__button--minus'
-        onClick={() => onBasketIdsSet(item.id, 'minus')}
+        onClick={() => onBasketIdsSet(item.id, BasketEdit.MINUS)}
       >
         <img src={minus} alt="minus button" />
       </button>
@@ -24,7 +24,7 @@ export const Counter = ({item, count, onBasketIdsSet}:CounterProps) => {
 
       <button
         className='counter__button counter__button--plus'
-        onClick={() => onBasketIdsSet(item.id, 'add')}
+        onClick={() => onBasketIdsSet(item.id, BasketEdit.ADD)}
       >
         <img src={plus} alt="plus button" />
       </button>
