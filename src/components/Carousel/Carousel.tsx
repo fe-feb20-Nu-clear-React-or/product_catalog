@@ -6,10 +6,6 @@ import { Resolution } from '../../types/Resolution';
 import { Page } from '../../types/Page';
 import { handleItemsPerPageCalculate } from '../../assets/_functions';
 import { BasketEdit } from '../../types/BasketEdit';
-<<<<<<< HEAD
-=======
-
->>>>>>> 310025f6ed49c3e1fb0820c3b704a36ba236506d
 
 interface CarouselProps {
   resolution: Resolution,

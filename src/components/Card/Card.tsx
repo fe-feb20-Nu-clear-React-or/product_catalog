@@ -1,41 +1,30 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
 import { Page } from '../../types/Page';
-<<<<<<< HEAD
-=======
-import favourites from '../../icons/Favourites (Heart Like).svg';
-import favouritesFilled from '../../icons/Favourites Filled (Heart Like).svg';
-import { useState } from 'react';
->>>>>>> 310025f6ed49c3e1fb0820c3b704a36ba236506d
 import { BasketEdit } from '../../types/BasketEdit';
+import { useState } from 'react';
+import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
+import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 
 interface Props {
   product:Product,
   style: React.CSSProperties,
-<<<<<<< HEAD
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
   currentPage: Page,
 }
 
-export const Card:React.FC<Props> = ({product,
-  onBasketIdsSet, style, currentPage}) => {
-=======
- onBasketIdsSet: (id: string, operation: BasketEdit) => void,
-  currentPage: Page,
-}
-
-export const Card:React.FC<Props> = ({product, style, onBasketIdsSet, currentPage}) => {
-  const [faved,setFaved]=useState(false);
+export const Card:React.FC<Props>
+= ({product, style, onBasketIdsSet, currentPage}) => {
+  const [faved,setFaved]= useState(false);
 
   const handleFaving = () => {
     setFaved(prev => !prev);
     // add to faved function
   };
-  
->>>>>>> 310025f6ed49c3e1fb0820c3b704a36ba236506d
+
   const cardClassName = currentPage === Page.HOME
-   ? 'card'
-   : 'card card--phones-page';
+    ? 'card'
+    : 'card card--phones-page';
 
 
   return (
@@ -72,18 +61,16 @@ export const Card:React.FC<Props> = ({product, style, onBasketIdsSet, currentPag
         >
           {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
         </a>
-        <a className="card__buttons--fav">
-          {currentPage === Page.HOME ? '3' : '4'}
-        </a>
-<<<<<<< HEAD
-=======
         <a
           className="card__buttons--fav"
-          onClick={()=>handleFaving()}
+          onClick={()=> currentPage === Page.PHONES ? handleFaving() : null}
         >
-          <img src={faved?favouritesFilled:favourites} alt="Favourites icon" />
+          {currentPage === Page.HOME
+            ? '3'
+            : <img src={faved
+              ? FavoriteIcon
+              : SelectedFavoriteIcon} alt="Favourites icon" />}
         </a>
->>>>>>> 310025f6ed49c3e1fb0820c3b704a36ba236506d
       </div>
     </section>
   );
