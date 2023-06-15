@@ -1,6 +1,5 @@
 import { Product } from '../../types/Product';
 import './Card.scss';
-// import placeholder from '../../img/phones/apple-iphone-11/green/01.jpg';
 
 interface Props {
   product:Product;
