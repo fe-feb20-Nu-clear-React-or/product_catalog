@@ -86,64 +86,84 @@
       line-height: 13px;
       color: $white-color;
 
-        &--transparent {
-          align-items: center;
-          padding: 12px;
-          flex-grow: 6;
-          margin: 16px 0;
-          color: transparent;
-          text-overflow: collapse;
-          background-color: transparent;
-          border: 1px solid transparent;
-          position: relative;
-          user-select: none;
+      &-transparent {
+        align-items: center;
+        padding: 12px;
+        flex-grow: 6;
+        margin: 16px 0;
+        color: transparent;
+        text-overflow: collapse;
+        background-color: transparent;
+        border: 1px solid transparent;
+        position: relative;
+        user-select: none;
+      }
+
+      &-counter {
+        position: absolute;
+        top: calc(50% - 16px);
+        left: calc(50% - 48px);
+      }
+
+      &-buy{
+        align-items: center;
+        padding: 12px;
+        flex-grow: 6;
+        margin: 16px 0;
+        background-color: $accent;
+        border: 1px solid transparent;
+
+        &:hover {
+          color: var(--light-blue);
+          background-color: var(--white);
+          border-color: var(--light-blue);
+          cursor: pointer;
         }
+      }
 
-        &--counter {
-          position: absolute;
-          top: calc(50% - 16px);
-          left: calc(50% - 48px);
-        }
+      &-fav{
+        align-items: center;
+        flex-grow: 1;
+        margin: 16px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $gray-color-2;
+        border: 1px solid transparent;
+        user-select: none;
 
-        &--buy{
-          align-items: center;
-          padding: 12px;
-          flex-grow: 6;
-          margin: 16px 0;
+        &:hover {
+          cursor: pointer;
+          background-image: url('../../icons/Favourites\ \(Heart\ Like\).svg');
+          background-repeat: no-repeat;
+          background-position: center;
 
-          background-color: $accent;
-          border: 1px solid transparent;
-
-          &:hover {
-            color: var(--light-blue);
-
-            background-color: var(--white);
-            border-color: var(--light-blue);
-
-            cursor: pointer;
+          img {
+            opacity: 0;
           }
         }
 
-        &--fav{
-          align-items: center;
-          flex-grow: 1;
-          margin: 16px 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background-color: $gray-color-2;
-          border: 1px solid transparent;
+        &:active {
+          border: 1px solid $gray-color-2;
+          background-color: $gray-color-3;
+        }
+
+        &--empty {
           &:hover {
-            cursor: pointer;
             background-image: url('../../icons/Favourites\ Filled\ \(Heart\ Like\).svg');
-            background-repeat: no-repeat;
-            background-position: center;
+          }
+        }
+
+        &--noHover {
+          &:hover {
+            background-image: none;
 
             img {
-              opacity: 0;
+              opacity: 1;
             }
           }
         }
+      }
     }
 
     &--phones-page {
@@ -157,4 +177,3 @@
 
     }
 }
-

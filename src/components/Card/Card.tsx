@@ -5,6 +5,8 @@ import { BasketEdit } from '../../types/BasketEdit';
 import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
 import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 import { Counter } from '../Counter/Counter';
+import { useState } from 'react';
+import classNames from 'classnames';
 
 interface Props {
   product:Product,
@@ -19,11 +21,18 @@ interface Props {
 export const Card:React.FC<Props> = ({
   product, style, count, onBasketIdsSet, currentPage, favIds, onFavsIdsSet
 }) => {
+  const [noHover, setNoHover] = useState(false);
+  const isFav = favIds.includes(product.id);
+
+  const favIconClassName = classNames({
+    'card__buttons-fav': true,
+    'card__buttons-fav--empty': !isFav,
+    'card__buttons-fav--noHover': noHover,
+  });
 
   const cardClassName = currentPage === Page.HOME
     ? 'card'
     : 'card card--phones-page';
-
 
   return (
     <section className={cardClassName} style={style}>
@@ -54,12 +63,12 @@ export const Card:React.FC<Props> = ({
 
       <div className='card__buttons'>
         <a
-          className={count? "card__buttons--transparent" : "card__buttons--buy"}
+          className={count? "card__buttons-transparent" : "card__buttons-buy"}
           onClick={() => !count && onBasketIdsSet(product.id, BasketEdit.ADD)}
         >
           {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
           {count && (
-            <div className="card__buttons--counter">
+            <div className="card__buttons-counter">
               <Counter
                 item={product}
                 count={count}
@@ -70,10 +79,14 @@ export const Card:React.FC<Props> = ({
         </a>
 
         <a
-          className="card__buttons--fav"
-          onClick={() => onFavsIdsSet(product.id)}
+          className={favIconClassName}
+          onMouseLeave={() => setNoHover(false)}
+          onClick={() => {
+            onFavsIdsSet(product.id);
+            setNoHover(true);
+          }}
         >
-          <img src={favIds.includes(product.id)
+          <img src={isFav
             ? FavoriteIcon
             : SelectedFavoriteIcon} alt="Favourites icon" />
         </a>
