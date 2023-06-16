@@ -23,9 +23,6 @@ export const Phones = ({
 }: PhonesProps) => {
   const items = useContext(ApiDataContext);
 
-  useEffect(()=>{
-    window.scrollTo(0,0);
-  },[]);
 
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
@@ -36,6 +33,11 @@ export const Phones = ({
   const [perPageVertically, setPerPageVertically] = useState(8);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(perPageVertically);
+
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[currentPage]);
+
 
   const handlePageSwitch = (page: number) => {
     setCurrentPage(page);
