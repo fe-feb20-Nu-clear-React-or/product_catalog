@@ -1,5 +1,5 @@
 import './App.scss';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route/*, Navigate*/ } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.scss';
 import { Phones } from './components/Phones/Phones';
@@ -136,7 +136,7 @@ function App() {
                   onBasketIdsSet={handleBasketIdsSet}
                   onFavsIdsSet={handleFavsIdsSet} />}
                 />
-                <Route path="/" element={<Navigate to="/home" />} />
+               {/* <Route path="/" element={<Navigate to="/home" />} /> */}
                 <Route
                   path="/phones"
                   element={<Phones
