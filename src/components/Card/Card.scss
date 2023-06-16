@@ -1,6 +1,7 @@
 @import '../../assets/variables';
 .card {
     font-family: "Mont", Arial, Helvetica, sans-serif;
+    transition: opacity 0.3s ease-in-out;
 
     display: flex;
     flex-direction: column;
@@ -19,6 +20,11 @@
       height: 196px;
       margin: auto;
       object-fit: scale-down;
+      transition: 0.1s ease-in-out;
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
     }
 
     &__name {
@@ -127,6 +133,12 @@
           align-items: center;
           background-color: $gray-color-2;
           border: 1px solid transparent;
+          &:hover {
+            cursor: pointer;
+            background-image: url('../../icons/Favourites\ Filled\ \(Heart\ Like\).svg');
+            background-repeat: no-repeat;
+            background-position: center;
+          }
         }
     }
 

@@ -8,6 +8,7 @@ import { Pagination } from '../Pagination/Pagination';
 import { Resolution } from '../../types/Resolution';
 import { handleItemsPerPageCalculate } from '../../assets/_functions';
 import { BasketEdit } from '../../types/BasketEdit';
+import { NavLink } from 'react-router-dom';
 
 interface PhonesProps {
   basketIds: {[id: string]: number},
@@ -22,10 +23,13 @@ export const Phones = ({
 }: PhonesProps) => {
   const items = useContext(ApiDataContext);
 
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[]);
+
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
   console.log(perPageHorizontal);
-  // const [sortedItems, setSortedItems] = useState([...items]);
   const [filter, setFilter] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -40,8 +44,6 @@ export const Phones = ({
   const handlePerPageVerticallySet = (value: string) => {
     setPerPageVertically(+value);
     setCurrentPage(1);
-    // setStartIndex(0);
-    // setEndIndex(perPageVertically);
   };
 
   console.log(items.length);
@@ -52,11 +54,9 @@ export const Phones = ({
         return [...items].sort((a,b)=>(a.price-b.price));
       case 'most expensive':
         return [...items].sort((a,b)=>(b.price-a.price));
-
       default:
         return items;
     }
-
   } ,[filter, currentPage]);
 
   const handleFilterSet = (filterValue:string) => {
@@ -76,7 +76,11 @@ export const Phones = ({
       <div className="phones__wrapper">
         <article className="phones__header">
           <div className="phones__header-path">
-            <p className="phones__header-path-home-icon"></p>
+            <NavLink
+              to="/home"
+              className="phones__header-path-home-icon"
+            >
+            </NavLink>
             <p className="phones__header-path-page-name">
           &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Phones
             </p>
