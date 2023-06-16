@@ -10,11 +10,13 @@ import { BasketEdit } from '../../types/BasketEdit';
 interface CarouselProps {
   resolution: Resolution,
   basketIds: {[id: string]: number},
+  favIds: string[],
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
+  onFavsIdsSet: (id: string) => void,
 }
 
 export const Carousel:React.FC<CarouselProps> = ({
-  resolution, basketIds, onBasketIdsSet
+  resolution, basketIds, favIds, onBasketIdsSet, onFavsIdsSet,
 }) => {
   const perPage = handleItemsPerPageCalculate(resolution);
 
@@ -69,6 +71,8 @@ export const Carousel:React.FC<CarouselProps> = ({
         style={{opacity: 1}}
         count={basketIds[item.id]}
         onBasketIdsSet={onBasketIdsSet}
+        onFavsIdsSet={onFavsIdsSet}
+        favIds={favIds}
         currentPage={Page.HOME}
       />
     ));
@@ -84,6 +88,8 @@ export const Carousel:React.FC<CarouselProps> = ({
         style={{ opacity: 0 }}
         count={basketIds[item.id]}
         onBasketIdsSet={onBasketIdsSet}
+        onFavsIdsSet={onFavsIdsSet}
+        favIds={favIds}
         currentPage={Page.HOME}
       />
     ));

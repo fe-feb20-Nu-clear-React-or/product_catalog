@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import './Footer.scss';
 import niceGadgets from '../../icons/NiceGadgets.svg';
 import upArrow from '../../icons/Chevron (Arrow Up).svg';
@@ -21,8 +20,7 @@ export const Footer = () => (
 
     <div className='footer__back-to-top'>
       <p className='footer__back-to-top-text'>Back to top</p>
-      <NavLink
-        to="/home"
+      <div
         className='footer__back-to-top-link'
         onClick={() => document.documentElement.scrollTop = 0}
       >
@@ -31,7 +29,7 @@ export const Footer = () => (
           alt="back-to-top"
           className="footer__back-to-top-image"
         />
-      </NavLink>
+      </div>
     </div>
   </footer>
 );
