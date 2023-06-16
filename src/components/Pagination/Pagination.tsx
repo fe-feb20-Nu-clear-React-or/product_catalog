@@ -24,7 +24,7 @@ export const Pagination: React.FC<PaginationProps>
 
   const handlePreviousClick = () => {
     if (startIndex > 0) {
-      const stepBack = startIndex - paginationStep;
+      const stepBack = startIndex - 1;
 
       setEndIndex(startIndex);
       setStartIndex(stepBack < 0 ? 0 : stepBack);
