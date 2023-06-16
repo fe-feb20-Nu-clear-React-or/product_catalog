@@ -10,16 +10,23 @@ import { handleItemsPerPageCalculate } from '../../assets/_functions';
 import { BasketEdit } from '../../types/BasketEdit';
 
 interface PhonesProps {
+  basketIds: {[id: string]: number},
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
+  onFavsIdsSet: (id: string) => void,
   resolution: Resolution,
+  favIds: string[],
 }
 
-export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
+export const Phones = ({
+  onBasketIdsSet, onFavsIdsSet, basketIds, resolution, favIds,
+}: PhonesProps) => {
   const items = useContext(ApiDataContext);
 
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
   console.log(perPageHorizontal);
+  const [sortedItems, setSortedItems] = useState([...items]);
+  const [filter, setFilter] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
 
   const [perPageVertically, setPerPageVertically] = useState(8);
@@ -37,8 +44,22 @@ export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
 
   console.log(items.length);
 
-  const handleFilterSet = () => {
-    return 1;
+  useEffect(()=>{
+    switch(filter){
+      case 'cheapest':
+        setSortedItems(()=>[...items].sort((a,b)=>(a.price-b.price)));
+        break;
+      case 'most expensive':
+        setSortedItems(()=>[...items].sort((a,b)=>(b.price-a.price)));
+        break;
+      default:
+        setSortedItems(items);
+    }
+  },[filter,sortedItems, currentPage]);
+
+  const handleFilterSet = (filterValue:string) => {
+    setFilter(filterValue);
+    console.log('filter',filter);
   };
 
   useEffect(() => {
@@ -54,12 +75,8 @@ export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
         <article className="phones__header">
           <div className="phones__header-path">
             <p className="phones__header-path-home-icon"></p>
-            <p
-              className="phones__header-path-page-name"
-            >
-              <>&nbsp;&nbsp;&nbsp;&nbsp;</>
-              {'>'}<>&nbsp;&nbsp;&nbsp;&nbsp;</>
-            Phones
+            <p className="phones__header-path-page-name">
+          &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Phones
             </p>
           </div>
           <h1 className="phones__header-title">Mobile Phones</h1>
@@ -68,31 +85,27 @@ export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
             <Filter
               title={'sort by'}
               options={['Newest',
-                'cheapest',
-                'most expensive',
-                'most purchased']}
+                'cheapest', 'most expensive', 'most purchased']}
               onOptionChange={handleFilterSet}
-
             />
             <Filter
               title={'items on page'}
-              options={['8',
-                '12',
-                '16',
-                '32']}
+              options={['8', '12', '16', '32']}
               onOptionChange={handlePerPageVerticallySet}
             />
           </div>
         </article>
         <ul className="phones__list">
-
-          {items.slice(startIndex, endIndex).map(item => (
+          {sortedItems.slice(startIndex, endIndex).map(item => (
             <li key={item.id} className="phones__list-item">
               <Card
                 product={item}
                 onBasketIdsSet={onBasketIdsSet}
-                style={{opacity: 1}}
+                onFavsIdsSet={onFavsIdsSet}
+                count={basketIds[item.id]}
+                style={{ opacity: 1 }}
                 currentPage={Page.PHONES}
+                favIds={favIds}
               />
             </li>
           ))}
@@ -101,7 +114,7 @@ export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
 
       <div className="phones__pagination">
         <Pagination
-          total={items.length}
+          total={sortedItems.length}
           perPage={perPageVertically}
           currentPage={currentPage}
           onPageChange={handlePageSwitch}

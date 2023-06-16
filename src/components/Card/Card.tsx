@@ -2,25 +2,23 @@ import { Product } from '../../types/Product';
 import './Card.scss';
 import { Page } from '../../types/Page';
 import { BasketEdit } from '../../types/BasketEdit';
-import { useState } from 'react';
 import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
 import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
+import { Counter } from '../Counter/Counter';
 
 interface Props {
   product:Product,
   style: React.CSSProperties,
+  count: number,
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
+  onFavsIdsSet: (id: string) => void,
+  favIds: string[],
   currentPage: Page,
 }
 
-export const Card:React.FC<Props>
-= ({product, style, onBasketIdsSet, currentPage}) => {
-  const [faved,setFaved]= useState(false);
-
-  const handleFaving = () => {
-    setFaved(prev => !prev);
-    // add to faved function
-  };
+export const Card:React.FC<Props> = ({
+  product, style, count, onBasketIdsSet, currentPage, favIds, onFavsIdsSet
+}) => {
 
   const cardClassName = currentPage === Page.HOME
     ? 'card'
@@ -56,20 +54,28 @@ export const Card:React.FC<Props>
 
       <div className='card__buttons'>
         <a
-          className="card__buttons--buy"
-          onClick={() => onBasketIdsSet(product.id, BasketEdit.ADD)}
+          className={count? "card__buttons--transparent" : "card__buttons--buy"}
+          onClick={() => !count && onBasketIdsSet(product.id, BasketEdit.ADD)}
         >
           {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
+          {count && (
+            <div className="card__buttons--counter">
+              <Counter
+                item={product}
+                count={count}
+                onBasketIdsSet={onBasketIdsSet}
+              />
+            </div>
+          )}
         </a>
+
         <a
           className="card__buttons--fav"
-          onClick={()=> currentPage === Page.PHONES ? handleFaving() : null}
+          onClick={() => onFavsIdsSet(product.id)}
         >
-          {currentPage === Page.HOME
-            ? '3'
-            : <img src={faved
-              ? FavoriteIcon
-              : SelectedFavoriteIcon} alt="Favourites icon" />}
+          <img src={favIds.includes(product.id)
+            ? FavoriteIcon
+            : SelectedFavoriteIcon} alt="Favourites icon" />
         </a>
       </div>
     </section>

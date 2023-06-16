@@ -1,9 +1,8 @@
 import { Product } from '../../types/Product';
 import './BasketItem.scss';
-import plus from '../../icons/Plus.svg';
-import minus from '../../icons/Minus-gray.svg';
 import remove from '../../icons/Remove.svg';
 import { BasketEdit } from '../../types/BasketEdit';
+import { Counter } from '../Counter/Counter';
 
 interface BasketItemProps {
   item: Product,
@@ -35,23 +34,7 @@ export const BasketItem = ({item, count, onBasketIdsSet}: BasketItemProps) => {
         </div>
 
         <div className='basketItem__price'>
-          <div className='basketItem__price-counter'>
-            <button
-              className='basketItem__button basketItem__button--minus'
-              onClick={() => onBasketIdsSet(item.id, BasketEdit.MINUS)}
-            >
-              <img src={minus} alt="minus button" />
-            </button>
-
-            <span className='basketItem__price-counter-number'>{count}</span>
-
-            <button
-              className='basketItem__button basketItem__button--plus'
-              onClick={() => onBasketIdsSet(item.id, BasketEdit.ADD)}
-            >
-              <img src={plus} alt="plus button" />
-            </button>
-          </div>
+          <Counter onBasketIdsSet={onBasketIdsSet} item={item} count={count} />
 
           <span className='basketItem__price-total'>{`$${item.price}`}</span>
         </div>

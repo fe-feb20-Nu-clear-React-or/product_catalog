@@ -13,11 +13,32 @@ import { Navbar } from './components/Navbar/Navbar';
 import { Basket } from './components/Basket/Basket';
 import { useLocalStorage } from 'usehooks-ts';
 import { BasketEdit } from './types/BasketEdit';
+import items from './api/phones.json';
 
 function App() {
   const [
     basketIds, setBasketIds
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
+  const [
+    favIds, setFavIds
+  ] = useLocalStorage<string[]>('favIds', []);
+  const [totalFavs, setTotalFavs] = useLocalStorage('totalFavs', 0);
+  const [totalItems, setTotalItems] = useLocalStorage('totalItems', 0);
+  const [totalCost, setTotalCost] = useLocalStorage('totalCost', 0);
+
+  const handleFavsIdsSet = (id: string) => {
+    const index = favIds.indexOf(id);
+
+    if (index !== -1) {
+      setTotalFavs(+totalFavs - 1);
+      setFavIds(favIds.filter(favid => favid !== id));
+    } else {
+      setTotalFavs(+totalFavs + 1);
+      setFavIds([...favIds, id]);
+    }
+
+    console.log(favIds, id);
+  };
 
   const handleBasketIdsSet = (id: string, operation: BasketEdit) => {
     setBasketIds(() => {
@@ -35,6 +56,20 @@ function App() {
         case 'remove':
           delete basketIdsCopy[id];
       }
+
+      let total = 0;
+      let cost = 0;
+
+      for (const id in basketIdsCopy) {
+        const amout = basketIdsCopy[id];
+        const item = items.find(item => item?.id === id);
+
+        total += amout;
+        cost += (item?.price || 0) * amout;
+      }
+
+      setTotalItems(total);
+      setTotalCost(cost);
 
       return basketIdsCopy;
     });
@@ -82,38 +117,45 @@ function App() {
           isMenuOpen={isMenuOpen}
           handleSetIsMenuOpen={handlesetIsMenuOpen}
           resolution={resolution}
+          totalItems={totalItems}
+          totalFavs={totalFavs}
         />
         {isMenuOpen
-          ? (<BurgerMenu handleSetIsMenuOpen={handlesetIsMenuOpen} />)
+          ? (<BurgerMenu
+            handleSetIsMenuOpen={handlesetIsMenuOpen}
+            totalItems={totalItems}
+            totalFavs={totalFavs}
+          />)
           : (
             <>
               <Routes>
-                <Route
-                  path="/home"
-                  element={
-                    <Home
-                      resolution={resolution}
-                      onBasketIdsSet={handleBasketIdsSet}
-                    />
-                  }
+                <Route path="/home" element={<Home
+                  resolution={resolution}
+                  basketIds={basketIds}
+                  favIds={favIds}
+                  onBasketIdsSet={handleBasketIdsSet}
+                  onFavsIdsSet={handleFavsIdsSet} />}
                 />
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route
                   path="/phones"
-                  element={<Phones onBasketIdsSet={handleBasketIdsSet}
+                  element={<Phones
+                    basketIds={basketIds}
+                    onBasketIdsSet={handleBasketIdsSet}
+                    onFavsIdsSet={handleFavsIdsSet}
+                    favIds={favIds}
                     resolution={resolution} />}
                 />
                 <Route path="/tablets" element={<h1>tablets</h1>} />
                 <Route path="/accessories" element={<h1>accessories</h1>} />
                 <Route path="*" element={<NotFoundPage />} />
-                <Route
-                  path="/cart"
-                  element={<Basket
-                    basketIds={basketIds}
-                    onBasketIdsSet={handleBasketIdsSet}
-                  />}
+                <Route path="/cart" element={<Basket
+                  totalCost={totalCost}
+                  totalItems={totalItems}
+                  basketIds={basketIds}
+                  onBasketIdsSet={handleBasketIdsSet} />}
                 />
-                <Route path="/favourites" element={<h1>favourites</h1>} />
+                <Route path="/favourites" element={<h1>favourites</h1>}/>
               </Routes>
               <Footer />
             </>
