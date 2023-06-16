@@ -50,51 +50,55 @@ export const Phones: React.FC<PhonesProps> = ({onBasketIdsSet, resolution}) => {
 
   return (
     <section className="phones">
-      <article className="phones__header">
-        <div className="phones__header-path">
-          <p className="phones__header-path-home-icon"></p>
-          <p
-            className="phones__header-path-page-name"
-          >
-            <>&nbsp;&nbsp;&nbsp;&nbsp;</>
-            {'>'}<>&nbsp;&nbsp;&nbsp;&nbsp;</>
+      <div className="phones__wrapper">
+        <article className="phones__header">
+          <div className="phones__header-path">
+            <p className="phones__header-path-home-icon"></p>
+            <p
+              className="phones__header-path-page-name"
+            >
+              <>&nbsp;&nbsp;&nbsp;&nbsp;</>
+              {'>'}<>&nbsp;&nbsp;&nbsp;&nbsp;</>
             Phones
-          </p>
-        </div>
-        <h1 className="phones__header-title">Mobile Phones</h1>
-        <p className="phones__header-model-amount">95 models</p>
-      </article>
-      <ul className="phones__list">
-        <div className="phones__list-filters">
-          <Filter
-            title={'sort by'}
-            options={['Newest',
-              'cheapest',
-              'most expensive',
-              'most purchased']}
-            onOptionChange={handleFilterSet}
+            </p>
+          </div>
+          <h1 className="phones__header-title">Mobile Phones</h1>
+          <p className="phones__header-model-amount">95 models</p>
+          <div className="phones__header-filters">
+            <Filter
+              title={'sort by'}
+              options={['Newest',
+                'cheapest',
+                'most expensive',
+                'most purchased']}
+              onOptionChange={handleFilterSet}
 
-          />
-          <Filter
-            title={'items on page'}
-            options={['8',
-              '12',
-              '16',
-              '32']}
-            onOptionChange={handlePerPageVerticallySet}
-          />
-        </div>
-        {items.slice(startIndex, endIndex).map(item => (
-          <li key={item.id} className="phones__list-item">
-            <Card
-              product={item}
-              onBasketIdsSet={onBasketIdsSet}
-              style={{opacity: 1}}
-              currentPage={Page.PHONES}
             />
-          </li>
-        ))}
-      </ul>
+            <Filter
+              title={'items on page'}
+              options={['8',
+                '12',
+                '16',
+                '32']}
+              onOptionChange={handlePerPageVerticallySet}
+            />
+          </div>
+        </article>
+        <ul className="phones__list">
+
+          {items.slice(startIndex, endIndex).map(item => (
+            <li key={item.id} className="phones__list-item">
+              <Card
+                product={item}
+                onBasketIdsSet={onBasketIdsSet}
+                style={{opacity: 1}}
+                currentPage={Page.PHONES}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className="phones__pagination">
         <Pagination
           total={items.length}
