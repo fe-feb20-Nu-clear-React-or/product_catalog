@@ -1,7 +1,7 @@
 {
   "name": "product_catalog",
   "version": "0.1.0",
-  "homepage": "https://fe-feb20-Nu-clear-React-or.github.io/product_catalog/",
+  "homepage": "https://fe-feb20-Nu-clear-React-or.github.io/product_catalog",
   "private": true,
   "dependencies": {
     "@microsoft/eslint-formatter-sarif": "^2.1.6",
