@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 
 interface PaginationProps {
@@ -16,6 +16,11 @@ export const Pagination: React.FC<PaginationProps>
   const paginationStep = 4;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(paginationStep);
+
+  useEffect(()=> {
+    setStartIndex(0);
+    setEndIndex(paginationStep);
+  }, [perPage]);
 
   const handlePreviousClick = () => {
     if (startIndex > 0) {
@@ -42,6 +47,11 @@ export const Pagination: React.FC<PaginationProps>
   const pageNumbers = Array
     .from({ length: pagesNumber }, (_, index) => index + 1);
 
+  const emptyBlocksNumber = paginationStep - pagesNumber % paginationStep;
+
+  const emptyBlocks = Array
+    .from({ length: emptyBlocksNumber }, (_, index) => index + 1);
+
   return (
     <ul className="pagination">
       <li className={`pagination__page-item ${currentPage === 1 ? 'disabled' : ''}`}>
@@ -59,19 +69,35 @@ export const Pagination: React.FC<PaginationProps>
           .slice(startIndex, endIndex)
           .map((pageNumber) => (
             <li
-            // eslint-disable-next-line react/no-array-index-key
               key={pageNumber}
               className="pagination__page-item"
               onClick={() => onPageChange(pageNumber)}
             >
               <button
-                className="pagination__page-button"
+                className={`${currentPage === pageNumber
+                  ? 'pagination__page-button pagination__page-button--active'
+                  : 'pagination__page-button'}`}
               >
                 {pageNumber}
               </button>
             </li>
           ))
       }
+
+      {endIndex === pagesNumber && emptyBlocks.map((_ , i) => (
+        <li
+          key={i}
+          className="pagination__page-item"
+          onClick={() => onPageChange(i)}
+          style={{opacity: 0}}
+        >
+          <button
+            className="pagination__page-button"
+          >
+            {i}
+          </button>
+        </li>
+      ))}
       <li className={`pagination__page-item ${Math.ceil(total / perPage) === currentPage ? 'disabled' : ''}`}>
         <button
           className="pagination__page-button pagination__page-button--arrow"

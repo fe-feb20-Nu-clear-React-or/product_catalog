@@ -1,5 +1,5 @@
 import { Card } from '../Card/Card';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { Filter } from "../Filter/Filter";
 import ApiDataContext from '../../ApiDataContext';
 import './Phones.scss';
@@ -8,6 +8,7 @@ import { Pagination } from '../Pagination/Pagination';
 import { Resolution } from '../../types/Resolution';
 import { handleItemsPerPageCalculate } from '../../assets/_functions';
 import { BasketEdit } from '../../types/BasketEdit';
+import { NavLink } from 'react-router-dom';
 
 interface PhonesProps {
   basketIds: {[id: string]: number},
@@ -22,10 +23,13 @@ export const Phones = ({
 }: PhonesProps) => {
   const items = useContext(ApiDataContext);
 
+  useEffect(()=>{
+    window.scrollTo(0,0);
+  },[]);
+
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
   console.log(perPageHorizontal);
-  const [sortedItems, setSortedItems] = useState([...items]);
   const [filter, setFilter] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -44,18 +48,16 @@ export const Phones = ({
 
   console.log(items.length);
 
-  useEffect(()=>{
+  const sortedItems = useMemo(()=> {
     switch(filter){
       case 'cheapest':
-        setSortedItems(()=>[...items].sort((a,b)=>(a.price-b.price)));
-        break;
+        return [...items].sort((a,b)=>(a.price-b.price));
       case 'most expensive':
-        setSortedItems(()=>[...items].sort((a,b)=>(b.price-a.price)));
-        break;
+        return [...items].sort((a,b)=>(b.price-a.price));
       default:
-        setSortedItems(items);
+        return items;
     }
-  },[filter,sortedItems, currentPage]);
+  } ,[filter, currentPage]);
 
   const handleFilterSet = (filterValue:string) => {
     setFilter(filterValue);
@@ -74,7 +76,11 @@ export const Phones = ({
       <div className="phones__wrapper">
         <article className="phones__header">
           <div className="phones__header-path">
-            <p className="phones__header-path-home-icon"></p>
+            <NavLink
+              to="/home"
+              className="phones__header-path-home-icon"
+            >
+            </NavLink>
             <p className="phones__header-path-page-name">
           &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Phones
             </p>

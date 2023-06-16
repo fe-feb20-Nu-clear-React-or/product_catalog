@@ -3,6 +3,7 @@ import categoryImagePhones from '../../photos/category-image-phones-320.jpg';
 import categoryImageTablets from '../../photos/category-image-tablets-320.jpg';
 import categoryImageAccessories from '../../photos/category-image-accessories-320.jpg';
 import './Category.scss';
+import { NavLink } from 'react-router-dom';
 
 export const Category = () => {
   return (
@@ -13,11 +14,16 @@ export const Category = () => {
       <div className='category__item-wrapper'>
         <article className="category__item">
           <div className="category__item-image-container">
-            <img
-              className="category__item-image"
-              src={categoryImagePhones}
-              alt="phones category"
-            />
+            <NavLink
+              to="/phones"
+              className="category__item-image-link"
+            >
+              <img
+                className="category__item-image"
+                src={categoryImagePhones}
+                alt="phones category"
+              />
+            </NavLink>
           </div>
           <h3 className="category__item-title">Mobile phones</h3>
           <p className="category__model-amount">95 models</p>
