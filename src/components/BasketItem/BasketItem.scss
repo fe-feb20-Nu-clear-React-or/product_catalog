@@ -50,6 +50,7 @@
     }
 
     &-name {
+      font-family: 'Mont';
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
@@ -70,6 +71,7 @@
     &-total {
       display: inline-block;
       text-align: right;
+      font-family: 'Mont';
       width: 80px;
       font-weight: 800;
       font-size: 22px;
@@ -84,6 +86,7 @@
       &-number {
         display: inline-block;
         text-align: center;
+        font-family: 'Mont';
         width: 32px;
         font-weight: 600;
         font-size: 14px;

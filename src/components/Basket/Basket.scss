@@ -25,6 +25,7 @@
     cursor: pointer;
 
     &-text{
+      font-family: 'Mont';
       font-size: 12px;
       font-weight: 700;
       color: $white-color;
@@ -33,6 +34,7 @@
   }
 
   &__title {
+    font-family: 'Mont';
     font-weight: 800;
     font-size: 32px;
     line-height: 41px;
@@ -80,6 +82,7 @@
   }
 
   &__total {
+    font-family: 'Mont';
     font-weight: 800;
     font-size: 32px;
     line-height: 41px;
@@ -87,6 +90,7 @@
   }
 
   &__total-text {
+    font-family: 'Mont';
     display: flex;
     position: relative;
     font-weight: 600;
@@ -114,5 +118,6 @@
     color: $white-color;
     border: none;
     cursor: pointer;
+    font-family: 'Mont';
   }
 }

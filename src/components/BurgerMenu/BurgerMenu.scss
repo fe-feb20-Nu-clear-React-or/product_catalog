@@ -1,7 +1,7 @@
 @import '../../assets/variables';
 
 .burgerMenu {
-    background-color: #0F1121;
+    background-color: $gray-black-color-3;
     min-height: calc(100vh - $navbar-height);
     display: flex;
     flex-direction: column;
@@ -20,10 +20,10 @@
     }
 
     &__link {
-      color: #75767F;
-
+      color: $gray-color-1;
       text-decoration: none;
       text-transform: uppercase;
+      font-family: 'Mont';
       line-height: 11px;
       font-size: 12px;
       font-weight: 800;
@@ -33,7 +33,7 @@
       padding: 16px 0;
 
       &.active {
-        color: #F1F2F9;
+        color: $white-color;
       }
 
       &.active:after {
@@ -41,7 +41,7 @@
         width:100%;
         bottom: 8px;
         position: absolute;
-        border-bottom: 2px solid #F1F2F9;
+        border-bottom: 2px solid $white-color;
       }
     }
 
@@ -52,17 +52,41 @@
       flex-direction: row;
       justify-content: center;
       align-items:center;
-      background: #0F1121;
-      box-shadow: 0px -1px 0px #323542;
+      background: $gray-black-color-3;
+      box-shadow: 0px -1px 0px $gray-color-4;
     }
 
     &__icon {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-left: 1px solid #3B3E4A;
+      border-left: 1px solid $gray-color-3;
       height: 64px;
       width: 50%;
       cursor: pointer;
+
+      &.active:after {
+        content: "";
+        width:100%;
+        bottom: 0;
+        position: absolute;
+        border-bottom: 3px solid $white-color;
+      }
+
+      &-counter {
+        position: absolute;
+        color: $white-color;
+        font-family: 'Mont';
+        font-style: normal;
+        width: 14px;
+        height: 14px;
+        font-weight: 700;
+        font-size: 9px;
+        line-height: 14px;
+        bottom: 50%;
+        left: 50%;
+        text-align: center;
+      }
     }
   }

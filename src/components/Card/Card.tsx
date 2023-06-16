@@ -2,7 +2,6 @@ import { Product } from '../../types/Product';
 import './Card.scss';
 import { Page } from '../../types/Page';
 import { BasketEdit } from '../../types/BasketEdit';
-import { useState } from 'react';
 import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
 import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 import { Counter } from '../Counter/Counter';
@@ -12,18 +11,14 @@ interface Props {
   style: React.CSSProperties,
   count: number,
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
+  onFavsIdsSet: (id: string) => void,
+  favIds: string[],
   currentPage: Page,
 }
 
-export const Card:React.FC<Props>
-= ({product, style, count, onBasketIdsSet, currentPage}) => {
-  const [faved,setFaved]= useState(false);
-
-  const handleFaving = () => {
-    setFaved(prev => !prev);
-    // add to faved function
-  };
-
+export const Card:React.FC<Props> = ({
+  product, style, count, onBasketIdsSet, currentPage, favIds, onFavsIdsSet
+}) => {
 
   const cardClassName = currentPage === Page.HOME
     ? 'card'
@@ -76,9 +71,9 @@ export const Card:React.FC<Props>
 
         <a
           className="card__buttons--fav"
-          onClick={handleFaving}
+          onClick={() => onFavsIdsSet(product.id)}
         >
-          <img src={faved
+          <img src={favIds.includes(product.id)
             ? FavoriteIcon
             : SelectedFavoriteIcon} alt="Favourites icon" />
         </a>
