@@ -14,6 +14,7 @@ import { Basket } from './components/Basket/Basket';
 import { useLocalStorage } from 'usehooks-ts';
 import { BasketEdit } from './types/BasketEdit';
 import items from './api/phones.json';
+import { Favourites } from './components/Favourites/Favourites';
 
 function App() {
   const [
@@ -136,7 +137,7 @@ function App() {
                   onBasketIdsSet={handleBasketIdsSet}
                   onFavsIdsSet={handleFavsIdsSet} />}
                 />
-               {/* <Route path="/" element={<Navigate to="/home" />} /> */}
+                {/* <Route path="/" element={<Navigate to="/home" />} /> */}
                 <Route
                   path="/phones"
                   element={<Phones
@@ -155,7 +156,13 @@ function App() {
                   basketIds={basketIds}
                   onBasketIdsSet={handleBasketIdsSet} />}
                 />
-                <Route path="/favourites" element={<h1>favourites</h1>}/>
+                <Route path="/favourites" element={<Favourites
+                  resolution={resolution}
+                  basketIds={basketIds}
+                  favIds={favIds}
+                  onBasketIdsSet={handleBasketIdsSet}
+                  onFavsIdsSet={handleFavsIdsSet} />}
+                />
               </Routes>
               <Footer />
             </>
