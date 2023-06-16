@@ -1,4 +1,6 @@
 // eslint-disable-next-line max-len
+import leftArrowWhite from '../../icons/Chevron (Arrow Left) white.svg';
+import rightArrowWhite from '../../icons/Chevron (Arrow Right) white.svg';
 import { Resolution } from '../../types/Resolution';
 import headerImageDesktop1 from 
   '../../photos/home-page-header-image-desktop1.png';
@@ -64,7 +66,11 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
               carousel__switch-button--desktop"
               onClick={handleSlideBack}
             >
-              {'<'}
+              <img
+                className='header__side-arrow'
+                src={leftArrowWhite}
+                alt="previous slide"
+              />
             </button>
             <img
               className="header__image"
@@ -76,7 +82,11 @@ export const Header: React.FC<HeaderProps> = ({ resolution }) => {
               carousel__switch-button--desktop"
               onClick={handleSlideForward}
             >
-              {'>'}
+              <img
+                className='header__side-arrow'
+                src={rightArrowWhite}
+                alt="next slide"
+              />
             </button>
           </>
         ) : (
