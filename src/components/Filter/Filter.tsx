@@ -19,7 +19,7 @@ export const Filter: React.FC<FilterProps>
     >
       {options.map(option => (
         <option
-          key={title}
+          key={title+option}
           value={option}
         >
           {option}

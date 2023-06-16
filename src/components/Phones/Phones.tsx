@@ -25,6 +25,8 @@ export const Phones = ({
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
   console.log(perPageHorizontal);
+  const [sortedItems, setSortedItems] = useState([...items]);
+  const [filter, setFilter] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
 
   const [perPageVertically, setPerPageVertically] = useState(8);
@@ -42,8 +44,22 @@ export const Phones = ({
 
   console.log(items.length);
 
-  const handleFilterSet = () => {
-    return 1;
+  useEffect(()=>{
+    switch(filter){
+      case 'cheapest':
+        setSortedItems(()=>items.sort((a,b)=>(b.price-a.price))); 
+        break;
+      case 'most expensive':
+        setSortedItems(()=>items.sort((a,b)=>(a.price-b.price))); 
+        break;
+      default:
+        setSortedItems(items);
+    }
+  },[filter,sortedItems]);
+
+  const handleFilterSet = (filterValue:string) => {
+    setFilter(filterValue);
+    console.log('filter',filter);
   };
 
   useEffect(() => {
@@ -73,10 +89,11 @@ export const Phones = ({
         <div className="phones__list-filters">
           <Filter
             title={'sort by'}
-            options={['Newest',
+            options={[
+              'none',
               'cheapest',
               'most expensive',
-              'most purchased']}
+            ]}
             onOptionChange={handleFilterSet}
 
           />
@@ -89,7 +106,7 @@ export const Phones = ({
             onOptionChange={handlePerPageVerticallySet}
           />
         </div>
-        {items.slice(startIndex, endIndex).map(item => (
+        {sortedItems.slice(startIndex, endIndex).map(item => (
           <li key={item.id} className="phones__list-item">
             <Card
               product={item}
@@ -105,7 +122,7 @@ export const Phones = ({
       </ul>
       <div className="phones__pagination">
         <Pagination
-          total={items.length}
+          total={sortedItems.length}
           perPage={perPageVertically}
           currentPage={currentPage}
           onPageChange={handlePageSwitch}
