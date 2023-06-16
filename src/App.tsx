@@ -19,8 +19,26 @@ function App() {
   const [
     basketIds, setBasketIds
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
+  const [
+    favIds, setFavIds
+  ] = useLocalStorage<string[]>('favIds', []);
+  const [totalFavs, setTotalFavs] = useLocalStorage('totalFavs', 0);
   const [totalItems, setTotalItems] = useLocalStorage('totalItems', 0);
   const [totalCost, setTotalCost] = useLocalStorage('totalCost', 0);
+
+  const handleFavsIdsSet = (id: string) => {
+    const index = favIds.indexOf(id);
+
+    if (index !== -1) {
+      setTotalFavs(+totalFavs - 1);
+      setFavIds(favIds.filter(favid => favid !== id));
+    } else {
+      setTotalFavs(+totalFavs + 1);
+      setFavIds([...favIds, id]);
+    }
+
+    console.log(favIds, id);
+  };
 
   const handleBasketIdsSet = (id: string, operation: BasketEdit) => {
     setBasketIds(() => {
@@ -100,11 +118,13 @@ function App() {
           handleSetIsMenuOpen={handlesetIsMenuOpen}
           resolution={resolution}
           totalItems={totalItems}
+          totalFavs={totalFavs}
         />
         {isMenuOpen
           ? (<BurgerMenu
             handleSetIsMenuOpen={handlesetIsMenuOpen}
             totalItems={totalItems}
+            totalFavs={totalFavs}
           />)
           : (
             <>
@@ -112,7 +132,9 @@ function App() {
                 <Route path="/home" element={<Home
                   resolution={resolution}
                   basketIds={basketIds}
-                  onBasketIdsSet={handleBasketIdsSet} />}
+                  favIds={favIds}
+                  onBasketIdsSet={handleBasketIdsSet}
+                  onFavsIdsSet={handleFavsIdsSet} />}
                 />
                 <Route path="/" element={<Navigate to="/home" />} />
                 <Route
@@ -120,6 +142,8 @@ function App() {
                   element={<Phones
                     basketIds={basketIds}
                     onBasketIdsSet={handleBasketIdsSet}
+                    onFavsIdsSet={handleFavsIdsSet}
+                    favIds={favIds}
                     resolution={resolution} />}
                 />
                 <Route path="/tablets" element={<h1>tablets</h1>} />

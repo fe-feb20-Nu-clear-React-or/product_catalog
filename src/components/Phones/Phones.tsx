@@ -12,10 +12,14 @@ import { BasketEdit } from '../../types/BasketEdit';
 interface PhonesProps {
   basketIds: {[id: string]: number},
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
+  onFavsIdsSet: (id: string) => void,
   resolution: Resolution,
+  favIds: string[],
 }
 
-export const Phones = ({onBasketIdsSet, basketIds, resolution}:PhonesProps) => {
+export const Phones = ({
+  onBasketIdsSet, onFavsIdsSet, basketIds, resolution, favIds,
+}: PhonesProps) => {
   const items = useContext(ApiDataContext);
 
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
@@ -90,9 +94,11 @@ export const Phones = ({onBasketIdsSet, basketIds, resolution}:PhonesProps) => {
             <Card
               product={item}
               onBasketIdsSet={onBasketIdsSet}
+              onFavsIdsSet={onFavsIdsSet}
               count={basketIds[item.id]}
               style={{opacity: 1}}
               currentPage={Page.PHONES}
+              favIds={favIds}
             />
           </li>
         ))}
