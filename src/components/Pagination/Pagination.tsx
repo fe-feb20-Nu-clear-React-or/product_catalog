@@ -17,14 +17,23 @@ export const Pagination: React.FC<PaginationProps>
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(paginationStep);
 
+  const pagesNumber = Math.ceil(total / perPage);
+  const pageNumbers = Array
+    .from({ length: pagesNumber }, (_, index) => index + 1);
+
+  const emptyBlocksNumber = paginationStep - pagesNumber % paginationStep;
+
+  const emptyBlocks = Array
+    .from({ length: emptyBlocksNumber }, (_, index) => index + 1);
+
   useEffect(()=> {
     setStartIndex(0);
     setEndIndex(paginationStep);
   }, [perPage]);
 
-  const handlePreviousClick = () => {
+  const uncoverPreviousPageNumbers = () => {
     if (startIndex > 0) {
-      const stepBack = startIndex - 1;
+      const stepBack = startIndex - paginationStep;
 
       setEndIndex(startIndex);
       setStartIndex(stepBack < 0 ? 0 : stepBack);
@@ -32,7 +41,7 @@ export const Pagination: React.FC<PaginationProps>
     }
   };
 
-  const handleNextClick = () => {
+  const uncoverNextPageNumbers = () => {
     const itemsLength = pageNumbers.length;
 
     if (endIndex < itemsLength) {
@@ -43,21 +52,37 @@ export const Pagination: React.FC<PaginationProps>
     }
   };
 
-  const pagesNumber = Math.ceil(total / perPage);
-  const pageNumbers = Array
-    .from({ length: pagesNumber }, (_, index) => index + 1);
+  const handlePreviousClick = () => {
+    if (currentPage > 1) {
 
-  const emptyBlocksNumber = paginationStep - pagesNumber % paginationStep;
+      if ((currentPage - 1) % paginationStep === 0) {
+        uncoverPreviousPageNumbers();
+      }
 
-  const emptyBlocks = Array
-    .from({ length: emptyBlocksNumber }, (_, index) => index + 1);
+      onPageChange(currentPage - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+
+    if (currentPage < pagesNumber) {
+      if ((currentPage) % paginationStep === 0) {
+        uncoverNextPageNumbers();
+      }
+
+      onPageChange(currentPage + 1);
+    }
+
+  };
+
+
 
   return (
     <ul className="pagination">
       <li className={`pagination__page-item ${currentPage === 1 ? 'disabled' : ''}`}>
         <button
           className="pagination__page-button pagination__page-button--arrow"
-          aria-disabled={currentPage === 1}
+          disabled={pagesNumber === 1}
           onClick={handlePreviousClick}
         >
           {'<'}
@@ -101,7 +126,7 @@ export const Pagination: React.FC<PaginationProps>
       <li className={`pagination__page-item ${Math.ceil(total / perPage) === currentPage ? 'disabled' : ''}`}>
         <button
           className="pagination__page-button pagination__page-button--arrow"
-          aria-disabled={Math.ceil(total / perPage) === currentPage}
+          disabled={pagesNumber === currentPage}
           onClick={handleNextClick}
         >
           {'>'}
