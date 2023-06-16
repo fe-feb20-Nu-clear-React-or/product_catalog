@@ -1,5 +1,5 @@
 import './App.scss';
-import { Routes, Route/*, Navigate*/ } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './App.scss';
 import { Phones } from './components/Phones/Phones';
@@ -7,8 +7,10 @@ import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Footer } from './components/Footer/Footer';
 import { ApiDataProvider } from './ApiDataContext';
 import { Home } from './components//Home/Home';
+import { Tablets } from './components/Tablets/Tablets';
+import { Accessories } from './components/Accessories/Accessories';
 import { Resolution } from './types/Resolution';
-import { NotFoundPage } from './components/NotFoundPage';
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 import { Navbar } from './components/Navbar/Navbar';
 import { Basket } from './components/Basket/Basket';
 import { useLocalStorage } from 'usehooks-ts';
@@ -137,7 +139,7 @@ function App() {
                   onBasketIdsSet={handleBasketIdsSet}
                   onFavsIdsSet={handleFavsIdsSet} />}
                 />
-                {/* <Route path="/" element={<Navigate to="/home" />} /> */}
+                <Route path="/" element={<Navigate to="/home" />} />
                 <Route
                   path="/phones"
                   element={<Phones
@@ -147,8 +149,8 @@ function App() {
                     favIds={favIds}
                     resolution={resolution} />}
                 />
-                <Route path="/tablets" element={<h1>tablets</h1>} />
-                <Route path="/accessories" element={<h1>accessories</h1>} />
+                <Route path="/tablets" element={<Tablets />} />
+                <Route path="/accessories" element={<Accessories />} />
                 <Route path="*" element={<NotFoundPage />} />
                 <Route path="/cart" element={<Basket
                   totalCost={totalCost}
