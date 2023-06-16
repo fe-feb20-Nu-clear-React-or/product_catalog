@@ -138,6 +138,10 @@
             background-image: url('../../icons/Favourites\ Filled\ \(Heart\ Like\).svg');
             background-repeat: no-repeat;
             background-position: center;
+
+            img {
+              opacity: 0;
+            }
           }
         }
     }
