@@ -1,4 +1,8 @@
 import { useContext, useState } from 'react';
+import leftArrowWhite from '../../icons/Chevron (Arrow Left) white.svg';
+import leftArrow from '../../icons/Chevron (Arrow Left).svg';
+import rightArrowWhite from '../../icons/Chevron (Arrow Right) white.svg';
+import rightArrow from '../../icons/Chevron (Arrow Right).svg';
 import { Card } from '../Card/Card';
 import './Carousel.scss';
 import ApiDataContext from '../../ApiDataContext';
@@ -110,7 +114,10 @@ export const Carousel:React.FC<CarouselProps> = ({
             onClick={handlePreviousClick}
             disabled={isFirstItem}
           >
-            {'<'}
+            <img
+              src={isFirstItem?leftArrow:leftArrowWhite}
+              alt="previous slide"
+            />
           </button>
           <button
             type="button"
@@ -118,7 +125,10 @@ export const Carousel:React.FC<CarouselProps> = ({
             onClick={handleNextClick}
             disabled={isLastItem}
           >
-            {'>'}
+            <img
+              src={willLastItem?rightArrow:rightArrowWhite}
+              alt="next slide"
+            />
           </button>
         </div>
       </article>
