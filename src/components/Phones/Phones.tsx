@@ -47,15 +47,15 @@ export const Phones = ({
   useEffect(()=>{
     switch(filter){
       case 'cheapest':
-        setSortedItems(()=>items.sort((a,b)=>(b.price-a.price))); 
+        setSortedItems(()=>[...items].sort((a,b)=>(a.price-b.price)));
         break;
       case 'most expensive':
-        setSortedItems(()=>items.sort((a,b)=>(a.price-b.price))); 
+        setSortedItems(()=>[...items].sort((a,b)=>(b.price-a.price)));
         break;
       default:
         setSortedItems(items);
     }
-  },[filter,sortedItems]);
+  },[filter,sortedItems, currentPage]);
 
   const handleFilterSet = (filterValue:string) => {
     setFilter(filterValue);
@@ -71,55 +71,47 @@ export const Phones = ({
 
   return (
     <section className="phones">
-      <article className="phones__header">
-        <div className="phones__header-path">
-          <p className="phones__header-path-home-icon"></p>
-          <p
-            className="phones__header-path-page-name"
-          >
-            <>&nbsp;&nbsp;&nbsp;&nbsp;</>
-            {'>'}<>&nbsp;&nbsp;&nbsp;&nbsp;</>
-            Phones
-          </p>
-        </div>
-        <h1 className="phones__header-title">Mobile Phones</h1>
-        <p className="phones__header-model-amount">95 models</p>
-      </article>
-      <ul className="phones__list">
-        <div className="phones__list-filters">
-          <Filter
-            title={'sort by'}
-            options={[
-              'none',
-              'cheapest',
-              'most expensive',
-            ]}
-            onOptionChange={handleFilterSet}
-
-          />
-          <Filter
-            title={'items on page'}
-            options={['8',
-              '12',
-              '16',
-              '32']}
-            onOptionChange={handlePerPageVerticallySet}
-          />
-        </div>
-        {sortedItems.slice(startIndex, endIndex).map(item => (
-          <li key={item.id} className="phones__list-item">
-            <Card
-              product={item}
-              onBasketIdsSet={onBasketIdsSet}
-              onFavsIdsSet={onFavsIdsSet}
-              count={basketIds[item.id]}
-              style={{opacity: 1}}
-              currentPage={Page.PHONES}
-              favIds={favIds}
+      <div className="phones__wrapper">
+        <article className="phones__header">
+          <div className="phones__header-path">
+            <p className="phones__header-path-home-icon"></p>
+            <p className="phones__header-path-page-name">
+          &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Phones
+            </p>
+          </div>
+          <h1 className="phones__header-title">Mobile Phones</h1>
+          <p className="phones__header-model-amount">95 models</p>
+          <div className="phones__header-filters">
+            <Filter
+              title={'sort by'}
+              options={['Newest',
+                'cheapest', 'most expensive', 'most purchased']}
+              onOptionChange={handleFilterSet}
             />
-          </li>
-        ))}
-      </ul>
+            <Filter
+              title={'items on page'}
+              options={['8', '12', '16', '32']}
+              onOptionChange={handlePerPageVerticallySet}
+            />
+          </div>
+        </article>
+        <ul className="phones__list">
+          {sortedItems.slice(startIndex, endIndex).map(item => (
+            <li key={item.id} className="phones__list-item">
+              <Card
+                product={item}
+                onBasketIdsSet={onBasketIdsSet}
+                onFavsIdsSet={onFavsIdsSet}
+                count={basketIds[item.id]}
+                style={{ opacity: 1 }}
+                currentPage={Page.PHONES}
+                favIds={favIds}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <div className="phones__pagination">
         <Pagination
           total={sortedItems.length}

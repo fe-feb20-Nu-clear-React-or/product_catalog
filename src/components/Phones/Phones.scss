@@ -4,9 +4,28 @@
   padding: 25px 16px;
   color: $white-color;
   box-sizing: border-box;
+  width: 100%;
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    @media(min-width: 640px) {
+      width: 90%;
+      margin: 0 auto;
+    }
+    @media(min-width: 1200px) {
+      width: 80%;
 
+    }
+    @media(min-width: 1600px) {
+      width: 70%;
+    }
+  }
   &__header{
-
+    width: 100%;
     &-path {
       display: flex;
       margin-bottom: 24px;
@@ -15,7 +34,6 @@
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
-      align-items: center;
 
       &-home-icon {
         background-image: url(../../icons/Home.svg);
@@ -38,6 +56,11 @@
       font-weight: 800;
       font-size: 32px;
       line-height: 41px;
+
+      @media(min-width: 1200px) {
+        font-size: 48px;
+        line-height: 56px;
+      }
     }
     &-model-amount {
       font-weight: 600;
@@ -46,18 +69,54 @@
       color: $gray-color-1;
       margin-bottom: 50px;
     }
+
+    &-filters {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+      @media(min-width: 640px) {
+        justify-content: flex-start;
+        gap: 15px;
+      }
+    }
   }
+
   &__list {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    &-filters {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-    }
-    &-item {
+    width: 100%;
+    margin: 0 auto;
+
+    @media(min-width: 640px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 20px;
       margin-bottom: 40px;
+    }
+
+    @media(min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 50px;
+
+    }
+
+    &-item {
+      width: 100%;
+      margin-bottom: 40px;
+      @media(min-width: 640px) {
+        width: 90%;
+
+      }
+      @media(min-width: 1200px) {
+        width: 80%;
+
+      }
+      @media(min-width: 1600px) {
+        width: 70%;
+      }
+
     }
   }
 }
