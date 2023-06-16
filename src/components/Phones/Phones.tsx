@@ -1,5 +1,5 @@
 import { Card } from '../Card/Card';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { Filter } from "../Filter/Filter";
 import ApiDataContext from '../../ApiDataContext';
 import './Phones.scss';
@@ -25,7 +25,7 @@ export const Phones = ({
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
   console.log(perPageHorizontal);
-  const [sortedItems, setSortedItems] = useState([...items]);
+  // const [sortedItems, setSortedItems] = useState([...items]);
   const [filter, setFilter] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -40,22 +40,22 @@ export const Phones = ({
   const handlePerPageVerticallySet = (value: string) => {
     setPerPageVertically(+value);
     setCurrentPage(1);
+    // setStartIndex(0);
+    // setEndIndex(perPageVertically);
   };
 
   console.log(items.length);
 
-  useEffect(()=>{
+  const sortedItems = useMemo(()=> {
     switch(filter){
       case 'cheapest':
-        setSortedItems(()=>[...items].sort((a,b)=>(a.price-b.price)));
-        break;
+        return [...items].sort((a,b)=>(a.price-b.price));
       case 'most expensive':
-        setSortedItems(()=>[...items].sort((a,b)=>(b.price-a.price)));
-        break;
+        return [...items].sort((a,b)=>(b.price-a.price));
       default:
-        setSortedItems(items);
+        return items;
     }
-  },[filter,sortedItems, currentPage]);
+  } ,[filter, currentPage]);
 
   const handleFilterSet = (filterValue:string) => {
     setFilter(filterValue);
