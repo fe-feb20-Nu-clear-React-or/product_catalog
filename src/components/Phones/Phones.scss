@@ -34,6 +34,8 @@
       font-weight: 700;
       font-size: 12px;
       line-height: 15px;
+      align-items: center;
+      
 
       &-home-icon {
         background-image: url(../../icons/Home.svg);
@@ -42,6 +44,9 @@
         background-size: cover;
         width: 16px;
         height: 16px;
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       &-page-name {
