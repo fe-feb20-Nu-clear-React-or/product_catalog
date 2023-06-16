@@ -2,29 +2,28 @@ import React, { useEffect, useState } from 'react';
 import './Pagination.scss';
 
 interface PaginationProps {
-  total:number,
-  perPage:number,
-  currentPage:number,
-  onPageChange:(arg0:number)=>void,
+  total: number,
+  perPage: number,
+  currentPage: number,
+  onPageChange: (arg0: number) => void,
 }
 
-export const Pagination: React.FC<PaginationProps>
-= ({
-  total, perPage, currentPage, onPageChange
+export const Pagination: React.FC<PaginationProps> = ({
+  total,
+  perPage,
+  currentPage,
+  onPageChange,
 }) => {
-
   const paginationStep = 4;
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(paginationStep);
-
   const pagesNumber = Math.ceil(total / perPage);
   const pageNumbers = Array
     .from({ length: pagesNumber }, (_, index) => index + 1);
-
   const emptyBlocksNumber = paginationStep - pagesNumber % paginationStep;
-
   const emptyBlocks = Array
     .from({ length: emptyBlocksNumber }, (_, index) => index + 1);
+  const totalPages = Math.ceil(total / perPage);
 
   useEffect(()=> {
     setStartIndex(0);
@@ -37,7 +36,6 @@ export const Pagination: React.FC<PaginationProps>
 
       setEndIndex(startIndex);
       setStartIndex(stepBack < 0 ? 0 : stepBack);
-
     }
   };
 
@@ -53,26 +51,27 @@ export const Pagination: React.FC<PaginationProps>
   };
 
   const handlePreviousClick = () => {
-    if (currentPage > 1) {
-
-      if ((currentPage - 1) % paginationStep === 0) {
-        uncoverPreviousPageNumbers();
-      }
-
-      onPageChange(currentPage - 1);
+    if (currentPage <= 1) {
+      return;
     }
+
+    if ((currentPage - 1) % paginationStep === 0) {
+      uncoverPreviousPageNumbers();
+    }
+
+    onPageChange(currentPage - 1);
   };
 
   const handleNextClick = () => {
-
-    if (currentPage < pagesNumber) {
-      if ((currentPage) % paginationStep === 0) {
-        uncoverNextPageNumbers();
-      }
-
-      onPageChange(currentPage + 1);
+    if (currentPage >= pagesNumber) {
+      return;
     }
 
+    if ((currentPage) % paginationStep === 0) {
+      uncoverNextPageNumbers();
+    }
+
+    onPageChange(currentPage + 1);
   };
 
 
@@ -88,25 +87,23 @@ export const Pagination: React.FC<PaginationProps>
           {'<'}
         </button>
       </li>
-      {
-
-        pageNumbers
-          .slice(startIndex, endIndex)
-          .map((pageNumber) => (
-            <li
-              key={pageNumber}
-              className="pagination__page-item"
-              onClick={() => onPageChange(pageNumber)}
+      {pageNumbers
+        .slice(startIndex, endIndex)
+        .map((pageNumber) => (
+          <li
+            key={pageNumber}
+            className="pagination__page-item"
+            onClick={() => onPageChange(pageNumber)}
+          >
+            <button
+              className={`pagination__page-button ${currentPage === pageNumber
+                ? 'pagination__page-button--active'
+                : ''}`}
             >
-              <button
-                className={`${currentPage === pageNumber
-                  ? 'pagination__page-button pagination__page-button--active'
-                  : 'pagination__page-button'}`}
-              >
-                {pageNumber}
-              </button>
-            </li>
-          ))
+              {pageNumber}
+            </button>
+          </li>
+        ))
       }
 
       {endIndex === pagesNumber && emptyBlocks.map((_ , i) => (
@@ -114,16 +111,16 @@ export const Pagination: React.FC<PaginationProps>
           key={i}
           className="pagination__page-item"
           onClick={() => onPageChange(i)}
-          style={{opacity: 0}}
+          style={{ opacity: 0 }}
         >
-          <button
-            className="pagination__page-button"
-          >
+          <button className="pagination__page-button">
             {i}
           </button>
         </li>
       ))}
-      <li className={`pagination__page-item ${Math.ceil(total / perPage) === currentPage ? 'disabled' : ''}`}>
+      <li
+        className={`pagination__page-item ${totalPages === currentPage ? 'disabled' : ''}`}
+      >
         <button
           className="pagination__page-button pagination__page-button--arrow"
           disabled={pagesNumber === currentPage}

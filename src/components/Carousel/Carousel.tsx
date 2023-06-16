@@ -20,16 +20,18 @@ interface CarouselProps {
 }
 
 export const Carousel:React.FC<CarouselProps> = ({
-  resolution, basketIds, favIds, onBasketIdsSet, onFavsIdsSet,
+  resolution,
+  basketIds,
+  favIds,
+  onBasketIdsSet,
+  onFavsIdsSet,
 }) => {
   const perPage = handleItemsPerPageCalculate(resolution);
-
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(perPage);
   const [isFirstItem, setIsFirstItem] = useState(true);
   const [isLastItem, setIsLastItem] = useState(false);
   const [willLastItem, setWillLastItem] = useState(false);
-
   const items = useContext(ApiDataContext);
 
   const handlePreviousClick = () => {

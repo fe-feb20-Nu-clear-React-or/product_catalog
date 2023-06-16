@@ -1,7 +1,6 @@
 import './App.scss';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import './App.scss';
 import { Phones } from './components/Phones/Phones';
 import { BurgerMenu } from './components/BurgerMenu/BurgerMenu';
 import { Footer } from './components/Footer/Footer';
@@ -20,11 +19,9 @@ import { Favourites } from './components/Favourites/Favourites';
 
 function App() {
   const [
-    basketIds, setBasketIds
+    basketIds, setBasketIds,
   ] = useLocalStorage<{[id: string]: number}>('basketIds', {});
-  const [
-    favIds, setFavIds
-  ] = useLocalStorage<string[]>('favIds', []);
+  const [favIds, setFavIds] = useLocalStorage<string[]>('favIds', []);
   const [totalFavs, setTotalFavs] = useLocalStorage('totalFavs', 0);
   const [totalItems, setTotalItems] = useLocalStorage('totalItems', 0);
   const [totalCost, setTotalCost] = useLocalStorage('totalCost', 0);
@@ -94,10 +91,11 @@ function App() {
   };
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [resolution, setResolution]
-    = useState<Resolution>(handleResolutionSet());
+  const [
+    resolution, setResolution,
+  ] = useState<Resolution>(handleResolutionSet());
 
-  const handlesetIsMenuOpen = (isOpen: boolean) => {
+  const handleSetIsMenuOpen = (isOpen: boolean) => {
     setIsMenuOpen(isOpen);
   };
 
@@ -118,57 +116,63 @@ function App() {
       <ApiDataProvider>
         <Navbar
           isMenuOpen={isMenuOpen}
-          handleSetIsMenuOpen={handlesetIsMenuOpen}
+          handleSetIsMenuOpen={handleSetIsMenuOpen}
           resolution={resolution}
           totalItems={totalItems}
           totalFavs={totalFavs}
         />
         {isMenuOpen
-          ? (<BurgerMenu
-            handleSetIsMenuOpen={handlesetIsMenuOpen}
-            totalItems={totalItems}
-            totalFavs={totalFavs}
-          />)
-          : (
+          ? (
+            <BurgerMenu
+              handleSetIsMenuOpen={handleSetIsMenuOpen}
+              totalItems={totalItems}
+              totalFavs={totalFavs}
+            />
+          ) : (
             <>
               <Routes>
-                <Route path="/home" element={<Home
-                  resolution={resolution}
-                  basketIds={basketIds}
-                  favIds={favIds}
-                  onBasketIdsSet={handleBasketIdsSet}
-                  onFavsIdsSet={handleFavsIdsSet} />}
-                />
-                <Route path="/" element={<Navigate to="/home" />} />
-                <Route
-                  path="/phones"
-                  element={<Phones
+                <Route path="/home" element={
+                  <Home
+                    resolution={resolution}
+                    basketIds={basketIds}
+                    favIds={favIds}
+                    onBasketIdsSet={handleBasketIdsSet}
+                    onFavsIdsSet={handleFavsIdsSet}
+                  />
+                } />
+                <Route path="/" element={<Navigate to="/home" replace />} />
+                <Route path="/phones" element={
+                  <Phones
                     basketIds={basketIds}
                     onBasketIdsSet={handleBasketIdsSet}
                     onFavsIdsSet={handleFavsIdsSet}
                     favIds={favIds}
-                    resolution={resolution} />}
-                />
+                    resolution={resolution}
+                  />
+                } />
                 <Route path="/tablets" element={<Tablets />} />
                 <Route path="/accessories" element={<Accessories />} />
                 <Route path="*" element={<NotFoundPage />} />
-                <Route path="/cart" element={<Basket
-                  totalCost={totalCost}
-                  totalItems={totalItems}
-                  basketIds={basketIds}
-                  onBasketIdsSet={handleBasketIdsSet} />}
-                />
-                <Route path="/favourites" element={<Favourites
-                  resolution={resolution}
-                  basketIds={basketIds}
-                  favIds={favIds}
-                  onBasketIdsSet={handleBasketIdsSet}
-                  onFavsIdsSet={handleFavsIdsSet} />}
-                />
+                <Route path="/cart" element={
+                  <Basket
+                    totalCost={totalCost}
+                    totalItems={totalItems}
+                    basketIds={basketIds}
+                    onBasketIdsSet={handleBasketIdsSet}
+                  />
+                } />
+                <Route path="/favourites" element={
+                  <Favourites
+                    resolution={resolution}
+                    basketIds={basketIds}
+                    favIds={favIds}
+                    onBasketIdsSet={handleBasketIdsSet}
+                    onFavsIdsSet={handleFavsIdsSet}
+                  />
+                } />
               </Routes>
               <Footer />
             </>
-
           )}
       </ApiDataProvider>
     </div>

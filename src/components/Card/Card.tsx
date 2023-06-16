@@ -8,8 +8,8 @@ import { Counter } from '../Counter/Counter';
 import { useState } from 'react';
 import classNames from 'classnames';
 
-interface Props {
-  product:Product,
+interface CardProps {
+  product: Product,
   style: React.CSSProperties,
   count: number,
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
@@ -18,8 +18,14 @@ interface Props {
   currentPage: Page,
 }
 
-export const Card:React.FC<Props> = ({
-  product, style, count, onBasketIdsSet, currentPage, favIds, onFavsIdsSet
+export const Card: React.FC<CardProps> = ({
+  product,
+  style,
+  count,
+  onBasketIdsSet,
+  currentPage,
+  favIds,
+  onFavsIdsSet,
 }) => {
   const [noHover, setNoHover] = useState(false);
   const isFav = favIds.includes(product.id);
@@ -40,11 +46,11 @@ export const Card:React.FC<Props> = ({
         className="card__photo"
         src={require(`../../${product.image}`)}
         alt={product.name}
-      ></img>
+      />
       <h1 className="card__name">{product.name}</h1>
       <div className="card__price">${product.price}</div>
 
-      <div className='card__divider'></div>
+      <div className='card__divider' />
 
       <div className="card__info">
         <div className="card__info--details">Screen:</div>
@@ -63,7 +69,7 @@ export const Card:React.FC<Props> = ({
 
       <div className='card__buttons'>
         <a
-          className={count? "card__buttons-transparent" : "card__buttons-buy"}
+          className={count ? "card__buttons-transparent" : "card__buttons-buy"}
           onClick={() => !count && onBasketIdsSet(product.id, BasketEdit.ADD)}
         >
           {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
@@ -86,9 +92,12 @@ export const Card:React.FC<Props> = ({
             setNoHover(true);
           }}
         >
-          <img src={isFav
-            ? FavoriteIcon
-            : SelectedFavoriteIcon} alt="Favourites icon" />
+          <img
+            src={isFav
+              ? FavoriteIcon
+              : SelectedFavoriteIcon}
+            alt="Favourites icon"
+          />
         </a>
       </div>
     </section>

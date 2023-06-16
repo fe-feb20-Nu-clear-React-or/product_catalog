@@ -19,25 +19,25 @@ interface PhonesProps {
 }
 
 export const Phones = ({
-  onBasketIdsSet, onFavsIdsSet, basketIds, resolution, favIds,
+  onBasketIdsSet,
+  onFavsIdsSet,
+  basketIds,
+  resolution,
+  favIds,
 }: PhonesProps) => {
   const items = useContext(ApiDataContext);
-
-
   const perPageHorizontal = handleItemsPerPageCalculate(resolution);
 
   console.log(perPageHorizontal);
   const [filter, setFilter] = useState('none');
   const [currentPage, setCurrentPage] = useState(1);
-
   const [perPageVertically, setPerPageVertically] = useState(8);
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(perPageVertically);
 
-  useEffect(()=>{
+  useEffect(() => {
     window.scrollTo(0,0);
-  },[currentPage]);
-
+  }, [currentPage]);
 
   const handlePageSwitch = (page: number) => {
     setCurrentPage(page);
@@ -51,19 +51,19 @@ export const Phones = ({
   console.log(items.length);
 
   const sortedItems = useMemo(()=> {
-    switch(filter){
+    switch (filter) {
       case 'cheapest':
-        return [...items].sort((a,b)=>(a.price-b.price));
+        return [...items].sort((a, b) => (a.price - b.price));
       case 'most expensive':
-        return [...items].sort((a,b)=>(b.price-a.price));
+        return [...items].sort((a, b) => (b.price - a.price));
       default:
         return items;
     }
-  } ,[filter, currentPage]);
+  }, [filter, currentPage]);
 
-  const handleFilterSet = (filterValue:string) => {
+  const handleFilterSet = (filterValue: string) => {
     setFilter(filterValue);
-    console.log('filter',filter);
+    console.log('filter', filter);
   };
 
   useEffect(() => {
@@ -71,7 +71,6 @@ export const Phones = ({
     setEndIndex(currentPage * perPageVertically);
     console.log(perPageVertically);
   }, [perPageVertically, currentPage]);
-
 
   return (
     <section className="phones">
@@ -81,19 +80,25 @@ export const Phones = ({
             <NavLink
               to="/home"
               className="phones__header-path-home-icon"
-            >
-            </NavLink>
+            />
+
             <p className="phones__header-path-page-name">
-          &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Phones
+              &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Phones
             </p>
           </div>
+
           <h1 className="phones__header-title">Mobile Phones</h1>
           <p className="phones__header-model-amount">95 models</p>
+
           <div className="phones__header-filters">
             <Filter
               title={'sort by'}
-              options={['Newest',
-                'cheapest', 'most expensive', 'most purchased']}
+              options={[
+                'Newest',
+                'cheapest',
+                'most expensive',
+                'most purchased'
+              ]}
               onOptionChange={handleFilterSet}
             />
             <Filter
@@ -103,6 +108,7 @@ export const Phones = ({
             />
           </div>
         </article>
+
         <ul className="phones__list">
           {sortedItems.slice(startIndex, endIndex).map(item => (
             <li key={item.id} className="phones__list-item">
