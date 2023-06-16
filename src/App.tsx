@@ -137,7 +137,7 @@ function App() {
                   onBasketIdsSet={handleBasketIdsSet}
                   onFavsIdsSet={handleFavsIdsSet} />}
                 />
-               {/* <Route path="/" element={<Navigate to="/home" />} /> */}
+                {/* <Route path="/" element={<Navigate to="/home" />} /> */}
                 <Route
                   path="/phones"
                   element={<Phones
