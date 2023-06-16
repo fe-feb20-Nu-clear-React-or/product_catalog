@@ -2,12 +2,10 @@
 
 .pagination {
   > li:nth-child(2) {
-    /* Styles for the second child */
     margin-left: 10px;
   }
 
   > li:nth-last-child(2) {
-    /* Styles for the second-to-last child */
     margin-right: 10px;
   }
   display: flex;
@@ -30,6 +28,10 @@
     background-color: $gray-color-4;
     &:hover {
       background-color: $accent;
+      cursor: pointer;
     }
+  }
+  &__page-button--active {
+    background-color: $accent;
   }
 }

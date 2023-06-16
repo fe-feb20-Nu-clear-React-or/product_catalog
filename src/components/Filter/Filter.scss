@@ -19,5 +19,8 @@
     height: 40px;
     text-align: left;
     padding: 10px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
