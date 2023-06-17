@@ -61,7 +61,10 @@ export const Basket: React.FC<BasketProps> = ({
             <h3 className='basket__total-text'>Total for {totalItems} items</h3>
             <button
               className='basket__button'
-              onClick={() => handleShowModal()}
+              onClick={() => {
+                handleShowModal();
+                document.documentElement.scrollTop = 0;
+              }}
             >
               Checkout
             </button>
