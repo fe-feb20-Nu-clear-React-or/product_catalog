@@ -7,6 +7,9 @@ import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 import { Counter } from '../Counter/Counter';
 import { useState } from 'react';
 import classNames from 'classnames';
+import bagEmpty from '../../icons/Shopping bag (Cart).svg';
+import { NavLink } from 'react-router-dom';
+
 
 interface CardProps {
   product: Product,
@@ -68,21 +71,33 @@ export const Card: React.FC<CardProps> = ({
       </div>
 
       <div className='card__buttons'>
-        <a
-          className={count ? "card__buttons-transparent" : "card__buttons-buy"}
-          onClick={() => !count && onBasketIdsSet(product.id, BasketEdit.ADD)}
-        >
-          {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
-          {count && (
-            <div className="card__buttons-counter">
-              <Counter
-                item={product}
-                count={count}
-                onBasketIdsSet={onBasketIdsSet}
-              />
-            </div>
+        {!count
+          ? (
+            <a
+              className="card__buttons-buy"
+              onClick={() => onBasketIdsSet(product.id, BasketEdit.ADD)}
+            >
+              {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
+            </a>
+          )
+          : (
+            <>
+              <NavLink to="/cart" className="card__buttons-basket">
+                <img
+                  src={bagEmpty}
+                  alt="Favourites icon"
+                />
+              </NavLink>
+
+              <div className="card__buttons-counter">
+                <Counter
+                  item={product}
+                  count={count}
+                  onBasketIdsSet={onBasketIdsSet}
+                />
+              </div>
+            </>
           )}
-        </a>
 
         <a
           className={favIconClassName}

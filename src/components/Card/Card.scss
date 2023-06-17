@@ -1,17 +1,18 @@
 @import '../../assets/variables';
 .card {
     font-family: "Mont", Arial, Helvetica, sans-serif;
+    font-weight: normal;
     transition: opacity 0.3s ease-in-out;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    width: 272px;
+    min-width: 272px;
     height: 506px;
-    //min-width: 70%;
     background-color: $gray-black-color-2;
     color: $white-color;
+    box-sizing: border-box;
 
     padding: 32px;
 
@@ -28,16 +29,23 @@
     }
 
     &__name {
-      margin: 24px 0 8px;
-      font-weight: normal;
+      margin-top: 24px;
+      font-weight: 600;
       font-size: 14px;
       line-height: 21px;
-      height: 42px;
       color: $white-color;
+      height: 42px;
+    }
+
+    &__price {
+      font-size: 22px;
+      line-height: 30px;
+      margin-top: 8px;
+      font-weight: 800;
     }
 
     &__divider {
-      height: 2px;
+      height: 1px;
       width: 100%;
       margin: 8px 0;
       background-color: $gray-color-3;
@@ -48,95 +56,95 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-
       width: auto;
-      margin: 4px 0;
+      margin-top: 8px;
+      height: 15px;
+      font-size: 12px;
 
       &--details {
-        font-weight: bold;
-        font-size: 12px;
-        line-height: 20px;
+        font-weight: normal;
         color: $gray-color-1;
-        width: auto;
       }
-      &__info--value {
-        font-weight: bold;
+      &--value {
+        font-weight: normal;
         font-size: 12px;
-        line-height: 16px;
         color: $white-color;
-        width: auto;
       }
-    }
-
-    &__price {
-      font-weight: bolder;
-      font-size: 22px;
-      line-height: 31px;
     }
 
     &__buttons{
       display: flex;
       justify-content: space-between;
+      align-content: center;
       gap: 8px;
-
       font-weight: bold;
       text-transform: uppercase;
-      text-align: center;
       font-size: 14px;
-      line-height: 13px;
       color: $white-color;
-
-      &-transparent {
-        align-items: center;
-        padding: 12px;
-        flex-grow: 6;
-        margin: 16px 0;
-        color: transparent;
-        text-overflow: collapse;
-        background-color: transparent;
-        border: 1px solid transparent;
-        position: relative;
-        user-select: none;
-      }
+      margin-top: 16px;
+      height: 40px;
 
       &-counter {
-        position: absolute;
-        top: calc(50% - 16px);
-        left: calc(50% - 48px);
+        align-self: center;
       }
 
       &-buy{
+        display: flex;
         align-items: center;
-        padding: 12px;
-        flex-grow: 6;
-        margin: 16px 0;
+        justify-content: center;
+        flex-grow: 1;
         background-color: $accent;
-        border: 1px solid transparent;
 
         &:hover {
-          color: var(--light-blue);
-          background-color: var(--white);
-          border-color: var(--light-blue);
+          background-color: $purple-color-hover;
           cursor: pointer;
+        }
+
+        &:active {
+          background-color: $accent;
+          border: 2px solid $purple-color-hover;
         }
       }
 
-      &-fav{
-        align-items: center;
-        flex-grow: 1;
-        margin: 16px 0;
+      &-basket {
         display: flex;
-        justify-content: center;
         align-items: center;
-        background-color: $gray-color-2;
-        border: 1px solid transparent;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: $accent;
         user-select: none;
+        box-sizing: border-box;
+
+        &:hover {
+          background-color: $purple-color-hover;
+          cursor: pointer;
+        }
+
+        &:active {
+          background-color: $accent;
+          border: 2px solid $purple-color-hover;
+        }
+      }
+
+      &-fav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        margin: auto 0;
+        background-color: $gray-color-4;
+        user-select: none;
+        box-sizing: border-box;
+
 
         &:hover {
           cursor: pointer;
           background-image: url('../../icons/Favourites\ \(Heart\ Like\).svg');
           background-repeat: no-repeat;
           background-position: center;
+          background-color: $gray-color-2;
 
           img {
             opacity: 0;
@@ -166,20 +174,19 @@
       }
     }
 
-    &--phones-page {
-      width: 80%;
-      margin: 0 auto;
+    // &--phones-page {
+    //   margin: 0 auto;
 
-      @media(min-width: 640px) {
-        margin: 0;
-      }
+    //   @media(min-width: 640px) {
+    //     margin: 0;
+    //   }
 
-      @media(min-width: 1200px) {
-        width: 90%;
-      }
+    //   @media(min-width: 1200px) {
+    //     width: 90%;
+    //   }
 
-      @media(min-width: 1600px) {
-        width: 100%;
-      }
-    }
+    //   @media(min-width: 1600px) {
+    //     width: 100%;
+    //   }
+    // }
 }

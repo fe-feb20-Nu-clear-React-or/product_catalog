@@ -36,6 +36,10 @@
       line-height: 15px;
       align-items: center;
 
+      @media(min-width: 640px) {
+        margin-bottom: 40px;
+      }
+
 
       &-home-icon {
         background-image: url(../../icons/Home.svg);
@@ -68,6 +72,8 @@
       }
     }
     &-model-amount {
+      font-family: 'Mont';
+      font-style: normal;
       font-weight: 600;
       font-size: 14px;
       line-height: 21px;
@@ -93,34 +99,15 @@
     justify-content: center;
     width: 100%;
     margin: 0 auto;
+    gap: 40px 16px;
 
     @media(min-width: 640px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      margin-bottom: 40px;
     }
 
     @media(min-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
-      margin-bottom: 50px;
-
-    }
-
-    &-item {
-      width: 100%;
-      margin-bottom: 40px;
-      @media(min-width: 640px) {
-        width: 90%;
-
-      }
-      @media(min-width: 1200px) {
-        width: 80%;
-
-      }
-      @media(min-width: 1600px) {
-        width: 70%;
-      }
-
     }
   }
 }
