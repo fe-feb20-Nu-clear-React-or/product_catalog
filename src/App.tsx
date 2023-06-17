@@ -91,11 +91,11 @@ function App() {
   console.log(basketIds);
 
   const handleResolutionSet = () => {
-    if (window.innerWidth < 640) {
+    if (window.innerWidth <= 640) {
       return Resolution.MOBILE;
     }
 
-    if (window.innerWidth < 1200) {
+    if (window.innerWidth <= 1200) {
       return Resolution.TABLET;
     }
 
@@ -114,12 +114,14 @@ function App() {
 
   useEffect(()=> {
 
-    window.addEventListener('resize', () => {
+    const handleResolutionAdjust = () => {
       setResolution(handleResolutionSet());
-    });
+    };
+
+    window.addEventListener('resize', handleResolutionAdjust);
 
     return () => {
-      window.removeEventListener('resize', handleResolutionSet);
+      window.removeEventListener('resize', handleResolutionAdjust);
     };
 
   }, []);
