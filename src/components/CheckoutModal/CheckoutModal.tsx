@@ -5,23 +5,19 @@ import './CheckoutModal.scss';
 interface CheckoutModalProps {
   totalPrice: number;
   itemAmount: number;
-  basketIds: {[id: string]: number};
   onBasketIdsSet: (id: string, operation: BasketEdit) => void;
 }
 
 export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   itemAmount,
   totalPrice,
-  basketIds,
   onBasketIdsSet,
 }) => {
   const handleClearCart = () => {
-    const ids = Object.keys(basketIds);
-
-    for (const id of ids) {
-      onBasketIdsSet(id, BasketEdit.REMOVE);
-    }
+    onBasketIdsSet('null', BasketEdit.REMOVE_ALL);
   };
+
+
 
   return (
     <div className="checkout-wrapper">
