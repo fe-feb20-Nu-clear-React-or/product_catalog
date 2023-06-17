@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import leftArrowWhite from '../../icons/Chevron (Arrow Left) white.svg';
 import leftArrow from '../../icons/Chevron (Arrow Left).svg';
 import rightArrowWhite from '../../icons/Chevron (Arrow Right) white.svg';
@@ -33,6 +33,11 @@ export const Carousel:React.FC<CarouselProps> = ({
   const [isLastItem, setIsLastItem] = useState(false);
   const [willLastItem, setWillLastItem] = useState(false);
   const items = useContext(ApiDataContext);
+
+  useEffect(() => {
+    setStartIndex(0);
+    setEndIndex(perPage);
+  }, [resolution]);
 
   const handlePreviousClick = () => {
     if (startIndex > 0) {
@@ -70,8 +75,9 @@ export const Carousel:React.FC<CarouselProps> = ({
   };
 
   const renderVisibleCards = () => {
-    return items.slice(startIndex, endIndex).map((item) => (
-      <Card
+    return items.slice(startIndex, endIndex).map((item) => {
+
+      return (<Card
         key={item.id}
         product={item}
         style={{opacity: 1}}
@@ -80,8 +86,8 @@ export const Carousel:React.FC<CarouselProps> = ({
         onFavsIdsSet={onFavsIdsSet}
         favIds={favIds}
         currentPage={Page.HOME}
-      />
-    ));
+      />);
+    });
   };
 
   const renderHiddenCards = () => {
@@ -136,14 +142,8 @@ export const Carousel:React.FC<CarouselProps> = ({
       </article>
 
       <article className="carousel__card-list">
-        {willLastItem ? (
-          <>
-            {renderVisibleCards()}
-            {renderHiddenCards()}
-          </>
-        ) : (
-          renderVisibleCards()
-        )}
+        {renderVisibleCards()}
+        {willLastItem && renderHiddenCards()}
       </article>
     </section>
   );
