@@ -11,9 +11,11 @@ interface BurgerMenuProps {
   totalFavs: number,
 }
 
-export const BurgerMenu = ({
-  handleSetIsMenuOpen, totalItems, totalFavs,
-}: BurgerMenuProps) => {
+export const BurgerMenu: React.FC<BurgerMenuProps> = ({
+  handleSetIsMenuOpen,
+  totalItems,
+  totalFavs,
+}) => {
   const handleCloseMenu = () => {
     handleSetIsMenuOpen(false);
   };
@@ -25,22 +27,30 @@ export const BurgerMenu = ({
           to="/home"
           className="burgerMenu__link"
           onClick={handleCloseMenu}
-        >home</NavLink>
+        >
+          home
+        </NavLink>
         <NavLink
           to="/phones"
           className="burgerMenu__link"
           onClick={handleCloseMenu}
-        >phones</NavLink>
+        >
+          phones
+        </NavLink>
         <NavLink
           to="/tablets"
           className="burgerMenu__link"
           onClick={handleCloseMenu}
-        >tablets</NavLink>
+        >
+          tablets
+        </NavLink>
         <NavLink
           to="/accessories"
           className="burgerMenu__link"
           onClick={handleCloseMenu}
-        >accessories</NavLink>
+        >
+          accessories
+        </NavLink>
       </nav>
 
       <div className='burgerMenu__icons'>
@@ -65,7 +75,10 @@ export const BurgerMenu = ({
           className='burgerMenu__icon'
           onClick={handleCloseMenu}
         >
-          <img src={totalItems ? bag : bagEmpty} alt="Shopping bag icon" />
+          <img
+            src={totalItems ? bag : bagEmpty}
+            alt="Shopping bag icon"
+          />
           {totalItems && (
             <div className="burgerMenu__icon-counter">
               <span>{totalItems}</span>

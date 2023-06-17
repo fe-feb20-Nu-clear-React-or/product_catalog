@@ -8,7 +8,7 @@ interface Props {
   children:ReactNode,
 }
 
-export const ApiDataProvider: React.FC<Props> = ({children}) =>{
+export const ApiDataProvider: React.FC<Props> = ({ children }) =>{
 
   /* in case of fetching from server
   here we can add just state and init it with empty array: */

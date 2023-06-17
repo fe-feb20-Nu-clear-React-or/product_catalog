@@ -13,9 +13,12 @@ interface BasketProps {
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
-export const Basket = ({
-  totalCost, totalItems, basketIds, onBasketIdsSet
-}:BasketProps) => {
+export const Basket: React.FC<BasketProps> = ({
+  totalCost,
+  totalItems,
+  basketIds,
+  onBasketIdsSet,
+}) => {
   const items = useContext(ApiDataContext);
   const ids = Object.keys(basketIds);
   const selectedItems = ids.map(id => items.find(item => item.id === id));
@@ -42,7 +45,9 @@ export const Basket = ({
             {selectedItems.map(item => {
               if (item) {
                 return <BasketItem
-                  key={item.id} item={item} count={basketIds[item.id]}
+                  key={item.id} 
+                  item={item} 
+                  count={basketIds[item.id]}
                   onBasketIdsSet={onBasketIdsSet}
                 />;
               }
