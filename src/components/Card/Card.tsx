@@ -5,11 +5,10 @@ import { BasketEdit } from '../../types/BasketEdit';
 import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
 import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 import { Counter } from '../Counter/Counter';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import bagEmpty from '../../icons/Shopping bag (Cart).svg';
 import { NavLink } from 'react-router-dom';
-import { Loader } from '../Loader/Loader';
 
 interface CardProps {
   product: Product,
@@ -43,53 +42,33 @@ export const Card: React.FC<CardProps> = ({
     ? 'card'
     : 'card card--phones-page';
 
-  const [imageSrc, setImageSrc] = useState('');
-
-  useEffect(() => {
-    // github doesnt tolerate require() thats why this weird logic is needed
-    const loadImage = async () => {
-      try {
-        const imageModule = await import(`../../${product.image}`);
-
-        setImageSrc(imageModule.default);
-      } catch (error) {
-        console.error('Error loading image:', error);
-      }
-    };
-
-    loadImage();
-  }, [product.image]);
-
+  const { image, name, price, screen, capacity, ram, id } = product;
 
   return (
     <section className={cardClassName} style={style}>
-      {
-        imageSrc
-          ?    <img
-            className="card__photo"
-            src={imageSrc}
-            alt={imageSrc ? product.name : ''}
-          />
-          : <Loader />
-      }
-      <h1 className="card__name">{product.name}</h1>
-      <div className="card__price">${product.price}</div>
+      <img
+        className="card__photo"
+        src={require(`../../images/${image}`)}
+        alt={name}
+      />
+      <h1 className="card__name">{name}</h1>
+      <div className="card__price">${price}</div>
 
       <div className='card__divider' />
 
       <div className="card__info">
         <div className="card__info--details">Screen:</div>
-        <div className="card__info--value">{product.screen}</div>
+        <div className="card__info--value">{screen}</div>
       </div>
 
       <div className="card__info">
         <div className="card__info--details">Capacity:</div>
-        <div className="card__info--value">{product.capacity}</div>
+        <div className="card__info--value">{capacity}</div>
       </div>
 
       <div className="card__info">
         <div className="card__info--details">RAM:</div>
-        <div className="card__info--value">{product.ram}</div>
+        <div className="card__info--value">{ram}</div>
       </div>
 
       <div className='card__buttons'>
@@ -97,7 +76,7 @@ export const Card: React.FC<CardProps> = ({
           ? (
             <a
               className="card__buttons-buy"
-              onClick={() => onBasketIdsSet(product.id, BasketEdit.ADD)}
+              onClick={() => onBasketIdsSet(id, BasketEdit.ADD)}
             >
               {currentPage === Page.HOME ? 'Buy' : 'Add to cart'}
             </a>
@@ -129,7 +108,7 @@ export const Card: React.FC<CardProps> = ({
           className={favIconClassName}
           onMouseLeave={() => setNoHover(false)}
           onClick={() => {
-            onFavsIdsSet(product.id);
+            onFavsIdsSet(id);
             setNoHover(true);
           }}
         >
