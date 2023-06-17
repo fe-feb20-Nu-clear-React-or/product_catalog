@@ -61,7 +61,7 @@ export const BasketItem: React.FC<BasketItemProps> = ({
       <div className="basketItem__price">
         <Counter onBasketIdsSet={onBasketIdsSet} item={item} count={count} />
 
-        <span className="basketItem__price-total">{`$${item.price}`}</span>
+        <span className="basketItem__price-total">{`$${item.price * count}`}</span>
       </div>
     </div>
   );
