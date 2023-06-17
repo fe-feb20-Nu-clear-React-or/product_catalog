@@ -49,7 +49,7 @@ export const BasketItem: React.FC<BasketItemProps> = ({
           {imageSrc
             ?  <img
               className="basketItem__product-item-photo"
-              src={require(`../../${item.image}`)}
+              src={imageSrc}
               alt="product photo"
             />
             :<Loader />}
