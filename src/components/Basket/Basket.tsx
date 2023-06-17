@@ -45,8 +45,8 @@ export const Basket: React.FC<BasketProps> = ({
             {selectedItems.map(item => {
               if (item) {
                 return <BasketItem
-                  key={item.id} 
-                  item={item} 
+                  key={item.id}
+                  item={item}
                   count={basketIds[item.id]}
                   onBasketIdsSet={onBasketIdsSet}
                 />;
@@ -73,7 +73,6 @@ export const Basket: React.FC<BasketProps> = ({
         <CheckoutModal
           totalPrice={totalCost}
           itemAmount={totalItems}
-          basketIds={basketIds}
           onBasketIdsSet={onBasketIdsSet}
         />
       )}

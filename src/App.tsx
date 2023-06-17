@@ -40,9 +40,31 @@ function App() {
     console.log(favIds, id);
   };
 
+  const calculateTotalCost = (currentBasketIds: {[id: string] : number}) => {
+
+    let total = 0;
+    let cost = 0;
+
+    for (const id in currentBasketIds) {
+
+      const item = items.find(item => item.id === id);
+
+      if (item) {
+        const amount = currentBasketIds[id];
+
+        total += amount;
+        cost += item.price * amount;
+      }
+
+    }
+
+    setTotalItems(total);
+    setTotalCost(cost);
+  };
+
   const handleBasketIdsSet = (id: string, operation: BasketEdit) => {
     setBasketIds(() => {
-      const basketIdsCopy: {[id: string]: number} = {...basketIds};
+      let basketIdsCopy: {[id: string]: number} = {...basketIds};
 
       switch(operation) {
         case 'add':
@@ -51,25 +73,16 @@ function App() {
           break;
         case 'minus':
           basketIdsCopy[id]--;
-          basketIdsCopy[id] <= 0 && delete basketIdsCopy[id];
+          basketIdsCopy[id] === 0 && delete basketIdsCopy[id];
           break;
         case 'remove':
           delete basketIdsCopy[id];
+          break;
+        default:
+          basketIdsCopy  = {};
       }
 
-      let total = 0;
-      let cost = 0;
-
-      for (const id in basketIdsCopy) {
-        const amout = basketIdsCopy[id];
-        const item = items.find(item => item?.id === id);
-
-        total += amout;
-        cost += (item?.price || 0) * amout;
-      }
-
-      setTotalItems(total);
-      setTotalCost(cost);
+      calculateTotalCost(basketIdsCopy);
 
       return basketIdsCopy;
     });
