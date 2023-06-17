@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[4055],{4055:function(e,a,c){e.exports=c.p+"static/media/home-page-header-image-desktop.bddd5e1341b58cc65bfe.png"}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3964],{33964:function(c,t,a){c.exports=a.p+"static/media/04.dc407cd89dfc3287efae.jpg"}}]);

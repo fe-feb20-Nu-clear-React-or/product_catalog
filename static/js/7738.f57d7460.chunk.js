@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[7738],{17738:function(e,t,a){e.exports=a.p+"static/media/Favourites Filled (Heart Like).d554a185325e4fb06092.svg"}}]);

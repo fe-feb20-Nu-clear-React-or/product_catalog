@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[6157],{46157:function(a,t,c){a.exports=c.p+"static/media/banner-tablets.a962057c1043a08f7737.png"}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[683],{10683:function(t,a,c){t.exports=c.p+"static/media/Mont-SemiBold.8979d71a3146ca1d761f.otf"}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[1966],{11966:function(a,c,t){a.exports=t.p+"static/media/Minus-gray.83c89e40a269a6459bdc.svg"}}]);

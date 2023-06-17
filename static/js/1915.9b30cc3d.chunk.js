@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[1915],{21915:function(c,e,t){c.exports=t.p+"static/media/iphone11gold.89ebcdbea25828689f8d.png"}}]);

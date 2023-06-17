@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[2141],{2141:function(t,a,c){t.exports=c.p+"static/media/category-phones.af93d992917380dfe206.png"}}]);

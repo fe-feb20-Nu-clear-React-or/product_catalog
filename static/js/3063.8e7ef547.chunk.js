@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3063],{73063:function(t,a,c){t.exports=c.p+"static/media/category-tablets.51782e18205a1ca01ce8.png"}}]);

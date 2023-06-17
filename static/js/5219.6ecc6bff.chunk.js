@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[5219],{65219:function(c,t,a){c.exports=a.p+"static/media/Shopping bag + Counter(Cart).eb5ccbdabebe0c182538.svg"}}]);

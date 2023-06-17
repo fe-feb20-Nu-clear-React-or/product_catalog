@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[9758],{9758:function(a,e,t){a.exports=t.p+"static/media/banner-phones.b4eeda8bd82b712057a2.png"}}]);

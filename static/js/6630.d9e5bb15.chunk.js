@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[6630],{6630:function(t,a,c){t.exports=c.p+"static/media/Mont-Regular.1d26d89f7339866d3133.otf"}}]);
