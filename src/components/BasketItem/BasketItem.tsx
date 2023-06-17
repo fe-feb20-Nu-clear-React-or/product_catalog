@@ -3,6 +3,8 @@ import './BasketItem.scss';
 import remove from '../../icons/Remove.svg';
 import { BasketEdit } from '../../types/BasketEdit';
 import { Counter } from '../Counter/Counter';
+import { Loader } from '../Loader/Loader';
+import { useEffect, useState } from 'react';
 
 interface BasketItemProps {
   item: Product,
@@ -15,6 +17,24 @@ export const BasketItem: React.FC<BasketItemProps> = ({
   count,
   onBasketIdsSet,
 }) => {
+
+  const [imageSrc, setImageSrc] = useState('');
+
+  useEffect(() => {
+    // github doesnt tolerate require() thats why this weird logic is needed
+    const loadImage = async () => {
+      try {
+        const imageModule = await import(`../../${item.image}`);
+
+        setImageSrc(imageModule.default);
+      } catch (error) {
+        console.error('Error loading image:', error);
+      }
+    };
+
+    loadImage();
+  }, [item.image]);
+
   return (
     <div className="basketItem">
       <div className="basketItem__product">
@@ -26,11 +46,13 @@ export const BasketItem: React.FC<BasketItemProps> = ({
             <img src={remove} alt="remove button" />
           </button>
 
-          <img
-            className="basketItem__product-item-photo"
-            src={require(`../../${item.image}`)}
-            alt="product photo"
-          />
+          {imageSrc
+            ?  <img
+              className="basketItem__product-item-photo"
+              src={require(`../../${item.image}`)}
+              alt="product photo"
+            />
+            :<Loader />}
         </div>
 
         <span className="basketItem__product-name">{item.name}</span>
@@ -44,3 +66,4 @@ export const BasketItem: React.FC<BasketItemProps> = ({
     </div>
   );
 };
+
