@@ -52,7 +52,7 @@ export const Favourites: React.FC<FavoritesProps> = ({
           {favItems.map(item => {
             if (item) {
               return (
-                <li key={item.id} className="phones__list-item">
+                <li key={item.id}>
                   <Card
                     product={item}
                     onBasketIdsSet={onBasketIdsSet}

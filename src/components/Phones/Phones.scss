@@ -1,7 +1,7 @@
 @import '../../assets/variables';
 
 .phones {
-  padding: 25px 16px;
+  padding: 25px 16px 64px;
   color: $white-color;
   box-sizing: border-box;
   width: 100%;
@@ -9,10 +9,10 @@
   margin: 0 auto;
 
   @media(min-width: 640px) {
-    padding: 25px 24px;
+    padding: 25px 24px 64px;
   }
   @media(min-width: 1200px) {
-    padding: 25px 32px;
+    padding: 25px 32px 80px;
   }
 
   &__wrapper {
@@ -58,19 +58,21 @@
       }
 
     }
+
     &-title {
-      margin-bottom: 8px;
       font-family: 'Mont';
       font-style: normal;
       font-weight: 800;
       font-size: 32px;
       line-height: 41px;
+      margin-bottom: 8px;
 
       @media(min-width: 1200px) {
         font-size: 48px;
         line-height: 56px;
       }
     }
+
     &-model-amount {
       font-family: 'Mont';
       font-style: normal;
@@ -78,7 +80,11 @@
       font-size: 14px;
       line-height: 21px;
       color: $gray-color-1;
-      margin-bottom: 50px;
+      margin-bottom: 32px;
+
+      @media(min-width: 640px) {
+        margin-bottom: 40px;
+      }
     }
 
     &-filters {
@@ -86,7 +92,6 @@
       justify-content: flex-start;
       gap: 15px;
       width: 100%;
-      margin-bottom: 20px;
 
       @media(max-width: 320px) {
         flex-direction: column;
@@ -99,12 +104,13 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    margin: 0 auto;
+    margin: 24px auto;
     gap: 40px 16px;
 
     @media(min-width: 640px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 40px;
     }
 
     @media(min-width: 1200px) {
