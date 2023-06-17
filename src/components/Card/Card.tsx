@@ -5,11 +5,11 @@ import { BasketEdit } from '../../types/BasketEdit';
 import FavoriteIcon from '../../icons/Favourites Filled (Heart Like).svg';
 import SelectedFavoriteIcon from '../../icons/Favourites (Heart Like).svg';
 import { Counter } from '../Counter/Counter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import bagEmpty from '../../icons/Shopping bag (Cart).svg';
 import { NavLink } from 'react-router-dom';
-
+import { Loader } from '../Loader/Loader';
 
 interface CardProps {
   product: Product,
@@ -43,13 +43,35 @@ export const Card: React.FC<CardProps> = ({
     ? 'card'
     : 'card card--phones-page';
 
+  const [imageSrc, setImageSrc] = useState('');
+
+  useEffect(() => {
+    // github doesnt tolerate require() thats why this weird logic is needed
+    const loadImage = async () => {
+      try {
+        const imageModule = await import(`../../${product.image}`);
+
+        setImageSrc(imageModule.default);
+      } catch (error) {
+        console.error('Error loading image:', error);
+      }
+    };
+
+    loadImage();
+  }, [product.image]);
+
+
   return (
     <section className={cardClassName} style={style}>
-      <img
-        className="card__photo"
-        src={require(`../../${product.image}`)}
-        alt={product.name}
-      />
+      {
+        imageSrc
+          ?    <img
+            className="card__photo"
+            src={imageSrc}
+            alt={imageSrc ? product.name : ''}
+          />
+          : <Loader />
+      }
       <h1 className="card__name">{product.name}</h1>
       <div className="card__price">${product.price}</div>
 

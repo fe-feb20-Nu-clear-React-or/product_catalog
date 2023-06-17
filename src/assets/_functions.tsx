@@ -1,6 +1,7 @@
 import { Resolution } from "../types/Resolution";
 
 export const handleItemsPerPageCalculate = (resolution: Resolution) => {
+  console.log(resolution);
   switch (resolution) {
     case Resolution.MOBILE:
       return 2;

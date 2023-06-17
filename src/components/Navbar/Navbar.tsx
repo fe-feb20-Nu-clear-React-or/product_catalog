@@ -65,7 +65,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   src={totalFavs ? favourites : favouritesEmpty}
                   alt="Favourites icon"
                 />
-                {totalFavs && (
+                {Boolean(totalFavs) && (
                   <div className="navbar__icon-counter">
                     <span>{totalFavs}</span>
                   </div>
@@ -76,7 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   src={totalItems ? bag : bagEmpty}
                   alt="Shopping bag icon"
                 />
-                {totalItems && (
+                {Boolean(totalItems) && (
                   <div className="navbar__icon-counter">
                     <span>{totalItems}</span>
                   </div>
