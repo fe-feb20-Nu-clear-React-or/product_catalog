@@ -20,6 +20,7 @@ export const Footer = () => (
 
     <div className='footer__back-to-top'>
       <p className='footer__back-to-top-text'>Back to top</p>
+
       <div
         className='footer__back-to-top-link'
         onClick={() => document.documentElement.scrollTop = 0}

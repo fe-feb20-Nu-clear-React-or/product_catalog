@@ -16,9 +16,12 @@ interface FavoritesProps {
   onFavsIdsSet: (id: string) => void,
 }
 
-export const Favourites = ({
-  basketIds, favIds, onBasketIdsSet, onFavsIdsSet
-}: FavoritesProps) => {
+export const Favourites: React.FC<FavoritesProps> = ({
+  basketIds,
+  favIds,
+  onBasketIdsSet,
+  onFavsIdsSet,
+}) => {
   const items = useContext(ApiDataContext);
   const favItems = favIds
     .map(id => items.find(item => item.id === id)).reverse();
@@ -33,14 +36,16 @@ export const Favourites = ({
             <NavLink
               to="/home"
               className="favourites__header-path-home-icon"
-            >
-            </NavLink>
+            />
             <p className="favourites__header-path-page-name">
-          &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Favourites
+              &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;Favourites
             </p>
           </div>
+
           <h1 className="favourites__header-title">Favourites</h1>
-          <p className="favourites__header-model-amount">{`${favItems.length} items`}</p>
+          <p className="favourites__header-model-amount">
+            {`${favItems.length} items`}
+          </p>
         </article>
 
         <ul className="favourites__list">

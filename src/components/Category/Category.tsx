@@ -1,6 +1,6 @@
-/* eslint-disable max-len */
 import categoryImagePhones from '../../photos/category-image-phones-320.jpg';
 import categoryImageTablets from '../../photos/category-image-tablets-320.jpg';
+// eslint-disable-next-line max-len
 import categoryImageAccessories from '../../photos/category-image-accessories-320.jpg';
 import './Category.scss';
 import { NavLink } from 'react-router-dom';
@@ -11,7 +11,8 @@ export const Category = () => {
       <article className="category__header">
         <h2 className="category__header-title">Shop by category</h2>
       </article>
-      <div className='category__item-wrapper'>
+
+      <div className="category__item-wrapper">
         <article className="category__item">
           <div className="category__item-image-container">
             <NavLink
@@ -25,6 +26,7 @@ export const Category = () => {
               />
             </NavLink>
           </div>
+
           <h3 className="category__item-title">Mobile phones</h3>
           <p className="category__model-amount">95 models</p>
         </article>
@@ -37,6 +39,7 @@ export const Category = () => {
               alt="phones category"
             />
           </div>
+
           <h3 className="category__item-title">Tablets</h3>
           <p className="category__model-amount">24 models</p>
         </article>
@@ -49,12 +52,11 @@ export const Category = () => {
               alt="phones category"
             />
           </div>
+
           <h3 className="category__item-title">Accessories</h3>
           <p className="category__model-amount">100 models</p>
         </article>
       </div>
-
-
     </section>
   );
 };

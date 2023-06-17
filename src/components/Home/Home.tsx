@@ -14,13 +14,18 @@ interface HomeProps {
 }
 
 export const Home:React.FC<HomeProps> = ({
-  resolution, basketIds, favIds, onBasketIdsSet, onFavsIdsSet,
+  resolution,
+  basketIds,
+  favIds,
+  onBasketIdsSet,
+  onFavsIdsSet,
 }) => {
   return (
     <main className="home">
       <header className="home__header">
         <Header resolution={resolution}/>
       </header>
+
       <div className="home__carousel">
         <Carousel
           resolution={resolution}
@@ -30,9 +35,11 @@ export const Home:React.FC<HomeProps> = ({
           onFavsIdsSet={onFavsIdsSet}
         />
       </div>
+
       <div className="home__category">
         <Category />
       </div>
+
       <div className="home__carousel">
         <Carousel
           resolution={resolution}

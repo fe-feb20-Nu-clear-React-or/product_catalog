@@ -12,28 +12,33 @@ interface BasketProps {
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
-export const Basket = ({
-  totalCost, totalItems, basketIds, onBasketIdsSet
-}:BasketProps) => {
+export const Basket: React.FC<BasketProps> = ({
+  totalCost,
+  totalItems,
+  basketIds,
+  onBasketIdsSet,
+}) => {
   const items = useContext(ApiDataContext);
   const ids = Object.keys(basketIds);
   const selectedItems = ids.map(id => items.find(item => item.id === id));
 
   return (
-    <div className='basket'>
-      <div className='basket__return'>
+    <div className="basket">
+      <div className="basket__return">
         <img src={returnIcon} alt="return arrow icon" />
-        <span className='basket__return-text'>Back</span>
+        <span className="basket__return-text">Back</span>
       </div>
 
-      <h1 className='basket__title'>Cart</h1>
+      <h1 className="basket__title">Cart</h1>
 
-      <div className='basket__content'>
-        <div className='basket__items'>
+      <div className="basket__content">
+        <div className="basket__items">
           {selectedItems.map(item => {
             if (item) {
               return <BasketItem
-                key={item.id} item={item} count={basketIds[item.id]}
+                key={item.id}
+                item={item}
+                count={basketIds[item.id]}
                 onBasketIdsSet={onBasketIdsSet}
               />;
             }
@@ -42,10 +47,10 @@ export const Basket = ({
           })}
         </div>
 
-        <div className='basket__checkout'>
-          <h2 className='basket__total'>{`$${totalCost}`}</h2>
-          <h3 className='basket__total-text'>Total for {totalItems} items</h3>
-          <button className='basket__button'>Checkout</button>
+        <div className="basket__checkout">
+          <h2 className="basket__total">{`$${totalCost}`}</h2>
+          <h3 className="basket__total-text">Total for {totalItems} items</h3>
+          <button className="basket__button">Checkout</button>
         </div>
       </div>
     </div>

@@ -19,19 +19,26 @@ interface NavbarProps {
 }
 
 
-export const Navbar = ({ isMenuOpen,
-  handleSetIsMenuOpen, resolution, totalItems, totalFavs }: NavbarProps) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  isMenuOpen,
+  handleSetIsMenuOpen,
+  resolution,
+  totalItems,
+  totalFavs,
+}) => {
 
   return (
     <nav className="navbar">
-
-      {[Resolution.DESKTOP, Resolution.TABLET]
-        .includes(resolution) && !isMenuOpen
-        ? (
+      {[Resolution.DESKTOP, Resolution.TABLET].includes(resolution)
+      && !isMenuOpen ? (
           <>
             <div className="navbar__links">
               <div className="navbar__logo">
-                <img className="navbar__logo-text" src={logo} alt="logo icon" />
+                <img
+                  className="navbar__logo-text"
+                  src={logo}
+                  alt="logo icon"
+                />
                 <img
                   className="navbar__logo-icon"
                   src={logoIcon}
@@ -65,7 +72,10 @@ export const Navbar = ({ isMenuOpen,
                 )}
               </NavLink>
               <NavLink to="/cart" className="navbar__icon">
-                <img src={totalItems ? bag : bagEmpty} alt="Shopping bag icon"/>
+                <img
+                  src={totalItems ? bag : bagEmpty}
+                  alt="Shopping bag icon"
+                />
                 {totalItems && (
                   <div className="navbar__icon-counter">
                     <span>{totalItems}</span>
@@ -74,11 +84,14 @@ export const Navbar = ({ isMenuOpen,
               </NavLink>
             </div>
           </>
-        )
-        : (
+        ) : (
           <>
             <div className="navbar__logo">
-              <img className="navbar__logo-text" src={logo} alt="logo icon" />
+              <img
+                className="navbar__logo-text"
+                src={logo}
+                alt="logo icon"
+              />
               <img
                 className="navbar__logo-icon"
                 src={logoIcon}

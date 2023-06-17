@@ -10,20 +10,24 @@ interface CounterProps {
   onBasketIdsSet: (id: string, operation: BasketEdit) => void,
 }
 
-export const Counter = ({item, count, onBasketIdsSet}:CounterProps) => {
+export const Counter: React.FC<CounterProps> = ({
+  item,
+  count,
+  onBasketIdsSet,
+}) => {
   return (
-    <div className='counter'>
+    <div className="counter">
       <button
-        className='counter__button counter__button--minus'
+        className="counter__button counter__button--minus"
         onClick={() => onBasketIdsSet(item.id, BasketEdit.MINUS)}
       >
         <img src={minus} alt="minus button" />
       </button>
 
-      <span className='counter__number'>{count}</span>
+      <span className="counter__number">{count}</span>
 
       <button
-        className='counter__button counter__button--plus'
+        className="counter__button counter__button--plus"
         onClick={() => onBasketIdsSet(item.id, BasketEdit.ADD)}
       >
         <img src={plus} alt="plus button" />
