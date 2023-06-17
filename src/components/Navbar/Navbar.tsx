@@ -45,38 +45,38 @@ export const Navbar: React.FC<NavbarProps> = ({
                   alt="logo ok emoji"
                 />
               </div>
-              <NavLink to="home" className="navbar__link">
+              <NavLink to="/home" className="navbar__link">
                 home
               </NavLink>
-              <NavLink to="phones" className="navbar__link">
+              <NavLink to="/phones" className="navbar__link">
                 phones
               </NavLink>
-              <NavLink to="tablets" className="navbar__link">
+              <NavLink to="/tablets" className="navbar__link">
                 tablets
               </NavLink>
-              <NavLink to="accessories" className="navbar__link">
+              <NavLink to="/accessories" className="navbar__link">
                 accessories
               </NavLink>
             </div>
 
             <div className="navbar__icons">
-              <NavLink to="favourites" className="navbar__icon">
+              <NavLink to="/favourites" className="navbar__icon">
                 <img
                   src={totalFavs ? favourites : favouritesEmpty}
                   alt="Favourites icon"
                 />
-                {totalFavs && (
+                {Boolean(totalFavs) && (
                   <div className="navbar__icon-counter">
                     <span>{totalFavs}</span>
                   </div>
                 )}
               </NavLink>
-              <NavLink to="cart" className="navbar__icon">
+              <NavLink to="/cart" className="navbar__icon">
                 <img
                   src={totalItems ? bag : bagEmpty}
                   alt="Shopping bag icon"
                 />
-                {totalItems && (
+                {Boolean(totalItems) && (
                   <div className="navbar__icon-counter">
                     <span>{totalItems}</span>
                   </div>
