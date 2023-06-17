@@ -104,10 +104,14 @@ export const Card: React.FC<CardProps> = ({
           )
           : (
             <>
-              <NavLink to="/cart" className="card__buttons-basket">
+              <NavLink
+                to="/cart"
+                className="card__buttons-basket"
+                onClick={() => document.documentElement.scrollTop = 0}
+              >
                 <img
                   src={bagEmpty}
-                  alt="Favourites icon"
+                  alt="Baskiet icon"
                 />
               </NavLink>
 

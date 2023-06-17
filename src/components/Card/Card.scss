@@ -138,7 +138,6 @@
         user-select: none;
         box-sizing: border-box;
 
-
         &:hover {
           cursor: pointer;
           background-image: url('../../icons/Favourites\ \(Heart\ Like\).svg');
@@ -173,20 +172,4 @@
         }
       }
     }
-
-    // &--phones-page {
-    //   margin: 0 auto;
-
-    //   @media(min-width: 640px) {
-    //     margin: 0;
-    //   }
-
-    //   @media(min-width: 1200px) {
-    //     width: 90%;
-    //   }
-
-    //   @media(min-width: 1600px) {
-    //     width: 100%;
-    //   }
-    // }
 }
