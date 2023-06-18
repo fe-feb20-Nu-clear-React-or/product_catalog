@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.5a3b3055.css",
+    "main.css": "/product_catalog/static/css/main.c18b37b4.css",
     "main.js": "/product_catalog/static/js/main.65e08b24.js",
     "static/media/category-tablets.png": "/product_catalog/static/media/category-tablets.51782e18205a1ca01ce8.png",
     "static/media/home-page-header-image-desktop2.png": "/product_catalog/static/media/home-page-header-image-desktop2.7e734c386bae865aef8b.png",
@@ -46,11 +46,11 @@
     "static/media/Chevron (Arrow Right).svg": "/product_catalog/static/media/Chevron (Arrow Right).c9171b88f2b5c91378fd891a0ea3fe83.svg",
     "static/media/Chevron (Arrow Up).svg": "/product_catalog/static/media/Chevron (Arrow Up).a617e9ecb57a4e24fcfecbff7a7744a0.svg",
     "static/media/Minus-gray.svg": "/product_catalog/static/media/Minus-gray.83c89e40a269a6459bdca1a8c6f7def5.svg",
-    "main.5a3b3055.css.map": "/product_catalog/static/css/main.5a3b3055.css.map",
+    "main.c18b37b4.css.map": "/product_catalog/static/css/main.c18b37b4.css.map",
     "main.65e08b24.js.map": "/product_catalog/static/js/main.65e08b24.js.map"
   },
   "entrypoints": [
-    "static/css/main.5a3b3055.css",
+    "static/css/main.c18b37b4.css",
     "static/js/main.65e08b24.js"
   ]
 }
