@@ -37,6 +37,7 @@ export const Carousel:React.FC<CarouselProps> = ({
   useEffect(() => {
     setStartIndex(0);
     setEndIndex(perPage);
+    setWillLastItem(false);
   }, [resolution]);
 
   const handlePreviousClick = () => {

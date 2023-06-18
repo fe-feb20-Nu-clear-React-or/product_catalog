@@ -61,17 +61,4 @@
         gap: 16px;
         transition: 0.3s ease;
     }
-
-    &__cards-container {
-      display: flex;
-      transition: transform 0.3s ease;
-
-      &.slide-next {
-        transform: translateX(-100%);
-      }
-
-      &.slide-previous {
-        transform: translateX(0%);
-      }
-    }
 }
