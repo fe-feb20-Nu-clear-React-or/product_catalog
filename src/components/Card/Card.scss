@@ -3,18 +3,20 @@
     font-family: "Mont", Arial, Helvetica, sans-serif;
     font-weight: normal;
     transition: opacity 0.3s ease-in-out;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    min-width: 272px;
+    width: 272px;
     height: 506px;
     background-color: $gray-black-color-2;
     color: $white-color;
     box-sizing: border-box;
-
     padding: 32px;
+
+    &--phones-page {
+      min-width: 272px;
+      width: auto;
+    }
 
     &__photo {
       width: 208px;
