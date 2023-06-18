@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3869],{23869:function(c,t,a){c.exports=a.p+"static/media/Mont-Bold.03c8c2f6127c1da0fc39.otf"}}]);

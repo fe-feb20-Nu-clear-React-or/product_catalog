@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3889],{43889:function(e,t,a){e.exports=a.p+"static/media/Favourites + Counter (Heart Like).e8d958c72070e4ab114c.svg"}}]);

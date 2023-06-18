@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[7301],{67301:function(c,p,t){c.exports=t.p+"static/media/iphone11purple.6bb150fd62925c6c0963.png"}}]);

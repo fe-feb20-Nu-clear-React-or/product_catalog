@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[1114],{41114:function(c,e,a){c.exports=a.p+"static/media/category-accessories.e47d6d6df68a6548e82b.png"}}]);

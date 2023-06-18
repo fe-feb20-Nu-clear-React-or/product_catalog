@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3904],{23904:function(c,a,t){c.exports=t.p+"static/media/logo-icon.c81ad27bdf612ac97607.svg"}}]);

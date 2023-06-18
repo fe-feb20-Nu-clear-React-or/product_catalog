@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[8409],{68409:function(t,a,c){t.exports=c.p+"static/media/Favourites (Heart Like).28f6088c83570782c6af.svg"}}]);

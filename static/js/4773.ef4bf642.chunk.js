@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[4773],{4773:function(c,e,a){c.exports=a.p+"static/media/banner-accessories.bdd2e0fca0159e52f41c.png"}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[9321],{89321:function(e,p,c){e.exports=c.p+"static/media/iphone14deepPurple.4bd6be167e0fe7cd2527.png"}}]);

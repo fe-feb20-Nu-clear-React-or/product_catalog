@@ -1,2 +1,0 @@
-(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3443],{33517:function(e,t,c){"use strict";c.r(t);var n=c(99607),a=c(58609),r=c(80184);test("renders learn react link",(function(){(0,n.sY)((0,r.jsx)(a.default,{}));var e=n.sp.getByText(/learn react/i);expect(e).toBeInTheDocument()}))},24654:function(){}}]);
-//# sourceMappingURL=3443.ce1a2e93.chunk.js.map

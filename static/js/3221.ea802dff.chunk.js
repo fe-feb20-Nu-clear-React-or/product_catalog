@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[3221],{87609:function(c,a,t){c.exports=t.p+"static/media/HamburgerMenu.ccd1a9542b5bc584f2a1.svg"}}]);

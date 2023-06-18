@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[1566],{41566:function(c,t,a){c.exports=a.p+"static/media/Close.c89cd55fcda471b596c2.svg"}}]);

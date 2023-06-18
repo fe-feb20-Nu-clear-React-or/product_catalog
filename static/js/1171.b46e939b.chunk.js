@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[1171],{81171:function(e,a,t){e.exports=t.p+"static/media/home-page-header-image-mobile.0582a9dfa7e5ea770487.png"}}]);

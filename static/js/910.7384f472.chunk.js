@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[910],{60910:function(e,a,t){e.exports=t.p+"static/media/home-page-header-image-tablet.57c1512128531573240d.png"}}]);

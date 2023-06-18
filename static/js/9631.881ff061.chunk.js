@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[9631],{19631:function(c,e,t){c.exports=t.p+"static/media/Remove.1e1e0ccb8600a8f26542.svg"}}]);

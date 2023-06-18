@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkproduct_catalog=self.webpackChunkproduct_catalog||[]).push([[6710],{56710:function(c,t,a){c.exports=a.p+"static/media/Chevron (Arrow Down).0a75b98d9165f32dc531.svg"}}]);
